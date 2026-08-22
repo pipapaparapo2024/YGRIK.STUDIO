@@ -69,6 +69,7 @@
     }
     .nav-pill a.active { background: var(--lime); }
     .nav-pill a:hover:not(.active) { background: rgba(0,0,0,0.07); }
+    .nav-pill a:focus { outline: none; }
 
     .nav-logo-ys {
       position: absolute;
@@ -137,49 +138,29 @@
 
     .logo-wrap { margin-bottom: 52px; }
 
-    .logo-ygrik {
-      font-family: 'Unbounded', sans-serif;
-      font-size: 94px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
+    .logo-img-ygrik {
       display: block;
-      color: var(--text);
+      width: 443px;
+      height: 98px;
+      max-width: none;
     }
-
     .logo-studio-row {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
+      margin-top: 6px;
     }
     .logo-dot {
       width: 14px; height: 14px;
       background: var(--lime);
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 2px;
     }
-    .logo-studio {
-      font-family: 'Unbounded', sans-serif;
-      font-size: 74px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-    }
-    .logo-u {
-      display: inline-block;
-      width: 0.5em;
-      height: 0.68em;
-      border: 0.1em solid var(--text);
-      border-radius: 3px;
-      margin: 0 2px;
-      position: relative;
-      top: 1px;
+    .logo-img-studio {
+      display: block;
+      width: 391px;
+      height: 57px;
+      max-width: none;
     }
 
     .hero-desc {
@@ -806,10 +787,10 @@
     <p class="hero-tagline">Дижитал агенство</p>
 
     <div class="logo-wrap">
-      <span class="logo-ygrik">YGRIK</span>
+      <img src="image/YGRIK.png" alt="YGRIK" class="logo-img-ygrik">
       <div class="logo-studio-row">
         <span class="logo-dot"></span>
-        <div class="logo-studio">ST<span class="logo-u"></span>DIO</div>
+        <img src="image/STUDIO.png" alt="STUDIO" class="logo-img-studio">
       </div>
     </div>
 
@@ -1075,11 +1056,31 @@
 <script>
   // Show/hide YS logo in nav based on scroll position
   const navLogo = document.getElementById('navLogoYS');
-  const hero = document.getElementById('start');
-  const observer = new IntersectionObserver(([e]) => {
+  const heroSection = document.getElementById('start');
+  const logoObserver = new IntersectionObserver(([e]) => {
     navLogo.style.display = e.isIntersecting ? 'none' : 'block';
   }, { threshold: 0.1 });
-  observer.observe(hero);
+  logoObserver.observe(heroSection);
+
+  // Track active nav item based on scroll position
+  const navLinks = document.querySelectorAll('.nav-pill a');
+  const sectionIds = ['start', 'studio', 'done', 'services', 'thoughts'];
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY + window.innerHeight * 0.35;
+    let current = sectionIds[0];
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      link.classList.toggle('active', href === current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
