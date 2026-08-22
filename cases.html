@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейсы — YGRIK.STUDIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { max-width: 100%; display: block; }
+
+    :root {
+      --bg: #E9E9E4;
+      --lime: #C9FF00;
+      --dark: #262626;
+      --dark2: #2E2E2E;
+      --text: #1C1C1C;
+      --muted: #505050;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 27px;
+      left: 29px;
+      right: 29px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    header > * { pointer-events: auto; }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(233,233,228,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 14px;
+      padding: 8px;
+    }
+    .nav-pill a {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background 0.18s;
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .nav-pill a:hover { background: rgba(0,0,0,0.07); }
+
+    .nav-logo-ys {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-logo-ys img { display: block; width: 40px; height: auto; }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--lime);
+      border-radius: 100px;
+      padding: 18px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .burger {
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0,0,0,0.18);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 5px; cursor: pointer; background: none;
+    }
+    .burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+    }
+
+    /* ── CASES HERO ── */
+    .cases-hero {
+      padding: 160px 48px 60px;
+    }
+    .c-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .c-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%; background: var(--lime);
+    }
+    .c-label-text {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .cases-h {
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.01;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      max-width: 700px;
+    }
+    .y-line {
+      width: 50px; height: 4px;
+      background: var(--lime); border-radius: 2px;
+      margin-bottom: 28px;
+    }
+    .cases-desc {
+      font-size: 16px; font-weight: 500;
+      line-height: 1.6; color: var(--muted);
+      max-width: 560px;
+    }
+
+    /* ── CASES GRID ── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 0 48px 80px;
+    }
+
+    .ccase {
+      border-radius: 22px;
+      padding: 36px 32px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    .ccase.lime { background: var(--lime); }
+    .ccase.dark { background: var(--dark2); color: var(--white); }
+
+    .ccase-name {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .ccase.lime .ccase-name { color: var(--text); }
+    .ccase.dark .ccase-name { color: var(--white); }
+
+    .ccase-desc {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+    .ccase.lime .ccase-desc { color: rgba(0,0,0,0.62); }
+    .ccase.dark .ccase-desc { color: rgba(255,255,255,0.65); }
+
+    .ccase-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stat-icon {
+      font-size: 13px;
+      flex-shrink: 0;
+      width: 18px;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      flex: 1;
+    }
+    .stat-dots {
+      flex: 1;
+      border-bottom: 1px dashed currentColor;
+      opacity: 0.3;
+      margin: 0 4px;
+    }
+    .stat-val {
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .ccase.lime .stat-label,
+    .ccase.lime .stat-val { color: rgba(0,0,0,0.75); }
+    .ccase.dark .stat-label,
+    .ccase.dark .stat-val { color: rgba(255,255,255,0.8); }
+
+    /* ── CTA BOTTOM BLOCK ── */
+    .cases-cta {
+      margin: 0 48px 0;
+      background: var(--dark);
+      border-radius: 22px;
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .cases-cta-icon {
+      width: 52px; height: 52px;
+      background: var(--lime);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: var(--text);
+      flex-shrink: 0;
+    }
+    .cases-cta-text { flex: 1; }
+    .cases-cta-title {
+      font-size: 16px; font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .cases-cta-sub {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+    }
+    .cases-cta-btn {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: var(--lime); border-radius: 100px;
+      padding: 18px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--text); white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 44px 48px 0;
+      margin-top: 60px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 212px 1fr 1fr 1fr auto;
+      gap: 48px;
+      padding-bottom: 44px;
+    }
+    .f-brand-name {
+      font-size: 17px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      margin-bottom: 14px; margin-top: 10px;
+    }
+    .f-brand-desc {
+      font-size: 13px; font-weight: 500;
+      line-height: 1.6; color: rgba(255,255,255,0.5);
+    }
+    .f-col-head {
+      font-size: 14px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+    .f-links { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .f-links a {
+      font-size: 14px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.18s;
+    }
+    .f-links a:hover { color: var(--white); }
+    .f-contacts { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .f-contacts li {
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.55); line-height: 1.4;
+    }
+    .f-cta-wrap { display: flex; align-items: flex-start; padding-top: 2px; }
+    .btn-cta-footer {
+      display: inline-flex; align-items: center; gap: 14px;
+      background: var(--lime); border-radius: 100px;
+      padding: 18px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .f-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0;
+    }
+    .f-copy {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; color: rgba(255,255,255,0.38);
+    }
+    .f-copy-sym {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 13px; height: 13px;
+      border: 1px solid rgba(255,255,255,0.38);
+      border-radius: 50%; font-size: 9px;
+    }
+    .f-legal { display: flex; gap: 28px; }
+    .f-legal a {
+      font-size: 13px; color: rgba(255,255,255,0.38);
+      transition: color 0.18s;
+    }
+    .f-legal a:hover { color: rgba(255,255,255,0.65); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <nav class="nav-pill">
+    <a href="index.html">СТАРТ</a>
+    <a href="index.html#studio">СТУДИЯ</a>
+    <a href="index.html#services">ВОЗМОЖНОСТИ</a>
+    <a href="index.html#done">СДЕЛАНО</a>
+    <a href="index.html#thoughts">МЫСЛИ</a>
+  </nav>
+
+  <div class="nav-logo-ys">
+    <img src="image/Лого.png" alt="YGRIK.STUDIO">
+  </div>
+
+  <div class="nav-right">
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <span>↗</span></button>
+    <button class="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ══════════ CASES HERO ══════════ -->
+<section class="cases-hero">
+  <div class="c-label">
+    <span class="c-dot"></span>
+    <span class="c-label-text">КЕЙСЫ</span>
+  </div>
+  <h1 class="cases-h">КЕЙСЫ, ГОВОРЯЩИЕ ЗА НАС</h1>
+  <div class="y-line"></div>
+  <p class="cases-desc">Реальные проекты, реальные цифры, реальные результаты.<br>Комплексный подход к контенту, который приносит бизнесу рост.</p>
+</section>
+
+<!-- ══════════ CASES GRID ══════════ -->
+<div class="cases-grid">
+
+  <!-- 1 — Ателье плитки (lime) -->
+  <div class="ccase lime">
+    <div class="ccase-name">Магазин «Ателье плитки»</div>
+    <p class="ccase-desc">За 3 недели работы мы выстроили контент-стратегию и визуал, который привлекает новых клиентов и усиливает бренд.</p>
+    <div class="ccase-stats">
+      <div class="stat-row">
+        <span class="stat-icon">👁</span>
+        <span class="stat-label">Общий охват</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">693 809</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-label">Общая вовлечённость</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">50 697</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">%</span>
+        <span class="stat-label">Средний ER%</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">7,40%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📈</span>
+        <span class="stat-label">Прирост подписчиков</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">864</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📄</span>
+        <span class="stat-label">Опубликовано контента</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">17</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 — AlefStudio (dark) -->
+  <div class="ccase dark">
+    <div class="ccase-name">Сервисный центр «AlefStudio»</div>
+    <p class="ccase-desc">Комплексное ведение соц. сетей и продвижение сервисного центра по ремонту оргтехники.</p>
+    <div class="ccase-stats">
+      <div class="stat-row">
+        <span class="stat-icon">👁</span>
+        <span class="stat-label">Общий охват</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">1 334 998</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-label">Общая вовлечённость</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">394 594</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">%</span>
+        <span class="stat-label">Средний ER%</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">29,56%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📈</span>
+        <span class="stat-label">Прирост подписчиков</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">5 178</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📄</span>
+        <span class="stat-label">Опубликовано контента</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">174</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 — AVS (lime) -->
+  <div class="ccase lime">
+    <div class="ccase-name">AVS (автотовары)</div>
+    <p class="ccase-desc">Выстроили контент-систему, которая увеличила узнаваемость бренда и продажи.</p>
+    <div class="ccase-stats">
+      <div class="stat-row">
+        <span class="stat-icon">👁</span>
+        <span class="stat-label">Общий охват</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">2 578 143</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-label">Общая вовлечённость</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">698 937</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">%</span>
+        <span class="stat-label">Средний ER%</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">27,11%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📈</span>
+        <span class="stat-label">Прирост подписчиков</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">24 423</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📄</span>
+        <span class="stat-label">Опубликовано контента</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">248</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 — Ресторан Just (dark) -->
+  <div class="ccase dark">
+    <div class="ccase-name">Ресторан «Just» в Воронеже</div>
+    <p class="ccase-desc">Сделали атмосферный визуал и контент, который передаёт ценности ресторана и привлекает гостей.</p>
+    <div class="ccase-stats">
+      <div class="stat-row">
+        <span class="stat-icon">👁</span>
+        <span class="stat-label">Общий охват</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">94 178</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-label">Общая вовлечённость</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">32 378</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">%</span>
+        <span class="stat-label">Средний ER%</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">34,38%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📈</span>
+        <span class="stat-label">Прирост подписчиков</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">2 111</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📄</span>
+        <span class="stat-label">Опубликовано контента</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">377</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 — Риелтор (dark) -->
+  <div class="ccase dark">
+    <div class="ccase-name">Частный риелтор в Воронеже</div>
+    <p class="ccase-desc">Полностью пересобрали визуал: картинка, дизайн, монтаж, свет, цвет. Поработали над позиционированием и подачей.<br><br><strong style="color:var(--lime);">Итог: спустя 4 месяца стабильные заявки с соц. сетей + его заметил телеканал «Пятница», который пригласил его на проект «Свадьба в слепую».</strong></p>
+  </div>
+
+  <!-- 6 — МедИнтегро (dark) -->
+  <div class="ccase dark">
+    <div class="ccase-name">Клиника «МедИнтегро» в Воронеже</div>
+    <p class="ccase-desc">Переработали визуальный код бренда и внедрили вирусный контент за счёт чего сразу получили прирост охватов.</p>
+    <div class="ccase-stats">
+      <div class="stat-row">
+        <span class="stat-icon">👁</span>
+        <span class="stat-label">Общий охват</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">400 294</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">🔄</span>
+        <span class="stat-label">Общая вовлечённость</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">203 586</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">%</span>
+        <span class="stat-label">Средний ER%</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">31,88%</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📈</span>
+        <span class="stat-label">Прирост подписчиков</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">958</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">📄</span>
+        <span class="stat-label">Опубликовано контента</span>
+        <span class="stat-dots"></span>
+        <span class="stat-val">15</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════ CTA BOTTOM ══════════ -->
+<div class="cases-cta">
+  <div class="cases-cta-icon">↗</div>
+  <div class="cases-cta-text">
+    <p class="cases-cta-title">Готовы к результату?</p>
+    <p class="cases-cta-sub">Обсудим Ваш проект и найдём лучшее решение для Вашего бизнеса.</p>
+  </div>
+  <button class="cases-cta-btn">ЗАПУСТИТЬ ПРОЕКТ ↗</button>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="image/Лого.png" alt="YS" style="width:40px;height:auto;filter:brightness(0) invert(1);">
+      <p class="f-brand-name">YGRIK.STUDIO</p>
+      <p class="f-brand-desc">Диджитал агенство, которое превращает бизнес в бренд, который выбирают</p>
+    </div>
+
+    <div>
+      <p class="f-col-head">НАВИГАЦИЯ</p>
+      <ul class="f-links">
+        <li><a href="index.html">СТАРТ</a></li>
+        <li><a href="index.html#studio">СТУДИЯ</a></li>
+        <li><a href="index.html#services">ВОЗМОЖНОСТИ</a></li>
+        <li><a href="index.html#done">СДЕЛАНО</a></li>
+        <li><a href="index.html#thoughts">МЫСЛИ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="f-col-head">УСЛУГИ</p>
+      <ul class="f-links">
+        <li><a href="#">БРЕНДИНГ</a></li>
+        <li><a href="#">WEB-РАЗРАБОТКА</a></li>
+        <li><a href="#">КОНТЕНТ</a></li>
+        <li><a href="#">МАРКЕТИНГ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="f-col-head">КОНТАКТЫ</p>
+      <ul class="f-contacts">
+        <li>Telegram: @ygrik_studio</li>
+        <li>Email: ygrik_studio@mail.ru</li>
+        <li>Телефон: +7 (900) 954-45-78</li>
+      </ul>
+    </div>
+
+    <div class="f-cta-wrap">
+      <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <span>↗</span></button>
+    </div>
+  </div>
+
+  <hr class="f-divider">
+
+  <div class="footer-bottom">
+    <div class="f-copy">
+      <span class="f-copy-sym">©</span>
+      <span>YGRIK.STUDIO 2026</span>
+    </div>
+    <nav class="f-legal">
+      <a href="#">Политика конфедициальности</a>
+      <a href="#">Согласие на ОПД</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
