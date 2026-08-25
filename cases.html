@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -331,6 +332,14 @@
       transition: color 0.18s;
     }
     .f-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── LUCIDE ICONS ── */
+    [data-lucide] { display: inline-block; vertical-align: middle; width: 16px; height: 16px; }
+    .stat-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 18px; }
+    .stat-icon [data-lucide]            { width: 14px; height: 14px; }
+    .cases-cta-icon [data-lucide]       { width: 24px; height: 24px; }
+    .f-copy-sym                         { display: inline-flex; align-items: center; }
+    .f-copy-sym [data-lucide]           { width: 15px; height: 15px; color: #848484; }
   </style>
 </head>
 <body>
@@ -350,7 +359,7 @@
   </div>
 
   <div class="nav-right">
-    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <span>↗</span></button>
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
     <button class="burger"><span></span><span></span></button>
   </div>
 </header>
@@ -375,31 +384,31 @@
     <p class="ccase-desc">За 3 недели работы мы выстроили контент-стратегию и визуал, который привлекает новых клиентов и усиливает бренд.</p>
     <div class="ccase-stats">
       <div class="stat-row">
-        <span class="stat-icon">👁</span>
+        <span class="stat-icon"><i data-lucide="eye"></i></span>
         <span class="stat-label">Общий охват</span>
         <span class="stat-dots"></span>
         <span class="stat-val">693 809</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">🔄</span>
+        <span class="stat-icon"><i data-lucide="repeat-2"></i></span>
         <span class="stat-label">Общая вовлечённость</span>
         <span class="stat-dots"></span>
         <span class="stat-val">50 697</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">%</span>
+        <span class="stat-icon"><i data-lucide="percent"></i></span>
         <span class="stat-label">Средний ER%</span>
         <span class="stat-dots"></span>
         <span class="stat-val">7,40%</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📈</span>
+        <span class="stat-icon"><i data-lucide="trending-up"></i></span>
         <span class="stat-label">Прирост подписчиков</span>
         <span class="stat-dots"></span>
         <span class="stat-val">864</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📄</span>
+        <span class="stat-icon"><i data-lucide="file-text"></i></span>
         <span class="stat-label">Опубликовано контента</span>
         <span class="stat-dots"></span>
         <span class="stat-val">17</span>
@@ -413,31 +422,31 @@
     <p class="ccase-desc">Комплексное ведение соц. сетей и продвижение сервисного центра по ремонту оргтехники.</p>
     <div class="ccase-stats">
       <div class="stat-row">
-        <span class="stat-icon">👁</span>
+        <span class="stat-icon"><i data-lucide="eye"></i></span>
         <span class="stat-label">Общий охват</span>
         <span class="stat-dots"></span>
         <span class="stat-val">1 334 998</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">🔄</span>
+        <span class="stat-icon"><i data-lucide="repeat-2"></i></span>
         <span class="stat-label">Общая вовлечённость</span>
         <span class="stat-dots"></span>
         <span class="stat-val">394 594</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">%</span>
+        <span class="stat-icon"><i data-lucide="percent"></i></span>
         <span class="stat-label">Средний ER%</span>
         <span class="stat-dots"></span>
         <span class="stat-val">29,56%</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📈</span>
+        <span class="stat-icon"><i data-lucide="trending-up"></i></span>
         <span class="stat-label">Прирост подписчиков</span>
         <span class="stat-dots"></span>
         <span class="stat-val">5 178</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📄</span>
+        <span class="stat-icon"><i data-lucide="file-text"></i></span>
         <span class="stat-label">Опубликовано контента</span>
         <span class="stat-dots"></span>
         <span class="stat-val">174</span>
@@ -451,31 +460,31 @@
     <p class="ccase-desc">Выстроили контент-систему, которая увеличила узнаваемость бренда и продажи.</p>
     <div class="ccase-stats">
       <div class="stat-row">
-        <span class="stat-icon">👁</span>
+        <span class="stat-icon"><i data-lucide="eye"></i></span>
         <span class="stat-label">Общий охват</span>
         <span class="stat-dots"></span>
         <span class="stat-val">2 578 143</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">🔄</span>
+        <span class="stat-icon"><i data-lucide="repeat-2"></i></span>
         <span class="stat-label">Общая вовлечённость</span>
         <span class="stat-dots"></span>
         <span class="stat-val">698 937</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">%</span>
+        <span class="stat-icon"><i data-lucide="percent"></i></span>
         <span class="stat-label">Средний ER%</span>
         <span class="stat-dots"></span>
         <span class="stat-val">27,11%</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📈</span>
+        <span class="stat-icon"><i data-lucide="trending-up"></i></span>
         <span class="stat-label">Прирост подписчиков</span>
         <span class="stat-dots"></span>
         <span class="stat-val">24 423</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📄</span>
+        <span class="stat-icon"><i data-lucide="file-text"></i></span>
         <span class="stat-label">Опубликовано контента</span>
         <span class="stat-dots"></span>
         <span class="stat-val">248</span>
@@ -489,31 +498,31 @@
     <p class="ccase-desc">Сделали атмосферный визуал и контент, который передаёт ценности ресторана и привлекает гостей.</p>
     <div class="ccase-stats">
       <div class="stat-row">
-        <span class="stat-icon">👁</span>
+        <span class="stat-icon"><i data-lucide="eye"></i></span>
         <span class="stat-label">Общий охват</span>
         <span class="stat-dots"></span>
         <span class="stat-val">94 178</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">🔄</span>
+        <span class="stat-icon"><i data-lucide="repeat-2"></i></span>
         <span class="stat-label">Общая вовлечённость</span>
         <span class="stat-dots"></span>
         <span class="stat-val">32 378</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">%</span>
+        <span class="stat-icon"><i data-lucide="percent"></i></span>
         <span class="stat-label">Средний ER%</span>
         <span class="stat-dots"></span>
         <span class="stat-val">34,38%</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📈</span>
+        <span class="stat-icon"><i data-lucide="trending-up"></i></span>
         <span class="stat-label">Прирост подписчиков</span>
         <span class="stat-dots"></span>
         <span class="stat-val">2 111</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📄</span>
+        <span class="stat-icon"><i data-lucide="file-text"></i></span>
         <span class="stat-label">Опубликовано контента</span>
         <span class="stat-dots"></span>
         <span class="stat-val">377</span>
@@ -533,31 +542,31 @@
     <p class="ccase-desc">Переработали визуальный код бренда и внедрили вирусный контент за счёт чего сразу получили прирост охватов.</p>
     <div class="ccase-stats">
       <div class="stat-row">
-        <span class="stat-icon">👁</span>
+        <span class="stat-icon"><i data-lucide="eye"></i></span>
         <span class="stat-label">Общий охват</span>
         <span class="stat-dots"></span>
         <span class="stat-val">400 294</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">🔄</span>
+        <span class="stat-icon"><i data-lucide="repeat-2"></i></span>
         <span class="stat-label">Общая вовлечённость</span>
         <span class="stat-dots"></span>
         <span class="stat-val">203 586</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">%</span>
+        <span class="stat-icon"><i data-lucide="percent"></i></span>
         <span class="stat-label">Средний ER%</span>
         <span class="stat-dots"></span>
         <span class="stat-val">31,88%</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📈</span>
+        <span class="stat-icon"><i data-lucide="trending-up"></i></span>
         <span class="stat-label">Прирост подписчиков</span>
         <span class="stat-dots"></span>
         <span class="stat-val">958</span>
       </div>
       <div class="stat-row">
-        <span class="stat-icon">📄</span>
+        <span class="stat-icon"><i data-lucide="file-text"></i></span>
         <span class="stat-label">Опубликовано контента</span>
         <span class="stat-dots"></span>
         <span class="stat-val">15</span>
@@ -569,12 +578,12 @@
 
 <!-- ══════════ CTA BOTTOM ══════════ -->
 <div class="cases-cta">
-  <div class="cases-cta-icon">↗</div>
+  <div class="cases-cta-icon"><i data-lucide="arrow-up-right"></i></div>
   <div class="cases-cta-text">
     <p class="cases-cta-title">Готовы к результату?</p>
     <p class="cases-cta-sub">Обсудим Ваш проект и найдём лучшее решение для Вашего бизнеса.</p>
   </div>
-  <button class="cases-cta-btn">ЗАПУСТИТЬ ПРОЕКТ ↗</button>
+  <button class="cases-cta-btn">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
 </div>
 
 <!-- ══════════ FOOTER ══════════ -->
@@ -617,7 +626,7 @@
     </div>
 
     <div class="f-cta-wrap">
-      <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <span>↗</span></button>
+      <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
     </div>
   </div>
 
@@ -625,7 +634,7 @@
 
   <div class="footer-bottom">
     <div class="f-copy">
-      <span class="f-copy-sym">©</span>
+      <span class="f-copy-sym"><i data-lucide="copyright"></i></span>
       <span>YGRIK.STUDIO 2026</span>
     </div>
     <nav class="f-legal">
@@ -635,5 +644,6 @@
   </div>
 </footer>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>

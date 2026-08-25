@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -115,8 +116,8 @@
     /* ── HERO ── */
     .hero {
       display: grid;
-      grid-template-columns: 441px 1fr 290px;
-      min-height: 100vh;
+      grid-template-columns: 441px 1fr 376px;
+      min-height: max(100vh, 1077px);
       overflow: hidden;
       position: relative;
     }
@@ -201,41 +202,32 @@
     }
     .mascot-box {
       position: absolute;
-      top: 27px;
-      left: -200px;
-      right: 0;
-      bottom: 0;
-      border-radius: 40px 40px 0 0;
-      overflow: hidden;
-      background: #111;
+      top: 0;
+      left: -189px;
+      width: 953px;
+      height: 1077px;
+      overflow: visible;
+      background: transparent;
     }
     .mascot-box::after {
       content: '';
       position: absolute;
-      inset: 0;
+      top: 27px;
+      left: 256px;
+      right: 64px;
+      bottom: 0;
       border: 10px solid var(--lime);
-      border-radius: 40px 40px 0 0;
-      filter: blur(4px);
+      filter: blur(9px);
       pointer-events: none;
       z-index: 2;
     }
     .mascot-box img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top center;
+      width: 953px;
+      height: 1077px;
+      max-width: none;
       display: block;
-    }
-    .mascot-placeholder {
-      width: 100%; height: 100%;
-      background: radial-gradient(ellipse at 50% 30%, #1e2a10 0%, #0d0d0d 60%, #050505 100%);
       position: relative;
-    }
-    .mascot-placeholder::after {
-      content: '';
-      position: absolute;
-      top: 20%; left: 30%;
-      width: 40%; height: 40%;
-      background: radial-gradient(circle, rgba(214,255,0,0.18) 0%, transparent 70%);
-      filter: blur(60px);
+      z-index: 3;
     }
 
     /* Hero right cards */
@@ -244,16 +236,15 @@
       z-index: 3;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      padding: 208px 29px 27px 20px;
+      gap: 56px;
+      padding: 202px 103px 27px 0px;
     }
 
     .hcard {
-      flex: 1;
-      background: rgba(49,49,49,0.9);
-      backdrop-filter: blur(12px);
+      height: 307px;
+      background: #313131;
       border-radius: 25px;
-      padding: 24px;
+      padding: 42px 0 0 29px;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -261,7 +252,7 @@
       text-decoration: none;
     }
     .hcard-dot {
-      position: absolute; top: 20px; right: 20px;
+      position: absolute; top: 21px; right: 22px;
       width: 12px; height: 12px;
       border-radius: 50%; background: var(--lime);
     }
@@ -279,36 +270,34 @@
     .hcard-arrow { color: var(--lime); font-size: 22px; }
     .hcard-mascot {
       position: absolute;
-      right: -10px; bottom: 0;
-      width: 175px; height: 240px;
-      object-fit: cover; object-position: top center;
+      right: 0; bottom: 0;
+      max-width: none;
+      display: block;
       border-radius: 0 0 25px 0;
       opacity: 0.85;
     }
+    .hcard:first-child .hcard-mascot { width: 180px; height: 252px; right: 0; bottom: 0; }
+    .hcard:last-child  .hcard-mascot { width: 204px; height: 242px; right: 0; bottom: 0; }
 
     /* ── SECTION 2: STUDIO ── */
     .s-studio {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      min-height: 1077px;
       position: relative;
-      overflow-x: hidden;
-    }
-    .studio-body {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
+      overflow: hidden;
     }
     .studio-text {
-      padding: 122px 48px 48px 48px;
+      padding: 199px 0 0 48px;
       position: relative;
       z-index: 2;
+      max-width: 729px;
     }
 
     .page-ind {
       display: flex; align-items: center; gap: 12px;
       margin-bottom: 48px;
+    }
+    .studio-text .page-ind {
+      margin-bottom: 37px;
     }
     .p-dot {
       width: 14px; height: 14px;
@@ -331,8 +320,8 @@
       margin-bottom: 36px;
     }
     .y-line {
-      width: 50px; height: 4px;
-      background: var(--lime); border-radius: 2px;
+      width: 49px; height: 5px;
+      background: var(--lime); border-radius: 3px;
       margin-bottom: 30px;
     }
     .body-txt {
@@ -343,8 +332,10 @@
 
     .studio-mascot-side {
       position: absolute;
-      right: 0; top: 0;
-      width: 55%; height: 100%;
+      top: 42px;
+      right: 0;
+      width: 928px;
+      height: 1035px;
       overflow: hidden;
     }
     .studio-mascot-side img {
@@ -353,17 +344,18 @@
 
     /* Service cards strip */
     .svc-strip {
+      position: absolute;
+      top: 767px;
+      left: 48px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      padding: 0 48px 60px;
-      position: relative;
+      grid-template-columns: repeat(4, 188px);
+      gap: 20px;
       z-index: 2;
     }
     .svc {
       border-radius: 25px;
-      padding: 22px 20px;
-      min-height: 213px;
+      padding: 31px 19px 18px;
+      height: 213px;
       display: flex; flex-direction: column;
     }
     .svc.lime { background: var(--lime); }
@@ -742,12 +734,7 @@
       color: #848484;
       letter-spacing: -0.45px;
     }
-    .f-copy-sym {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 13px; height: 13px;
-      border: 1px solid #848484;
-      border-radius: 50%; font-size: 9px;
-    }
+    .f-copy-sym { display: inline-flex; align-items: center; }
     .f-legal { display: flex; gap: 28px; }
     .f-legal a {
       font-family: 'Manrope', sans-serif;
@@ -757,6 +744,15 @@
       transition: color 0.18s;
     }
     .f-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── LUCIDE ICONS ── */
+    [data-lucide] { display: inline-block; vertical-align: middle; width: 16px; height: 16px; }
+    .explore-btn [data-lucide]          { width: 22px; height: 22px; }
+    .hcard-arrow [data-lucide]          { width: 20px; height: 20px; }
+    .cta-btn-prim [data-lucide],
+    .cta-btn-sec [data-lucide]          { width: 20px; height: 20px; }
+    .f-copy-sym [data-lucide]           { width: 15px; height: 15px; color: #848484; }
+    .svc-btn [data-lucide]              { width: 12px; height: 12px; }
   </style>
 </head>
 <body>
@@ -776,7 +772,7 @@
   </div>
 
   <div class="nav-right">
-    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <span class="ico">↗</span></button>
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right" class="ico"></i></button>
     <button class="burger"><span></span><span></span></button>
   </div>
 </header>
@@ -798,7 +794,7 @@
 
     <div class="hero-explore">
       <p class="explore-label">Исследовать</p>
-      <a href="#studio" class="explore-btn">↓</a>
+      <a href="#studio" class="explore-btn"><i data-lucide="arrow-down"></i></a>
     </div>
   </div>
 
@@ -813,14 +809,14 @@
       <span class="hcard-dot"></span>
       <span class="hcard-title">КЕЙСЫ</span>
       <p class="hcard-text">Смотреть проекты</p>
-      <span class="hcard-arrow">→</span>
+      <span class="hcard-arrow"><i data-lucide="arrow-right"></i></span>
       <img src="image/Маскот (1).png" alt="" class="hcard-mascot">
     </a>
     <a href="#services" class="hcard">
       <span class="hcard-dot"></span>
       <span class="hcard-title">УСЛУГИ</span>
       <p class="hcard-text">Что мы делаем</p>
-      <span class="hcard-arrow">→</span>
+      <span class="hcard-arrow"><i data-lucide="arrow-right"></i></span>
       <img src="image/Маскот (2).png" alt="" class="hcard-mascot">
     </a>
   </div>
@@ -828,31 +824,29 @@
 
 <!-- ══════════ STUDIO ══════════ -->
 <section class="s-studio" id="studio">
-  <div class="studio-body">
-    <div class="studio-text">
-      <div class="page-ind">
-        <span class="p-dot"></span>
-        <span class="p-label"><span class="p-num">02</span> / <b>СТУДИЯ</b></span>
-      </div>
-      <h2 class="big-h">НЕ ДЕЛАЕМ «ПРОСТО КРАСИВО». СТРОИМ БРЕНДЫ, КОТОРЫЕ РАБОТАЮТ.</h2>
-      <div class="y-line"></div>
-      <p class="body-txt">Стратегия, дизайн, сайты, контент и маркетинг — соединяем всё в одну систему вокруг бизнеса.</p>
+  <div class="studio-text">
+    <div class="page-ind">
+      <span class="p-dot"></span>
+      <span class="p-label"><span class="p-num">02</span> / <b>СТУДИЯ</b></span>
     </div>
-    <div class="studio-mascot-side">
-      <img src="image/Маскот (3).png" alt="">
-    </div>
+    <h2 class="big-h">НЕ ДЕЛАЕМ «ПРОСТО КРАСИВО». СТРОИМ БРЕНДЫ, КОТОРЫЕ РАБОТАЮТ.</h2>
+    <div class="y-line"></div>
+    <p class="body-txt">Стратегия, дизайн, сайты, контент и маркетинг — соединяем всё в одну систему вокруг бизнеса.</p>
+  </div>
+  <div class="studio-mascot-side">
+    <img src="image/Маскот (3).png" alt="">
   </div>
 
   <div class="svc-strip">
     <div class="svc lime">
       <div class="svc-title">КОНТЕНТ</div>
       <p class="svc-desc">Продакшн который цепляет и вовлекает</p>
-      <button class="svc-btn">ХОЧУ ЭТО ↗</button>
+      <button class="svc-btn">ХОЧУ ЭТО <i data-lucide="arrow-up-right"></i></button>
     </div>
     <div class="svc dark">
       <div class="svc-title">БРЕНДИНГ</div>
       <p class="svc-desc">Создаём айдентику, которая выделяется и запоминается</p>
-      <button class="svc-btn">ИЛИ ЭТО ↗</button>
+      <button class="svc-btn">ИЛИ ЭТО <i data-lucide="arrow-up-right"></i></button>
     </div>
     <div class="svc lime">
       <div class="svc-title-flex">
@@ -860,12 +854,12 @@
         <span class="svc-t-reg">разработка</span>
       </div>
       <p class="svc-desc">Делаем сайты и сервисы, которые решают задачи</p>
-      <button class="svc-btn">НЕТ, ЭТО ↗</button>
+      <button class="svc-btn">НЕТ, ЭТО <i data-lucide="arrow-up-right"></i></button>
     </div>
     <div class="svc dark">
       <div class="svc-title">МАРКЕТИНГ</div>
       <p class="svc-desc">Запускаем стратегии, которые приводят к росту бизнеса</p>
-      <button class="svc-btn">БЕРУ ↗</button>
+      <button class="svc-btn">БЕРУ <i data-lucide="arrow-up-right"></i></button>
     </div>
   </div>
 </section>
@@ -882,7 +876,7 @@
       <div class="y-line"></div>
       <p class="body-txt">Стратегия, дизайн, сайты, контент и маркетинг — соединяем всё в одну систему вокруг бизнеса.</p>
     </div>
-    <a href="cases.html" class="btn-all-cases">СМОТРЕТЬ ВСЕ КЕЙСЫ ↗</a>
+    <a href="cases.html" class="btn-all-cases">СМОТРЕТЬ ВСЕ КЕЙСЫ <i data-lucide="arrow-up-right"></i></a>
   </div>
 
   <div class="portfolio-grid">
@@ -970,8 +964,8 @@
       <div class="cta-line"></div>
       <p class="cta-desc">Обсудим Ваш проект и предложим решение, которое даст результат.</p>
       <div class="cta-btns">
-        <button class="cta-btn-prim">ЗАПУСТИТЬ ПРОЕКТ <span>↗</span></button>
-        <button class="cta-btn-sec">НАПИСАТЬ В Telegram <span>↗</span></button>
+        <button class="cta-btn-prim">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
+        <button class="cta-btn-sec">НАПИСАТЬ В Telegram <i data-lucide="send"></i></button>
       </div>
     </div>
   </div>
@@ -1035,7 +1029,7 @@
     </div>
 
     <div class="f-cta-wrap">
-      <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <span>↗</span></button>
+      <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
     </div>
   </div>
 
@@ -1043,7 +1037,7 @@
 
   <div class="footer-bottom">
     <div class="f-copy">
-      <span class="f-copy-sym">©</span>
+      <span class="f-copy-sym"><i data-lucide="copyright"></i></span>
       <span>YGRIK.STUDIO 2026</span>
     </div>
     <nav class="f-legal">
@@ -1089,6 +1083,8 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
     });
   });
+
+  lucide.createIcons();
 </script>
 </body>
 </html>
