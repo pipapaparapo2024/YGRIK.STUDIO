@@ -560,11 +560,11 @@
     }
     .step-desc {
       font-family: 'Inter', sans-serif;
-      font-size: 16px;
+      font-size: 12px;
       font-weight: 600;
-      line-height: 27px;
+      line-height: 20px;
       color: var(--text);
-      max-width: 170px;
+      max-width: 185px;
       margin: 0;
     }
 
@@ -894,11 +894,17 @@
     /* ── LUCIDE ICONS ── */
     [data-lucide] { display: inline-block; vertical-align: middle; width: 16px; height: 16px; }
     .explore-btn [data-lucide]          { width: 22px; height: 22px; }
-    .hcard-arrow [data-lucide]          { width: 32px; height: 32px; }
-    .cta-btn-prim [data-lucide],
     .cta-btn-sec [data-lucide]          { width: 20px; height: 20px; }
     .f-copy-sym [data-lucide]           { width: 15px; height: 15px; color: #848484; }
-    .svc-btn [data-lucide]              { width: 12px; height: 12px; }
+
+    /* ── SVG ARROWS ── */
+    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+    .btn-cta .btn-arrow,
+    .btn-all-cases .btn-arrow,
+    .cta-btn-prim .btn-arrow,
+    .btn-cta-footer .btn-arrow         { width: 16px; height: auto; }
+    .svc-btn .btn-arrow                { width: 11px; height: auto; }
+    .hcard-arrow img                   { display: block; width: 30px; height: auto; }
   </style>
 </head>
 <body>
@@ -918,7 +924,7 @@
   </div>
 
   <div class="nav-right">
-    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right" class="ico"></i></button>
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
     <button class="burger"><span></span><span></span></button>
   </div>
 </header>
@@ -955,14 +961,14 @@
       <span class="hcard-dot"></span>
       <span class="hcard-title">КЕЙСЫ</span>
       <p class="hcard-text">Смотреть проекты</p>
-      <span class="hcard-arrow"><i data-lucide="arrow-right"></i></span>
+      <span class="hcard-arrow"><img src="image/figma/Arrow 3.svg"></span>
       <img src="image/Маскот (1).png" alt="" class="hcard-mascot">
     </a>
     <a href="#services" class="hcard">
       <span class="hcard-dot"></span>
       <span class="hcard-title">УСЛУГИ</span>
       <p class="hcard-text">Что мы делаем</p>
-      <span class="hcard-arrow"><i data-lucide="arrow-right"></i></span>
+      <span class="hcard-arrow"><img src="image/figma/Arrow 3.svg"></span>
       <img src="image/Маскот (2).png" alt="" class="hcard-mascot">
     </a>
   </div>
@@ -987,12 +993,12 @@
     <div class="svc lime">
       <div class="svc-title">КОНТЕНТ</div>
       <p class="svc-desc">Продакшн который цепляет и вовлекает</p>
-      <button class="svc-btn">ХОЧУ ЭТО <i data-lucide="arrow-up-right"></i></button>
+      <button class="svc-btn">ХОЧУ ЭТО <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
     </div>
     <div class="svc dark">
       <div class="svc-title">БРЕНДИНГ</div>
       <p class="svc-desc">Создаём айдентику, которая выделяется и запоминается</p>
-      <button class="svc-btn">ИЛИ ЭТО <i data-lucide="arrow-up-right"></i></button>
+      <button class="svc-btn">ИЛИ ЭТО <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
     </div>
     <div class="svc lime">
       <div class="svc-title-flex">
@@ -1000,12 +1006,12 @@
         <span class="svc-t-reg">разработка</span>
       </div>
       <p class="svc-desc">Делаем сайты и сервисы, которые решают задачи</p>
-      <button class="svc-btn">НЕТ, ЭТО <i data-lucide="arrow-up-right"></i></button>
+      <button class="svc-btn">НЕТ, ЭТО <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
     </div>
     <div class="svc dark">
       <div class="svc-title">МАРКЕТИНГ</div>
       <p class="svc-desc">Запускаем стратегии, которые приводят к росту бизнеса</p>
-      <button class="svc-btn">БЕРУ <i data-lucide="arrow-up-right"></i></button>
+      <button class="svc-btn">БЕРУ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
     </div>
   </div>
 </section>
@@ -1024,7 +1030,7 @@
     </div>
   </div>
 
-  <a href="cases.html" class="btn-all-cases">СМОТРЕТЬ ВСЕ КЕЙСЫ <i data-lucide="arrow-up-right"></i></a>
+  <a href="cases.html" class="btn-all-cases">СМОТРЕТЬ ВСЕ КЕЙСЫ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></a>
 
   <div class="portfolio-grid">
     <div class="pcard tall">
@@ -1106,7 +1112,7 @@
     <div class="cta-line"></div>
     <p class="cta-desc">Обсудим Ваш проект и предложим решение, которое даст результат.</p>
     <div class="cta-btns">
-      <button class="cta-btn-prim">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
+      <button class="cta-btn-prim">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
       <button class="cta-btn-sec">НАПИСАТЬ В Telegram <i data-lucide="send"></i></button>
     </div>
   </div>
@@ -1169,7 +1175,7 @@
     </ul>
   </div>
 
-  <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
+  <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
 
   <hr class="f-divider">
 

@@ -435,6 +435,13 @@
       color: #848484; letter-spacing: -0.45px; transition: color 0.18s;
     }
     .f-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── SVG ARROWS ── */
+    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+    .btn-cta .btn-arrow,
+    .cases-cta-btn .btn-arrow,
+    .btn-cta-footer .btn-arrow { width: 16px; height: auto; }
+    .cta-icon-arrow { width: 32px; height: auto; display: block; }
   </style>
 </head>
 <body>
@@ -454,7 +461,7 @@
   </div>
 
   <div class="nav-right">
-    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
     <button class="burger"><span></span><span></span></button>
   </div>
 </header>
@@ -692,12 +699,12 @@
 
 <!-- ══════════ CTA BOTTOM ══════════ -->
 <div class="cases-cta">
-  <div class="cases-cta-icon"><i data-lucide="arrow-up-right"></i></div>
+  <div class="cases-cta-icon"><img src="image/figma/Arrow 1.svg" class="cta-icon-arrow"></div>
   <div class="cases-cta-text">
     <p class="cases-cta-title">Готовы к результату?</p>
     <p class="cases-cta-sub">Обсудим Ваш проект и найдём лучшее решение для Вашего бизнеса.</p>
   </div>
-  <button class="cases-cta-btn">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
+  <button class="cases-cta-btn">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
 </div>
 
 <!-- ══════════ FOOTER ══════════ -->
@@ -739,7 +746,7 @@
     </ul>
   </div>
 
-  <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <i data-lucide="arrow-up-right"></i></button>
+  <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
 
   <hr class="f-divider">
 
