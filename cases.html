@@ -28,7 +28,7 @@
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
-      min-width: 1619px;
+      min-width: 320px;
     }
 
     /* ── HEADER ── */
@@ -442,6 +442,168 @@
     .cases-cta-btn .btn-arrow,
     .btn-cta-footer .btn-arrow { width: 16px; height: auto; }
     .cta-icon-arrow { width: 32px; height: auto; display: block; }
+
+    /* ════════════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS — cases.html
+    ════════════════════════════════════════════════════════ */
+
+    /* ── Широкие мониторы ≥1920px ── */
+    @media (min-width: 1920px) {
+      .cases-hero, .cases-grid, .cases-cta, footer { max-width: 1920px; }
+      .cases-cta { margin-left: auto; margin-right: auto; }
+    }
+
+    /* ── Малый десктоп 1280–1619px ── */
+    @media (max-width: 1619px) {
+      .cases-hero { padding-left: 32px; padding-right: 32px; }
+      .cases-grid { padding: 0 32px; grid-template-columns: repeat(3, 1fr); column-gap: 20px; }
+      .ccase { width: auto; }
+      .cases-cta { width: calc(100% - 64px); margin: 80px 32px 0; }
+      footer .f-nav-col  { left: 420px; }
+      footer .f-svc-col  { left: 650px; }
+      footer .f-contacts-col { left: 920px; }
+      footer .btn-cta-footer { left: 1180px; }
+    }
+
+    @media (max-width: 1400px) {
+      .cases-grid { grid-template-columns: repeat(3, 1fr); column-gap: 16px; }
+      .ccase-name { font-size: 26px; line-height: 32px; }
+      .ccase-desc { font-size: 15px; }
+      .stat-label, .stat-val { font-size: 15px; }
+      footer .f-nav-col  { left: 360px; }
+      footer .f-svc-col  { left: 570px; }
+      footer .f-contacts-col { left: 810px; }
+      footer .btn-cta-footer { left: 1060px; width: 250px; }
+    }
+
+    @media (max-width: 1280px) {
+      .cases-grid { grid-template-columns: repeat(2, 1fr); column-gap: 20px; row-gap: 20px; padding: 0 24px; }
+      .cases-hero { padding-left: 24px; padding-right: 24px; }
+      .cases-h { font-size: 52px; line-height: 62px; }
+      .cases-cta { width: calc(100% - 48px); margin: 60px 24px 0; }
+      footer .f-brand { left: 24px; }
+      footer .f-nav-col  { left: 280px; }
+      footer .f-svc-col  { left: 470px; }
+      footer .f-contacts-col { left: 680px; }
+      footer .btn-cta-footer { left: 940px; width: 240px; }
+    }
+
+    /* ── Планшет горизонтальный 768–1024px ── */
+    @media (max-width: 1024px) {
+
+      /* Header */
+      header { top: 16px; left: 16px; right: 16px; }
+      .nav-pill { display: none; }
+      .nav-logo-ys { display: block !important; }
+
+      /* Cases hero */
+      .cases-hero { padding: 130px 32px 60px; }
+      .cases-h { font-size: 44px; line-height: 54px; }
+      .cases-desc { width: 100%; font-size: 17px; }
+
+      /* Cases grid: 2 columns */
+      .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 16px;
+        row-gap: 16px;
+        padding: 0 32px;
+      }
+      .ccase { width: auto; height: auto; min-height: 820px; }
+      .ccase-img { height: 380px; }
+      .ccase-name { font-size: 24px; line-height: 30px; margin-bottom: 28px; }
+      .ccase-desc { font-size: 14px; }
+      .stat-label, .stat-val { font-size: 15px; }
+
+      /* CTA */
+      .cases-cta {
+        width: calc(100% - 64px);
+        margin: 60px 32px 0;
+        height: auto;
+        min-height: 100px;
+        padding: 20px 0;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .cases-cta-icon { margin-left: 32px; }
+      .cases-cta-btn { margin-right: 32px; width: 280px; font-size: 16px; }
+
+      /* Footer */
+      footer {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: start;
+        gap: 28px 24px;
+        padding: 40px 32px 24px;
+        overflow: visible;
+      }
+      footer .f-brand       { position: static; width: auto; grid-column: 1 / -1; }
+      footer .f-nav-col     { position: static; left: auto; top: auto; }
+      footer .f-svc-col     { position: static; left: auto; top: auto; }
+      footer .f-contacts-col{ position: static; left: auto; top: auto; }
+      footer .btn-cta-footer{ position: static; left: auto; top: auto; width: auto; height: 55px; grid-column: 1 / -1; justify-self: start; }
+      footer .f-divider     { position: static; left: auto; right: auto; grid-column: 1 / -1; margin: 0; }
+      footer .footer-bottom { position: static; height: auto; grid-column: 1 / -1; flex-wrap: wrap; gap: 10px; padding: 8px 0; }
+    }
+
+    /* ── Планшет вертикальный 480–767px ── */
+    @media (max-width: 767px) {
+      header { top: 12px; left: 12px; right: 12px; }
+      .btn-cta { font-size: 13px; padding: 12px 18px; gap: 10px; }
+
+      .cases-hero { padding: 110px 20px 40px; }
+      .cases-h { font-size: 36px; line-height: 44px; }
+      .cases-desc { font-size: 16px; }
+
+      /* Cases grid: 1 column */
+      .cases-grid {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+        padding: 0 20px;
+      }
+      .ccase { min-height: 720px; }
+      .ccase-img { height: 320px; }
+      .ccase-name { font-size: 22px; }
+
+      /* CTA */
+      .cases-cta {
+        width: calc(100% - 40px);
+        margin: 40px 20px 0;
+        flex-direction: column;
+        height: auto;
+        padding: 24px 0;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .cases-cta-icon { margin-left: 24px; }
+      .cases-cta-text { padding-left: 24px; }
+      .cases-cta-btn { margin-right: 24px; width: calc(100% - 48px); font-size: 16px; }
+
+      /* Footer */
+      footer { grid-template-columns: 1fr 1fr; padding: 32px 20px 20px; gap: 20px 16px; }
+      footer .f-brand       { grid-column: 1 / -1; }
+      footer .btn-cta-footer{ grid-column: 1 / -1; }
+      footer .f-divider     { grid-column: 1 / -1; }
+      footer .footer-bottom { grid-column: 1 / -1; }
+    }
+
+    /* ── Мобильный <480px ── */
+    @media (max-width: 480px) {
+      .btn-cta { font-size: 11px; padding: 10px 14px; }
+      .cases-hero { padding: 90px 16px 32px; }
+      .cases-h { font-size: 28px; line-height: 36px; }
+      .cases-desc { font-size: 14px; }
+      .cases-grid { padding: 0 16px; }
+      .ccase { min-height: 640px; }
+      .ccase-img { height: 260px; }
+      .ccase-body { padding: 0 20px 20px; }
+      .ccase-name { font-size: 20px; margin-bottom: 20px; }
+      .stat-label, .stat-val { font-size: 13px; }
+      .cases-cta { width: calc(100% - 32px); margin: 32px 16px 0; }
+      .cases-cta-icon { width: 56px; height: 56px; margin-left: 16px; }
+      .cases-cta-btn { width: calc(100% - 32px); font-size: 14px; height: 60px; }
+      footer { grid-template-columns: 1fr; padding: 24px 16px 16px; }
+    }
   </style>
 </head>
 <body>

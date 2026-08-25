@@ -905,6 +905,350 @@
     .btn-cta-footer .btn-arrow         { width: 16px; height: auto; }
     .svc-btn .btn-arrow                { width: 11px; height: auto; }
     .hcard-arrow img                   { display: block; width: 30px; height: auto; }
+
+    /* ════════════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ════════════════════════════════════════════════════════ */
+
+    /* ── Широкие мониторы ≥1920px ── */
+    @media (min-width: 1920px) {
+      .hero, .s-studio, .s-portfolio, .s-process, .s-form, footer {
+        max-width: 1920px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* ── Малый десктоп 1280–1619px ── */
+    @media (max-width: 1619px) {
+      .hero { grid-template-columns: 400px 1fr 350px; }
+      .hero-left { padding-left: 36px; }
+      .hero-explore { left: 36px; }
+      .hero-right { padding: 202px 36px 27px 0; }
+      .mascot-box { left: -80px; width: 820px; }
+      .mascot-box img { width: 820px; height: 924px; }
+      .logo-img-ygrik { width: 380px; }
+      .logo-img-studio { width: 340px; }
+      .svc-strip { left: 36px; grid-template-columns: repeat(4, 172px); }
+      .studio-mascot-side { width: 800px; }
+      .portfolio-l { padding-left: 36px; }
+      .btn-all-cases { left: 36px; }
+      .portfolio-grid { grid-template-columns: 480px 1fr; padding-right: 36px; }
+      .s-process > .page-ind { left: 36px; }
+      .process-h { left: 36px; }
+      .process-timeline { left: 660px; width: 780px; }
+      .cta-block { left: 36px; width: calc(100% - 72px); }
+      .cta-mascot { left: 930px; }
+      .f-nav-col  { left: 420px; }
+      .f-svc-col  { left: 650px; }
+      .f-contacts-col { left: 920px; }
+      .btn-cta-footer { left: 1180px; }
+    }
+
+    @media (max-width: 1400px) {
+      .hero { grid-template-columns: 360px 1fr 320px; }
+      .hero-left { padding: 300px 0 0 28px; padding-bottom: 100px; }
+      .hero-explore { left: 28px; }
+      .hero-right { padding: 180px 28px 27px 0; gap: 36px; }
+      .hcard { height: 270px; }
+      .mascot-box { left: -50px; width: 740px; }
+      .mascot-box img { width: 740px; height: 835px; }
+      .logo-img-ygrik { width: 340px; }
+      .logo-img-studio { width: 300px; }
+      .svc-strip { grid-template-columns: repeat(4, 155px); gap: 14px; }
+      .studio-mascot-side { width: 700px; }
+      .s-portfolio { grid-template-columns: 520px 1fr; }
+      .portfolio-grid { grid-template-columns: 400px 320px; grid-template-rows: 400px 410px; }
+      .btn-all-cases { top: 690px; }
+      .process-h { width: 500px; }
+      .process-timeline { left: 580px; width: 720px; }
+      .cta-mascot { left: 840px; width: 530px; }
+      .f-nav-col  { left: 370px; }
+      .f-svc-col  { left: 580px; }
+      .f-contacts-col { left: 820px; }
+      .btn-cta-footer { left: 1060px; width: 250px; }
+      .form-big { left: 60px; }
+      .form-sub { left: 60px; }
+      .form-wrap { left: 60px; }
+      .form-input { width: 520px; }
+      .form-call-title { left: 860px; font-size: 32px; width: 320px; }
+      .form-phone-num { left: 860px; font-size: 30px; }
+    }
+
+    @media (max-width: 1280px) {
+      .hero { grid-template-columns: 320px 1fr 300px; }
+      .hero-left { padding: 260px 0 0 24px; padding-bottom: 80px; }
+      .hero-explore { left: 24px; bottom: 32px; }
+      .hero-right { padding: 160px 24px 27px 0; gap: 24px; }
+      .hcard { height: 250px; }
+      .mascot-box { left: -30px; width: 640px; }
+      .mascot-box img { width: 640px; height: 722px; }
+      .logo-img-ygrik { width: 300px; }
+      .logo-img-studio { width: 265px; }
+      .studio-text { padding-left: 24px; }
+      .svc-strip { left: 24px; grid-template-columns: repeat(4, 145px); gap: 12px; }
+      .svc { height: 205px; }
+      .studio-mascot-side { width: 580px; }
+      .s-portfolio { grid-template-columns: 440px 1fr; }
+      .portfolio-l { padding-left: 24px; }
+      .portfolio-grid { grid-template-columns: 360px 270px; padding-right: 24px; }
+      .btn-all-cases { left: 24px; top: 670px; }
+      .s-process > .page-ind { left: 24px; }
+      .process-h { left: 24px; width: 440px; }
+      .process-timeline { left: 480px; width: 700px; }
+      .cta-block { left: 24px; width: calc(100% - 48px); }
+      .cta-h { font-size: 34px; }
+      .cta-mascot { left: 780px; width: 460px; }
+      .f-brand { left: 24px; }
+      .f-nav-col  { left: 300px; }
+      .f-svc-col  { left: 490px; }
+      .f-contacts-col { left: 700px; }
+      .btn-cta-footer { left: 960px; width: 240px; }
+      .form-big { left: 40px; font-size: 32px; width: 520px; }
+      .form-sub { left: 40px; width: 240px; }
+      .form-wrap { left: 40px; }
+      .form-input { width: 520px; }
+      .form-call-title { left: 760px; font-size: 30px; width: 280px; }
+      .form-phone-num { left: 760px; font-size: 26px; }
+    }
+
+    /* ── Планшет горизонтальный 768–1024px ── */
+    @media (max-width: 1024px) {
+
+      /* Header */
+      header { top: 16px; left: 16px; right: 16px; }
+      .nav-pill { display: none; }
+      .nav-logo-ys { display: block !important; }
+
+      /* Hero */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        padding-bottom: 60px;
+        overflow: visible;
+      }
+      .hero-center { display: none; }
+      .hero-left {
+        order: 1;
+        padding: 130px 32px 0;
+        position: static;
+      }
+      .hero-explore { position: static; margin-top: 28px; }
+      .hero-right {
+        order: 2;
+        padding: 32px 32px 0;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+      .hcard { height: 220px; flex: 1; }
+      .hcard:first-child .hcard-mascot { width: 120px; height: 167px; }
+      .hcard:last-child  .hcard-mascot { width: 136px; height: 162px; }
+      .logo-img-ygrik { width: min(380px, 80vw); height: auto; max-width: none; }
+      .logo-img-studio { width: min(340px, 72vw); height: auto; max-width: none; }
+      .hero-desc { max-width: 100%; }
+      .hero-tagline { margin-bottom: 20px; }
+      .logo-wrap { margin-bottom: 32px; }
+
+      /* Studio */
+      .s-studio { min-height: auto; overflow: visible; padding-bottom: 60px; }
+      .studio-mascot-side { display: none; }
+      .studio-text { padding: 80px 32px 0; max-width: 100%; }
+      .big-h { font-size: 32px; letter-spacing: 0.5px; }
+      .svc-strip {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin: 40px 32px 0;
+      }
+      .svc { height: auto; min-height: 210px; width: auto; }
+      .svc-title { font-size: 18px; }
+
+      /* Portfolio */
+      .s-portfolio { display: block; min-height: auto; }
+      .portfolio-l { padding: 60px 32px 0; }
+      .portfolio-l .big-h { max-width: 100%; font-size: 30px; }
+      .portfolio-l .body-txt { max-width: 100%; }
+      .btn-all-cases { position: static; margin: 24px 32px 0; width: auto; display: inline-flex; }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 300px 300px;
+        gap: 16px;
+        padding: 40px 32px 60px;
+      }
+      .pcard.tall { grid-row: auto; }
+
+      /* Process */
+      .s-process { height: auto; overflow: visible; padding: 60px 32px 0; }
+      .s-process > .page-ind { position: static; margin-bottom: 16px; }
+      .process-h { position: static; width: auto; font-size: 26px; margin-bottom: 40px; }
+      .process-timeline { position: static; width: 100%; overflow-x: auto; padding-bottom: 8px; }
+      .steps-nums, .steps-grid { gap: 0; }
+      .cta-block {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 40px 32px 40px;
+        margin-top: 40px;
+        border-radius: 25px;
+      }
+      .cta-h { position: static; width: auto; font-size: 26px; padding: 0; margin-bottom: 8px; }
+      .cta-line { position: static; margin: 12px 0 16px; }
+      .cta-desc { position: static; width: auto; margin-bottom: 28px; }
+      .cta-btns { position: static; flex-wrap: wrap; gap: 14px; }
+      .cta-btn-prim, .cta-btn-sec { width: 260px; }
+      .cta-mascot { display: none; }
+
+      /* Form */
+      .s-form {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
+        row-gap: 0;
+        padding: 40px 32px;
+        overflow: visible;
+        align-items: start;
+      }
+      .form-big        { position: static; width: auto; font-size: 26px; grid-column: 1; grid-row: 1; margin-bottom: 14px; }
+      .form-sub        { position: static; width: auto; grid-column: 1; grid-row: 2; margin-bottom: 18px; line-height: 22px; }
+      .form-wrap       { position: static; grid-column: 1; grid-row: 3; gap: 12px; }
+      .form-input      { width: 100%; }
+      .form-submit     { width: 100%; }
+      .form-call-title { position: static; width: auto; font-size: 26px; grid-column: 2; grid-row: 1 / 3; align-self: center; }
+      .form-phone-num  { position: static; font-size: 28px; grid-column: 2; grid-row: 3; align-self: center; }
+
+      /* Footer */
+      footer {
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        align-items: start;
+        gap: 28px 24px;
+        padding: 40px 32px 24px;
+        overflow: visible;
+      }
+      .f-brand       { position: static; width: auto; grid-column: 1 / -1; }
+      .f-nav-col     { position: static; left: auto; top: auto; }
+      .f-svc-col     { position: static; left: auto; top: auto; }
+      .f-contacts-col{ position: static; left: auto; top: auto; }
+      .btn-cta-footer { position: static; left: auto; top: auto; width: auto; height: 55px; grid-column: 1 / -1; justify-self: start; }
+      .f-divider     { position: static; left: auto; right: auto; grid-column: 1 / -1; margin: 0; }
+      .footer-bottom { position: static; height: auto; grid-column: 1 / -1; flex-wrap: wrap; gap: 10px; padding: 8px 0; }
+    }
+
+    /* ── Планшет вертикальный 480–767px ── */
+    @media (max-width: 767px) {
+      header { top: 12px; left: 12px; right: 12px; }
+      .btn-cta { font-size: 13px; padding: 12px 18px; gap: 10px; }
+
+      /* Hero */
+      .hero-left { padding: 110px 20px 0; }
+      .hero-explore { display: none; }
+      .hero-right { padding: 24px 20px 0; gap: 12px; flex-wrap: wrap; }
+      .hcard { height: 200px; min-width: calc(50% - 6px); flex: 1 1 calc(50% - 6px); }
+      .logo-img-ygrik { width: min(320px, 75vw); }
+      .logo-img-studio { width: min(285px, 68vw); }
+      .logo-wrap { margin-bottom: 24px; }
+      .hero-tagline { margin-bottom: 16px; }
+      .big-h { font-size: 26px; }
+
+      /* Studio */
+      .studio-text { padding: 60px 20px 0; }
+      .svc-strip { margin: 32px 20px 0; gap: 12px; }
+
+      /* Portfolio */
+      .portfolio-l { padding: 50px 20px 0; }
+      .btn-all-cases { margin: 20px 20px 0; }
+      .portfolio-grid { padding: 28px 20px 40px; gap: 12px; grid-template-rows: 260px 260px; }
+
+      /* Process */
+      .s-process { padding: 50px 20px 0; }
+      .process-h { font-size: 22px; }
+      .step-title { font-size: 13px; }
+      .step-desc  { font-size: 11px; line-height: 18px; }
+      .st-num { font-size: 16px; }
+
+      /* Form */
+      .s-form {
+        display: flex;
+        flex-direction: column;
+        padding: 36px 20px;
+        gap: 0;
+      }
+      .form-big        { font-size: 22px; margin-bottom: 12px; }
+      .form-sub        { margin-bottom: 16px; width: 100%; }
+      .form-wrap       { width: 100%; margin-bottom: 0; }
+      .form-input      { width: 100%; }
+      .form-submit     { width: 100%; }
+      .form-call-title { font-size: 22px; margin-top: 36px; margin-bottom: 12px; }
+      .form-phone-num  { font-size: 24px; }
+
+      /* Footer */
+      footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 36px 20px 20px;
+        gap: 24px 20px;
+      }
+      .f-brand        { grid-column: 1 / -1; }
+      .btn-cta-footer { grid-column: 1 / -1; }
+      .f-divider      { grid-column: 1 / -1; }
+      .footer-bottom  { grid-column: 1 / -1; }
+    }
+
+    /* ── Мобильный <480px ── */
+    @media (max-width: 480px) {
+      .btn-cta { font-size: 11px; padding: 10px 14px; gap: 8px; }
+      .burger { width: 44px; height: 44px; }
+
+      /* Hero */
+      .hero-left { padding: 100px 16px 0; }
+      .hero-right { padding: 20px 16px 0; flex-direction: column; }
+      .hcard { height: 180px; flex: none; width: 100%; }
+      .logo-img-ygrik { width: min(270px, 80vw); }
+      .logo-img-studio { width: min(240px, 72vw); }
+
+      /* Studio */
+      .studio-text { padding: 50px 16px 0; }
+      .svc-strip { grid-template-columns: 1fr; margin: 24px 16px 0; }
+      .big-h { font-size: 22px; }
+      .body-txt { font-size: 16px; }
+
+      /* Portfolio */
+      .portfolio-l { padding: 40px 16px 0; }
+      .btn-all-cases { margin: 16px 16px 0; font-size: 12px; }
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 20px 16px 40px;
+        gap: 12px;
+      }
+      .pcard.tall, .pcard { height: 250px; }
+
+      /* Process */
+      .s-process { padding: 40px 16px 0; }
+      .process-h { font-size: 18px; margin-bottom: 28px; }
+      .process-timeline { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .steps-nums, .steps-track, .steps-grid { min-width: 600px; }
+      .cta-block { padding: 28px 20px; }
+      .cta-h { font-size: 20px; }
+      .cta-btns { flex-direction: column; }
+      .cta-btn-prim, .cta-btn-sec { width: 100%; }
+
+      /* Form */
+      .s-form { padding: 28px 16px; }
+      .form-big { font-size: 18px; }
+      .form-call-title { font-size: 18px; }
+      .form-phone-num  { font-size: 20px; }
+
+      /* Footer */
+      footer { grid-template-columns: 1fr; padding: 28px 16px 16px; gap: 20px; }
+      .f-contacts-col { grid-column: 1; }
+    }
   </style>
 </head>
 <body>
