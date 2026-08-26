@@ -6,7 +6,7 @@
   <title>Кейсы — YGRIK.STUDIO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -197,14 +197,14 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 0 28px 28px 28px;
+      padding: 0 42px 28px 28px;
     }
 
     .ccase-name {
       font-family: 'Inter', sans-serif;
       font-size: 32px;
       font-weight: 700;
-      line-height: 36px;
+      line-height: 27px;
       color: #000000;
       margin-bottom: 52px;
     }
@@ -224,11 +224,12 @@
     .ccase-result {
       font-family: 'Inter', sans-serif;
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 900;
       line-height: 27px;
-      color: #D6FF00;
+      color: #000000;
       margin-top: 16px;
     }
+    .ccase.dark .ccase-result { color: #D6FF00; }
 
     .ccase-stats {
       display: flex;
@@ -264,7 +265,7 @@
     .stat-label {
       font-family: 'Inter', sans-serif;
       font-size: 18px;
-      font-weight: 800;
+      font-weight: 600;
       line-height: 27px;
       white-space: nowrap;
       color: #000000;
@@ -283,7 +284,7 @@
     .stat-val {
       font-family: 'Inter', sans-serif;
       font-size: 18px;
-      font-weight: 800;
+      font-weight: 600;
       line-height: 27px;
       white-space: nowrap;
       color: #000000;
@@ -467,7 +468,7 @@
 
     @media (max-width: 1400px) {
       .cases-grid { grid-template-columns: repeat(3, 1fr); column-gap: 16px; }
-      .ccase-name { font-size: 26px; line-height: 32px; }
+      .ccase-name { font-size: 26px; line-height: 27px; }
       .ccase-desc { font-size: 15px; }
       .stat-label, .stat-val { font-size: 15px; }
       footer .f-nav-col  { left: 360px; }
@@ -510,7 +511,7 @@
       }
       .ccase { width: auto; height: auto; min-height: 820px; }
       .ccase-img { height: 380px; }
-      .ccase-name { font-size: 24px; line-height: 30px; margin-bottom: 28px; }
+      .ccase-name { font-size: 24px; line-height: 27px; margin-bottom: 28px; }
       .ccase-desc { font-size: 14px; }
       .stat-label, .stat-val { font-size: 15px; }
 
