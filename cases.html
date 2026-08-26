@@ -174,11 +174,10 @@
 
     .ccase {
       width: 491px;
-      height: 977px;
+      min-height: 977px;
       border-radius: 25px;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
     .ccase.lime { background: #D6FF00; }
     .ccase.dark { background: #313131; color: #FFFFFF; }
@@ -188,6 +187,8 @@
       flex-shrink: 0;
       height: 517px;
       width: 100%;
+      border-radius: 25px 25px 0 0;
+      overflow: hidden;
     }
     .ccase.lime .ccase-img  { background: #D6FF00; }
     .ccase.dark .ccase-img  { background: #313131; }
