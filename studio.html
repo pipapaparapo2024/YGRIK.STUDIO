@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Студия — YGRIK.STUDIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { max-width: 100%; display: block; }
+
+    :root {
+      --bg: #EFF1F1;
+      --lime: #D6FF00;
+      --dark: #313131;
+      --text: #1C1C1C;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-width: 320px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 27px;
+      left: 29px;
+      right: 29px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    header > * { pointer-events: auto; }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 8px;
+    }
+    .nav-pill a {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 18px;
+      border-radius: 25px;
+      transition: background 0.18s;
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .nav-pill a.active { background: var(--lime); }
+    .nav-pill a:hover:not(.active) { background: rgba(0,0,0,0.07); }
+
+    .nav-logo-ys {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-logo-ys img { display: block; width: 40px; height: auto; }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--lime);
+      border-radius: 25px;
+      padding: 18px 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      transition: opacity 0.18s;
+    }
+    .btn-cta:hover { opacity: 0.88; }
+
+    .burger {
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0,0,0,0.18);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 5px; cursor: pointer; background: none;
+    }
+    .burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .sh-hero {
+      position: relative;
+      min-height: 737px;
+      overflow: hidden;
+    }
+    .sh-btn .btn-arrow { width: 22px; height: auto; }
+
+    /* Page indicator */
+    .sh-page-ind {
+      position: absolute;
+      left: 28px;
+      top: 140px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      z-index: 4;
+    }
+    .sh-page-ind-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    /* Left column */
+    .sh-left {
+      position: absolute;
+      left: 28px;
+      top: 197px;
+      width: 584px;
+      z-index: 3;
+    }
+    .sh-heading {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 134%;
+      letter-spacing: 0.02em;
+      color: #000000;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sh-lime-bar {
+      width: 49px;
+      height: 4px;
+      background: var(--lime);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+    .sh-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 27px;
+      letter-spacing: 0;
+      color: #000000;
+      margin-bottom: 21px;
+    }
+    .sh-desc-bold {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 27px;
+      color: #000000;
+      margin-bottom: 40px;
+    }
+    .sh-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--lime);
+      border-radius: 25px;
+      padding: 0 28px 0 36px;
+      width: 394px;
+      height: 81px;
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.18s;
+    }
+    .sh-btn:hover { opacity: 0.88; }
+
+    /* Mascot */
+    .sh-mascot {
+      position: absolute;
+      left: 536px;
+      top: 69px;
+      width: 641px;
+      height: 668px;
+      object-fit: contain;
+      object-position: top center;
+      max-width: none;
+      z-index: 2;
+    }
+
+    /* Dark card */
+    .sh-card {
+      position: absolute;
+      right: 49px;
+      top: 323px;
+      width: 339px;
+      height: 368px;
+      background: var(--dark);
+      border-radius: 25px;
+      padding: 42px 20px 42px 49px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      z-index: 3;
+    }
+    .sh-card-text {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 160%;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .sh-card-text .white { color: #FFFFFF; }
+    .sh-card-text .lime  { color: var(--lime); }
+
+    /* ── STATS BAR ── */
+    .sh-stats {
+      margin: 0 47px 0;
+      background: var(--dark);
+      border-radius: 25px;
+      border: 1px solid #686868;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .sh-stat {
+      padding: 47px 48px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .sh-stat:last-child { border-right: none; }
+    .sh-stat-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .sh-stat-num img {
+      width: 80px;
+      height: auto;
+      display: block;
+    }
+    .sh-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 27px;
+      letter-spacing: 0;
+      color: var(--white);
+    }
+
+    /* ── STUDIO ABOUT SECTION ── */
+    .sh-about {
+      margin-top: 81px;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 624px;
+      gap: 37px;
+      align-items: center;
+    }
+    .sh-photo {
+      width: 100%;
+      height: 508px;
+      object-fit: cover;
+      border-radius: 25px;
+      display: block;
+    }
+    .sh-about-text { }
+    .sh-about-heading {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 134%;
+      letter-spacing: 0.02em;
+      color: #000000;
+      text-transform: uppercase;
+      margin-bottom: 34px;
+    }
+    .sh-about-lime {
+      width: 49px;
+      height: 4px;
+      background: var(--lime);
+      border-radius: 2px;
+      margin-bottom: 34px;
+    }
+    .sh-about-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 27px;
+      letter-spacing: 0;
+      color: #000000;
+    }
+    .sh-about-body p + p { margin-top: 27px; }
+
+    /* ── CTA SECTION ── */
+    .sh-cta {
+      margin: 69px 28px 0;
+      background: var(--lime);
+      border-radius: 25px;
+      padding: 0 440px 0 37px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      min-height: 238px;
+      position: relative;
+      overflow: visible;
+    }
+    .sh-cta-left {
+      flex: 0 0 auto;
+      width: 660px;
+      margin-right: 0;
+    }
+    .sh-cta-heading {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 134%;
+      letter-spacing: 0.02em;
+      color: #000000;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+    }
+    .sh-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 496px;
+      height: 59px;
+      background: var(--dark);
+      border-radius: 25px;
+      padding: 0 20px 0 28px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.18s;
+    }
+    .sh-cta-btn:hover { opacity: 0.85; }
+    .sh-cta-btn img { width: 16px; filter: invert(1); }
+
+    .sh-cta-desc {
+      flex: 1;
+      font-family: 'Inter', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 27px;
+      letter-spacing: 0;
+      color: #000000;
+      align-self: center;
+    }
+    .sh-cta-smiley {
+      position: absolute;
+      right: 149px;
+      top: 50%;
+      width: 280px;
+      height: 280px;
+      object-fit: contain;
+      transform: translateY(-50%) rotate(10deg);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      margin-top: 60px;
+      height: 321px;
+      background: #313131;
+      color: #FFFFFF;
+      overflow: hidden;
+    }
+    .f-brand {
+      position: absolute;
+      top: 44px;
+      left: 48px;
+      width: 212px;
+    }
+    .f-ys-mark { margin-bottom: 14px; }
+    .f-brand-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20px;
+      color: rgba(255,255,255,0.6);
+      width: 212px;
+    }
+    .f-col { position: absolute; top: 44px; }
+    .f-nav-col  { left: 466px; }
+    .f-svc-col  { left: 711px; }
+    .f-contacts-col { left: 1004px; }
+    .f-col-head {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 20px;
+      color: #FFFFFF;
+      margin: 0 0 22px;
+    }
+    .f-links { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .f-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 20px;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.18s;
+    }
+    .f-links a:hover { color: #FFFFFF; }
+    .f-contacts { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .f-contacts li {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20px;
+      color: rgba(255,255,255,0.7);
+    }
+    .btn-cta-footer {
+      position: absolute;
+      top: 44px;
+      left: 1303px;
+      width: 268px;
+      height: 55px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--lime);
+      border-radius: 25px;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      cursor: pointer;
+      transition: opacity 0.18s;
+    }
+    .btn-cta-footer:hover { opacity: 0.88; }
+    .f-divider {
+      position: absolute;
+      top: 255px;
+      left: 48px;
+      right: 48px;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 0;
+    }
+    .footer-bottom {
+      position: absolute;
+      top: 255px;
+      left: 48px;
+      right: 48px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .f-copy {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #848484;
+      letter-spacing: -0.45px;
+    }
+    .f-copy-sym { display: inline-flex; align-items: center; }
+    .f-legal { display: flex; gap: 30px; }
+    .f-legal a {
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #848484;
+      letter-spacing: -0.45px;
+      transition: color 0.18s;
+    }
+    .f-legal a:hover { color: rgba(255,255,255,0.65); }
+
+    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+    .btn-cta .btn-arrow,
+    .btn-cta-footer .btn-arrow { width: 16px; height: auto; }
+
+    /* ── RESPONSIVE ── */
+
+    /* ≤1619px — крупные экраны, небольшие отступы */
+    @media (max-width: 1619px) {
+      .sh-mascot { width: 560px; height: auto; }
+      .sh-card { right: 36px; }
+      .sh-stats { margin: 0 36px; }
+      .sh-stat { padding: 36px; }
+      .sh-about { padding: 0 36px; }
+      .sh-cta { margin: 69px 36px 0; }
+      .f-nav-col { left: 380px; }
+      .f-svc-col { left: 600px; }
+      .f-contacts-col { left: 860px; }
+      .btn-cta-footer { left: 1120px; }
+    }
+
+    /* ≤1400px — средне-большие экраны */
+    @media (max-width: 1400px) {
+      .sh-hero { min-height: 700px; }
+      .sh-left { width: 460px; }
+      .sh-heading { font-size: 52px; }
+      .sh-mascot { left: 440px; width: 470px; }
+      .sh-card { right: 28px; width: 278px; top: 275px; }
+      .sh-card-text { font-size: 20px; }
+      .sh-btn { width: 340px; }
+      .sh-stat { padding: 32px 28px; }
+      .sh-stat-num { font-size: 52px; }
+      .sh-about { grid-template-columns: 1fr 460px; }
+      .sh-about-heading { font-size: 52px; }
+      .sh-cta { padding: 0 350px 0 37px; }
+      .sh-cta-heading { font-size: 40px; }
+      .sh-cta-left { width: 490px; }
+      .sh-cta-btn { width: 420px; }
+      .sh-cta-smiley { width: 240px; height: 240px; right: 80px; }
+      .f-nav-col { left: 340px; }
+      .f-svc-col { left: 540px; }
+      .f-contacts-col { left: 780px; }
+      .btn-cta-footer { left: 1020px; width: 240px; }
+    }
+
+    /* ≤1280px — средние экраны */
+    @media (max-width: 1280px) {
+      .sh-hero { min-height: 660px; }
+      .sh-left { width: 400px; top: 160px; }
+      .sh-page-ind { top: 115px; }
+      .sh-heading { font-size: 44px; }
+      .sh-mascot { left: 365px; width: 400px; }
+      .sh-card { right: 20px; width: 240px; top: 245px; padding: 28px 16px 28px 32px; }
+      .sh-card-text { font-size: 18px; }
+      .sh-stats { margin: 0 24px; }
+      .sh-stat { padding: 28px 24px; }
+      .sh-stat-num { font-size: 46px; }
+      .sh-stat-label { font-size: 17px; }
+      .sh-about { padding: 0 24px; grid-template-columns: 1fr 400px; }
+      .sh-about-heading { font-size: 44px; }
+      .sh-about-body { font-size: 20px; }
+      .sh-cta { margin: 60px 24px 0; padding: 0 265px 0 32px; }
+      .sh-cta-heading { font-size: 34px; }
+      .sh-cta-left { width: 420px; }
+      .sh-cta-btn { width: 360px; }
+      .sh-cta-desc { font-size: 20px; }
+      .sh-cta-smiley { width: 205px; height: 205px; right: 30px; }
+      .f-nav-col { left: 300px; }
+      .f-svc-col { left: 480px; }
+      .f-contacts-col { left: 700px; }
+      .btn-cta-footer { left: 950px; width: 220px; }
+    }
+
+    /* ≤1024px — планшет, кардинальные изменения раскладки */
+    @media (max-width: 1024px) {
+      /* Навигация: скрываем пилюлю, оставляем бургер */
+      .nav-pill { display: none; }
+
+      /* Hero: переходим в блочный поток */
+      .sh-hero { min-height: auto; padding: 110px 24px 44px; display: block; overflow: visible; }
+      .sh-page-ind { position: relative; top: auto; left: auto; margin-bottom: 24px; }
+      .sh-left { position: relative; top: auto; left: auto; width: 100%; }
+      .sh-heading { font-size: 42px; }
+      .sh-desc { font-size: 18px; }
+      .sh-desc-bold { font-size: 20px; margin-bottom: 32px; }
+      .sh-btn { width: 100%; max-width: 380px; height: 72px; font-size: 18px; }
+      .sh-mascot { display: none; }
+      .sh-card {
+        position: relative; top: auto; right: auto;
+        width: 100%; max-width: 420px;
+        height: auto; margin-top: 32px; padding: 32px 36px;
+      }
+
+      /* Статистика: 2×2 */
+      .sh-stats { grid-template-columns: repeat(2, 1fr); margin: 0 24px; }
+      .sh-stat:nth-child(2) { border-right: none; }
+      .sh-stat:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.12); }
+      .sh-stat:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.12); border-right: none; }
+
+      /* О студии: одна колонка */
+      .sh-about { grid-template-columns: 1fr; padding: 0 24px; margin-top: 60px; }
+      .sh-photo { height: 340px; }
+      .sh-about-heading { font-size: 38px; }
+      .sh-about-body { font-size: 20px; }
+
+      /* CTA: вертикально */
+      .sh-cta {
+        margin: 48px 24px 0;
+        flex-direction: column; align-items: flex-start;
+        padding: 36px 24px; min-height: auto; overflow: hidden;
+      }
+      .sh-cta-left { width: 100%; margin-right: 0; margin-bottom: 24px; }
+      .sh-cta-heading { font-size: 32px; }
+      .sh-cta-btn { width: 100%; max-width: 420px; }
+      .sh-cta-desc { font-size: 20px; }
+      .sh-cta-smiley { display: none; }
+
+      /* Футер: сетка 2 колонки */
+      footer { height: auto; }
+      .f-brand, .f-col, .btn-cta-footer, .f-divider, .footer-bottom { position: static; }
+      footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 24px 24px;
+        gap: 36px 24px;
+      }
+      .f-brand { grid-column: 1 / -1; width: auto; }
+      .f-brand-desc { width: auto; max-width: 360px; }
+      .btn-cta-footer { grid-column: 1 / -1; width: auto; height: 52px; justify-content: space-between; }
+      .f-divider { grid-column: 1 / -1; position: static; margin: 0; }
+      .footer-bottom { grid-column: 1 / -1; position: static; height: auto; flex-wrap: wrap; gap: 10px; padding: 8px 0; }
+    }
+
+    /* ≤768px — большой телефон */
+    @media (max-width: 768px) {
+      /* Хедер: скрываем CTA-кнопку, только лого + бургер */
+      .btn-cta { display: none; }
+
+      /* Hero */
+      .sh-hero { padding: 96px 20px 36px; }
+      .sh-heading { font-size: 34px; }
+      .sh-desc { font-size: 16px; }
+      .sh-desc-bold { font-size: 18px; }
+      .sh-btn { height: 66px; font-size: 16px; }
+      .sh-card { padding: 28px 28px; }
+      .sh-card-text { font-size: 18px; }
+
+      /* Статистика */
+      .sh-stat { padding: 28px 20px; }
+      .sh-stat-num { font-size: 44px; }
+      .sh-stat-label { font-size: 15px; line-height: 22px; }
+
+      /* О студии */
+      .sh-about { padding: 0 20px; margin-top: 48px; gap: 28px; }
+      .sh-photo { height: 280px; }
+      .sh-about-heading { font-size: 30px; }
+      .sh-about-lime { margin-bottom: 24px; }
+      .sh-about-body { font-size: 18px; }
+      .sh-about-body p + p { margin-top: 20px; }
+
+      /* CTA */
+      .sh-cta { margin: 40px 20px 0; padding: 32px 20px; }
+      .sh-cta-heading { font-size: 26px; }
+      .sh-cta-desc { font-size: 18px; line-height: 26px; }
+
+      /* Футер */
+      footer { padding: 36px 20px 20px; gap: 28px 16px; }
+    }
+
+    /* ≤480px — маленький телефон */
+    @media (max-width: 480px) {
+      /* Hero */
+      .sh-hero { padding: 88px 16px 32px; }
+      .sh-page-ind { font-size: 14px; margin-bottom: 20px; }
+      .sh-heading { font-size: 28px; }
+      .sh-lime-bar { margin-bottom: 20px; }
+      .sh-desc { font-size: 15px; line-height: 22px; margin-bottom: 16px; }
+      .sh-desc-bold { font-size: 16px; margin-bottom: 28px; }
+      .sh-btn { height: 62px; font-size: 14px; border-radius: 20px; }
+      .sh-card { padding: 24px; margin-top: 24px; border-radius: 20px; }
+      .sh-card-text { font-size: 16px; line-height: 150%; }
+
+      /* Статистика */
+      .sh-stats { margin: 0 16px; border-radius: 20px; }
+      .sh-stat { padding: 24px 18px; }
+      .sh-stat-num { font-size: 36px; margin-bottom: 8px; }
+      .sh-stat-label { font-size: 13px; line-height: 19px; }
+
+      /* О студии */
+      .sh-about { padding: 0 16px; margin-top: 40px; gap: 24px; }
+      .sh-photo { height: 240px; border-radius: 20px; }
+      .sh-about-heading { font-size: 24px; margin-bottom: 20px; }
+      .sh-about-lime { margin-bottom: 20px; }
+      .sh-about-body { font-size: 15px; }
+      .sh-about-body p + p { margin-top: 16px; }
+
+      /* CTA */
+      .sh-cta { margin: 32px 16px 0; padding: 28px 20px; border-radius: 20px; }
+      .sh-cta-heading { font-size: 22px; margin-bottom: 8px; }
+      .sh-cta-btn { height: 54px; font-size: 12px; border-radius: 20px; }
+      .sh-cta-desc { font-size: 15px; line-height: 22px; }
+
+      /* Футер */
+      footer { grid-template-columns: 1fr; padding: 28px 16px 16px; gap: 24px; }
+      .f-legal { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <nav class="nav-pill">
+    <a href="index.html">СТАРТ</a>
+    <a href="studio.html" class="active">СТУДИЯ</a>
+    <a href="vozmozhnosti.html">ВОЗМОЖНОСТИ</a>
+    <a href="cases.html">СДЕЛАНО</a>
+    <a href="index.html#thoughts">МЫСЛИ</a>
+  </nav>
+
+  <div class="nav-logo-ys">
+    <img src="image/Лого.png" alt="YGRIK.STUDIO">
+  </div>
+
+  <div class="nav-right">
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
+    <button class="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="sh-hero">
+
+  <!-- Page indicator (absolute) -->
+  <p class="sh-page-ind"><span class="sh-page-ind-dot"></span>02 / СТУДИЯ</p>
+
+  <!-- Left: text (absolute) -->
+  <div class="sh-left">
+    <h1 class="sh-heading">МЫ<br>YGRIK.STUDIO</h1>
+    <div class="sh-lime-bar"></div>
+    <p class="sh-desc">Делаем так, чтобы о Вас говорили,<br>снимали, писали, заходили на сайт<br>и покупали.</p>
+    <p class="sh-desc-bold">Короче — чтобы работало.</p>
+    <button class="sh-btn">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
+  </div>
+
+  <!-- Mascot (absolute) -->
+  <img class="sh-mascot" src="image/маскот студия.png" alt="Маскот YGRIK.STUDIO">
+
+  <!-- Dark card (absolute) -->
+  <div class="sh-card">
+    <div class="sh-card-text">
+      <span class="white">НЕ ПРОСТО<br>СТУДИЯ.<br><br></span><span class="lime">НОРМ ПАЦАНЫ,<br>С КОТОРЫМИ<br>МОЖНО </span><span class="white">ДЕЛАТЬ<br>БОЛЬШЕ.</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════ STATS BAR ══════════ -->
+<div class="sh-stats">
+  <div class="sh-stat">
+    <div class="sh-stat-num">6+</div>
+    <div class="sh-stat-label">направлений<br>в одном месте</div>
+  </div>
+  <div class="sh-stat">
+    <div class="sh-stat-num">23+</div>
+    <div class="sh-stat-label">проектов, которыми<br>мы гордимся</div>
+  </div>
+  <div class="sh-stat">
+    <div class="sh-stat-num">3+</div>
+    <div class="sh-stat-label">года в деле</div>
+  </div>
+  <div class="sh-stat">
+    <div class="sh-stat-num"><img src="image/∞.png" alt="∞"></div>
+    <div class="sh-stat-label">идей, которые<br>еще не реализованы</div>
+  </div>
+</div>
+
+<!-- ══════════ ABOUT STUDIO ══════════ -->
+<section class="sh-about">
+  <img class="sh-photo" src="image/фото студия.png" alt="Офис YGRIK.STUDIO">
+  <div class="sh-about-text">
+    <h2 class="sh-about-heading">ДЕЛАЕМ<br>КАК ДЛЯ СЕБЯ</h2>
+    <div class="sh-about-lime"></div>
+    <div class="sh-about-body">
+      <p>Мы не гонимся за количеством.<br>Нам важны проекты, в которые мы реально<br>верим. Если понимаем, что не сможем сделать<br>сильно — лучше скажем, что не сможем.</p>
+      <p>Потому что нам важнее красиво делать,<br>чем просто делать.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="sh-cta">
+  <div class="sh-cta-left">
+    <h2 class="sh-cta-heading">СОЗДАЕМ ПРОЕКТЫ<br>И ОТНОШЕНИЯ.</h2>
+    <button class="sh-cta-btn">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
+  </div>
+  <p class="sh-cta-desc">Если у тебя есть задача, идея<br>или просто хочешь обсудить - пиши.<br>Разберемся, подскажем, сделаем.</p>
+  <img class="sh-cta-smiley" src="image/Смайлик.png" alt="">
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="f-brand">
+    <div class="f-ys-mark">
+      <img src="image/Лого.png" alt="YS" style="width:40px;height:auto;">
+    </div>
+    <p class="f-brand-desc">Диджитал агенство, которое превращает бизнес в бренд, который выбирают</p>
+  </div>
+
+  <div class="f-col f-nav-col">
+    <p class="f-col-head">НАВИГАЦИЯ</p>
+    <ul class="f-links">
+      <li><a href="index.html">СТАРТ</a></li>
+      <li><a href="studio.html">СТУДИЯ</a></li>
+      <li><a href="vozmozhnosti.html">ВОЗМОЖНОСТИ</a></li>
+      <li><a href="cases.html">СДЕЛАНО</a></li>
+      <li><a href="index.html#thoughts">МЫСЛИ</a></li>
+    </ul>
+  </div>
+
+  <div class="f-col f-svc-col">
+    <p class="f-col-head">УСЛУГИ</p>
+    <ul class="f-links">
+      <li><a href="#">БРЕНДИНГ</a></li>
+      <li><a href="#">WEB-РАЗРАБОТКА</a></li>
+      <li><a href="#">КОНТЕНТ</a></li>
+      <li><a href="#">МАРКЕТИНГ</a></li>
+    </ul>
+  </div>
+
+  <div class="f-col f-contacts-col">
+    <p class="f-col-head">КОНТАКТЫ</p>
+    <ul class="f-contacts">
+      <li>Telegram: @ygrik_studio</li>
+      <li>Email: ygrik_studio@mail.ru</li>
+      <li>Телефон: +7 (900) 954-45-78</li>
+    </ul>
+  </div>
+
+  <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
+
+  <hr class="f-divider">
+
+  <div class="footer-bottom">
+    <div class="f-copy">
+      <span class="f-copy-sym"><i data-lucide="copyright"></i></span>
+      <span>YGRIK.STUDIO 2026</span>
+    </div>
+    <nav class="f-legal">
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Согласие на ОПД</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
