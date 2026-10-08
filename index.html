@@ -6,7 +6,7 @@
   <title>YGRIK.STUDIO — Дижитал агенство</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600&family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,12 +14,12 @@
     a { text-decoration: none; color: inherit; }
     button { cursor: pointer; border: none; background: none; font-family: inherit; }
     img { max-width: 100%; display: block; }
+    ul { list-style: none; }
 
     :root {
       --bg: #EFF1F1;
       --lime: #D6FF00;
       --dark: #313131;
-      --dark2: #313131;
       --text: #1C1C1C;
       --muted: #747474;
       --white: #FFFFFF;
@@ -36,1243 +36,315 @@
     /* ── HEADER ── */
     header {
       position: fixed;
-      top: 27px;
-      left: 29px;
-      right: 29px;
+      top: 27px; left: 29px; right: 29px;
       z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       pointer-events: none;
     }
     header > * { pointer-events: auto; }
-
     .nav-pill {
-      display: flex;
-      align-items: center;
-      gap: 2px;
+      display: flex; align-items: center; gap: 2px;
       background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 25px;
-      padding: 8px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-radius: 25px; padding: 8px;
     }
     .nav-pill a {
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      padding: 10px 18px;
-      border-radius: 25px;
-      transition: background 0.18s;
-      white-space: nowrap;
-      color: var(--text);
+      font-size: 16px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.04em; padding: 10px 18px; border-radius: 25px;
+      transition: background 0.18s; white-space: nowrap; color: var(--text);
     }
     .nav-pill a.active { background: var(--lime); }
     .nav-pill a:hover:not(.active) { background: rgba(0,0,0,0.07); }
-    .nav-pill a:focus { outline: none; }
-
-    .nav-logo-ys {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-    }
-    .nav-logo-ys img { display: block; width: 40px; height: auto; }
-
+    .nav-logo-ys { position: absolute; left: 50%; transform: translateX(-50%); display: none; }
+    .nav-logo-ys img { display: block; width: 38px; height: auto; }
     .nav-right { display: flex; align-items: center; gap: 12px; }
-
     .btn-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--lime);
-      border-radius: 25px;
-      padding: 18px 28px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      transition: opacity 0.18s;
+      display: inline-flex; align-items: center; gap: 14px;
+      background: var(--lime); border-radius: 25px; padding: 18px 28px;
+      font-size: 16px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--text); transition: opacity 0.18s;
     }
     .btn-cta:hover { opacity: 0.88; }
-    .btn-cta .ico { font-size: 15px; }
-
     .burger {
-      width: 55px; height: 55px;
-      border-radius: 50%;
+      width: 55px; height: 55px; border-radius: 50%;
       border: 1.5px solid rgba(0,0,0,0.18);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 5px; cursor: pointer; background: none;
     }
-    .burger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--text); border-radius: 2px;
+    .burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── Shared section bits ── */
+    .page-ind { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .p-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); flex-shrink: 0; }
+    .p-label { font-size: 15px; font-weight: 400; letter-spacing: 0.04em; }
+    .p-label .p-num { color: var(--muted); }
+    .p-label b { font-weight: 700; }
+    .big-h {
+      font-family: 'Unbounded', sans-serif; font-size: 44px; font-weight: 700;
+      text-transform: uppercase; line-height: 1.22; letter-spacing: 0.4px; margin-bottom: 28px;
     }
+    .y-line { width: 49px; height: 5px; background: var(--lime); border-radius: 3px; margin-bottom: 24px; }
+    .body-txt { font-size: 18px; font-weight: 600; line-height: 1.5; color: var(--text); }
+    section { padding: 0 48px; }
 
     /* ── HERO ── */
     .hero {
       display: grid;
-      grid-template-columns: 441px 1fr 376px;
-      min-height: max(100vh, 1077px);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero-left {
-      position: relative;
-      z-index: 3;
-      padding: 354px 0 0 48px;
-    }
-
-    .hero-tagline {
-      font-size: 16px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--text);
-      margin-bottom: 28px;
-    }
-
-    .logo-wrap { margin-bottom: 52px; }
-
-    .logo-img-ygrik {
-      display: block;
-      width: 443px;
-      height: 98px;
-      max-width: none;
-    }
-    .logo-studio-row {
-      display: flex;
+      grid-template-columns: 440px 1fr 400px;
       align-items: center;
-      gap: 10px;
-      margin-top: 6px;
+      gap: 24px;
+      min-height: 100vh;
+      padding-top: 120px;
+      padding-bottom: 60px;
     }
-    .logo-dot {
-      width: 14px; height: 14px;
-      background: var(--lime);
-      border-radius: 50%;
-      flex-shrink: 0;
+    .hero-tagline { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 20px; }
+    .hero-logo {
+      font-family: 'Unbounded', sans-serif; font-weight: 700;
+      font-size: 56px; line-height: 1.05; text-transform: uppercase;
+      letter-spacing: -1px; margin-bottom: 28px;
     }
-    .logo-img-studio {
-      display: block;
-      width: 391px;
-      height: 57px;
-      max-width: none;
-    }
-
-    .hero-desc {
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 1.6;
-      letter-spacing: 0.32px;
-      color: var(--text);
-      max-width: 264px;
-    }
-
-    .hero-explore {
-      position: absolute;
-      bottom: 68px;
-      left: 48px;
-    }
-    .explore-label {
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 14px;
-    }
+    .hero-logo .dot-lime { color: var(--lime); }
+    .hero-desc { font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--text); max-width: 300px; margin-bottom: 56px; }
+    .explore-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; color: var(--muted); }
     .explore-btn {
-      width: 55px; height: 55px;
-      background: var(--lime);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; color: var(--text);
-      text-decoration: none;
+      width: 52px; height: 52px; background: var(--lime); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; color: var(--text);
       transition: transform 0.2s;
     }
     .explore-btn:hover { transform: translateY(3px); }
 
-    /* Mascot center */
-    .hero-center {
-      position: relative;
+    .hero-center { position: relative; display: flex; justify-content: center; }
+    .mascot-glow { position: relative; width: 100%; max-width: 420px; }
+    .mascot-glow::after {
+      content: ''; position: absolute; top: 6%; left: 18%; right: 2%; bottom: 0;
+      border: 8px solid var(--lime); border-radius: 4px;
+      filter: blur(7px); opacity: 0.9; pointer-events: none; z-index: 0;
     }
-    .mascot-box {
-      position: absolute;
-      top: 0;
-      left: -189px;
-      width: 953px;
-      height: 1077px;
-      overflow: visible;
-      background: transparent;
-    }
-    .mascot-box::after {
-      content: '';
-      position: absolute;
-      top: 27px;
-      left: 256px;
-      right: 64px;
-      bottom: 0;
-      border: 10px solid var(--lime);
-      filter: blur(9px);
-      pointer-events: none;
-      z-index: 2;
-    }
-    .mascot-box img {
-      width: 953px;
-      height: 1077px;
-      max-width: none;
-      display: block;
-      position: relative;
-      z-index: 3;
-    }
+    .mascot-glow img { position: relative; z-index: 1; width: 100%; height: auto; }
 
-    /* Hero right cards */
-    .hero-right {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-      padding: 202px 103px 27px 0px;
-    }
+    .hero-list { display: flex; flex-direction: column; }
+    .hf-item { padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.12); }
+    .hf-item:last-child { border-bottom: none; }
+    .hf-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .hf-title { font-size: 19px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 6px; }
+    .hf-desc { font-size: 14px; font-weight: 500; color: var(--muted); }
+    .hf-num { font-family: 'Unbounded', sans-serif; font-size: 26px; font-weight: 700; color: rgba(28,28,28,0.14); flex-shrink: 0; }
 
-    .hcard {
-      height: 307px;
-      background: #313131;
-      border-radius: 25px;
-      padding: 42px 0 0 29px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .hcard:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
-    .hcard-dot {
-      position: absolute; top: 21px; right: 22px;
-      width: 12px; height: 12px;
-      border-radius: 50%; background: var(--lime);
-    }
-    .hcard-title {
-      font-size: 24px; font-weight: 800;
-      text-transform: uppercase;
-      color: var(--lime);
-      display: block; margin-bottom: 14px;
-    }
-    .hcard-text {
-      font-size: 20px; font-weight: 500;
-      color: var(--white); line-height: 1.4;
-      max-width: 120px; margin-bottom: 17px;
-    }
-    .hcard-arrow { color: var(--lime); font-size: 22px; }
-    .hcard-mascot {
-      position: absolute;
-      right: 0; bottom: 0;
-      max-width: none;
-      display: block;
-      border-radius: 0 0 25px 0;
-      opacity: 0.85;
-    }
-    .hcard:first-child .hcard-mascot { width: 180px; height: 252px; right: 0; bottom: 0; }
-    .hcard:last-child  .hcard-mascot { width: 204px; height: 242px; right: 0; bottom: 0; }
+    /* ── TRUST BAR ── */
+    .s-trust { padding: 40px 48px 64px; }
+    .trust-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 22px; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 32px 44px; }
+    .trust-row span { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; color: var(--text); }
 
-    /* ── SECTION 2: STUDIO ── */
-    .s-studio {
-      min-height: 1077px;
-      position: relative;
-      overflow: hidden;
+    /* ── CASES TEASER ── */
+    .s-cases-teaser {
+      display: grid; grid-template-columns: 560px 1fr; gap: 40px;
+      padding-top: 60px; padding-bottom: 100px;
     }
-    .studio-text {
-      padding: 199px 0 0 48px;
-      position: relative;
-      z-index: 2;
-      max-width: 729px;
-    }
-
-    .page-ind {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 48px;
-    }
-    .studio-text .page-ind {
-      margin-bottom: 37px;
-    }
-    .p-dot {
-      width: 14px; height: 14px;
-      border-radius: 50%; background: var(--lime); flex-shrink: 0;
-    }
-    .p-label {
-      font-size: 15px; font-weight: 400;
-      letter-spacing: 0.04em;
-    }
-    .p-label .p-num { color: var(--muted); }
-    .p-label b { font-weight: 700; }
-
-    .big-h {
-      font-family: 'Unbounded', sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1.34;
-      letter-spacing: 0.96px;
-      margin-bottom: 36px;
-    }
-    .y-line {
-      width: 49px; height: 5px;
-      background: var(--lime); border-radius: 3px;
-      margin-bottom: 30px;
-    }
-    .body-txt {
-      font-size: 20px; font-weight: 600;
-      line-height: 27px; color: var(--text);
-      max-width: 363px;
-    }
-
-    .studio-mascot-side {
-      position: absolute;
-      top: 42px;
-      right: 0;
-      width: 928px;
-      height: 1035px;
-      overflow: hidden;
-    }
-    .studio-mascot-side img {
-      width: 100%; height: 100%; object-fit: cover; object-position: top center;
-    }
-
-    /* Service cards strip */
-    .svc-strip {
-      position: absolute;
-      top: 767px;
-      left: 48px;
-      display: grid;
-      grid-template-columns: repeat(4, 188px);
-      gap: 20px;
-      z-index: 2;
-    }
-    .svc {
-      border-radius: 25px;
-      padding: 31px 19px 18px;
-      height: 213px;
-      display: flex; flex-direction: column;
-      transition: transform 0.2s;
-    }
-    .svc:hover { transform: translateY(-3px); }
-    .svc.lime { background: var(--lime); }
-    .svc.dark { background: var(--dark); color: var(--white); }
-
-    .svc-title {
-      font-size: 20px; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.02em;
-      line-height: 27px;
-      margin-bottom: 16px;
-    }
-    .svc.lime .svc-title { color: var(--text); }
-    .svc.dark .svc-title { color: var(--white); }
-
-    .svc-title-flex {
-      display: flex; align-items: baseline; gap: 6px;
-      margin-bottom: 16px;
-    }
-    .svc-t-bold { font-size: 20px; font-weight: 600; text-transform: uppercase; line-height: 27px; }
-    .svc-t-reg  { font-size: 13px; font-weight: 600; line-height: 27px; }
-    .svc.dark .svc-t-bold, .svc.dark .svc-t-reg { color: var(--white); }
-    .svc.lime .svc-t-bold, .svc.lime .svc-t-reg { color: var(--text); }
-
-    .svc-desc {
-      font-size: 13px; font-weight: 400; line-height: 17px; flex: 1; margin-bottom: 18px;
-    }
-    .svc.lime .svc-desc { color: var(--text); }
-    .svc.dark .svc-desc { color: rgba(255,255,255,0.75); }
-
-    .svc-btn {
-      display: inline-flex; align-items: center; justify-content: space-between;
-      border-radius: 25px;
-      padding: 2px 16px 3px 19px;
-      width: 130px;
-      font-family: 'Inter', sans-serif;
-      font-size: 10px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.04em;
-      align-self: flex-start;
-      line-height: 27px;
-      transition: opacity 0.18s;
-    }
-    .svc-btn:hover { opacity: 0.8; }
-    .svc.lime .svc-btn { background: var(--white); color: var(--text); }
-    .svc.dark .svc-btn { background: var(--lime); color: var(--text); }
-
-    /* ── SECTION 3: PORTFOLIO ── */
-    .s-portfolio {
-      min-height: 1071px;
-      display: grid;
-      grid-template-columns: 609px 1fr;
-      background: var(--bg);
-      overflow: hidden;
-      position: relative;
-    }
-    .portfolio-l {
-      padding: 199px 0 0 48px;
-      display: flex; flex-direction: column;
-    }
-    .portfolio-l .page-ind { margin-bottom: 37px; }
-    .portfolio-l .big-h {
-      font-size: 40px;
-      letter-spacing: 0.8px;
-      margin-bottom: 41px;
-      max-width: 535px;
-    }
-    .portfolio-l .y-line { margin-bottom: 30px; }
-    .portfolio-h {}
-
+    .cases-l { display: flex; flex-direction: column; align-items: flex-start; }
+    .cases-l .big-h { max-width: 520px; }
+    .cases-l .body-txt { max-width: 440px; margin-bottom: 36px; }
     .btn-all-cases {
-      display: inline-flex; align-items: center; gap: 16px;
-      background: var(--lime); border-radius: 25px;
-      padding: 0 32px;
-      width: 292px; height: 55px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.04em;
-      color: var(--text);
-      position: absolute;
-      top: 732px;
-      left: 48px;
-      z-index: 2;
-      transition: opacity 0.18s;
+      display: inline-flex; align-items: center; gap: 14px;
+      background: var(--lime); border-radius: 25px; padding: 0 30px; height: 55px;
+      font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--text); transition: opacity 0.18s;
     }
     .btn-all-cases:hover { opacity: 0.88; }
+    .cases-grid {
+      display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr;
+      gap: 18px;
+    }
+    .ccard { border-radius: 25px; overflow: hidden; position: relative; background: var(--dark); transition: transform 0.2s, box-shadow 0.2s; min-height: 260px; }
+    .ccard:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+    .ccard.tall { grid-row: 1 / 3; }
+    .ccard img { width: 100%; height: 100%; object-fit: cover; }
+    .ccard-info { position: absolute; top: 0; left: 0; padding: 16px 20px; background: rgba(28,28,28,0.82); border-radius: 0 0 25px 0; }
+    .ccard-num { font-size: 20px; font-weight: 800; color: var(--lime); display: block; line-height: 1.3; }
+    .ccard-name { font-size: 20px; font-weight: 700; text-transform: uppercase; color: var(--white); display: block; line-height: 1.3; }
+    .ccard-type { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); }
 
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: 513px 430px;
-      grid-template-rows: 439px 445px;
-      gap: 18px 19px;
-      padding-top: 142px;
-      padding-right: 48px;
-    }
+    /* ── DIRECTIONS ── */
+    .s-directions { display: grid; grid-template-columns: 1fr 620px; gap: 40px; padding-top: 60px; padding-bottom: 100px; align-items: start; }
+    .dir-l .big-h { max-width: 640px; }
+    .dir-l .body-txt { max-width: 480px; margin-bottom: 40px; }
+    .dir-cards { display: flex; gap: 18px; flex-wrap: wrap; }
+    .dir-card { border-radius: 20px; padding: 24px 22px; width: 220px; min-height: 190px; }
+    .dir-card.lime { background: var(--lime); color: var(--text); }
+    .dir-card.dark { background: var(--dark); color: var(--white); }
+    .dir-card-title { font-size: 16px; font-weight: 800; text-transform: uppercase; margin-bottom: 16px; line-height: 1.3; }
+    .dir-card li { font-size: 14px; font-weight: 600; line-height: 1.9; }
+    .dir-mascot { border-radius: 25px; overflow: hidden; align-self: stretch; }
+    .dir-mascot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; min-height: 520px; }
 
-    .pcard {
-      border-radius: 25px;
-      overflow: hidden;
-      position: relative;
-      background: var(--dark);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .pcard:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
-    .pcard.tall { grid-row: 1 / 3; }
+    /* ── PROCESS ── */
+    .s-process { padding-top: 60px; padding-bottom: 60px; }
+    .process-top { display: grid; grid-template-columns: 560px 1fr; gap: 40px; margin-bottom: 56px; }
+    .process-h { font-family: 'Unbounded', sans-serif; font-size: 40px; font-weight: 700; text-transform: uppercase; line-height: 1.25; letter-spacing: 0.4px; margin: 0; }
+    .process-timeline { padding-top: 6px; }
+    .steps-nums, .steps-track, .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .steps-nums { margin-bottom: 7px; }
+    .st-num { font-size: 18px; font-weight: 700; color: var(--text); }
+    .steps-track { position: relative; margin-bottom: 14px; }
+    .steps-track::before { content: ''; position: absolute; top: 50%; left: 10px; right: 10px; height: 2px; background: var(--text); transform: translateY(-50%); z-index: 0; }
+    .st-circle { width: 21px; height: 21px; border-radius: 50%; background: var(--lime); position: relative; z-index: 1; }
+    .step-title { font-size: 15px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+    .step-desc { font-size: 13px; font-weight: 500; line-height: 1.6; color: var(--muted); max-width: 190px; }
 
-    .pcard img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-    .pcard-ph { width: 100%; height: 100%; }
-    .ph-agro   { background: linear-gradient(170deg,#e8f5e0 0%,#b8d4a0 40%,#6a8a40 100%); }
-    .ph-med    { background: linear-gradient(160deg,#0d1f3c 0%,#1a3a6b 50%,#2563a8 100%); }
-    .ph-kosto  { background: linear-gradient(160deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%); }
-
-    .pcard-info {
-      position: absolute; top: 0; left: 0;
-      padding: 16px 20px;
-      width: 272px; height: 113px;
-      background: rgba(28,28,28,0.85);
-      border-radius: 0 0 25px 0;
-    }
-    .pcard-num {
-      font-size: 24px; font-weight: 800;
-      color: var(--lime); display: block;
-      line-height: 27px;
-    }
-    .pcard-name {
-      font-size: 24px; font-weight: 600;
-      text-transform: uppercase; color: var(--white);
-      display: block; line-height: 27px;
-    }
-    .pcard-type {
-      font-size: 14px; font-weight: 600;
-      color: var(--white); line-height: 27px;
-    }
-
-    /* ── SECTION 4: PROCESS ── */
-    .s-process {
-      position: relative;
-      height: 1134px;
-      background: var(--bg);
-      overflow: hidden;
-    }
-    .s-process > .page-ind {
-      position: absolute;
-      top: 149px;
-      left: 47px;
-    }
-    .process-h {
-      position: absolute;
-      top: 204px;
-      left: 47px;
-      width: 562px;
-      font-family: 'Unbounded', sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1.34;
-      letter-spacing: 0.8px;
-      color: var(--text);
-      margin: 0;
-    }
-    .process-timeline {
-      position: absolute;
-      top: 190px;
-      left: 726px;
-      width: 793px;
-    }
-    .steps-nums {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      margin-bottom: 7px;
-    }
-    .st-num {
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 27px;
-      color: var(--text);
-    }
-    .steps-track {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      position: relative;
-      margin-bottom: 12px;
-    }
-    .steps-track::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 11.5px;
-      right: 11.5px;
-      height: 2px;
-      background: var(--text);
-      transform: translateY(-50%);
-      z-index: 0;
-    }
-    .st-circle {
-      width: 23px;
-      height: 23px;
-      border-radius: 50%;
-      background: var(--lime);
-      position: relative;
-      z-index: 1;
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .step-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      text-transform: uppercase;
-      line-height: 27px;
-      color: var(--text);
-    }
-    .step-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      line-height: 20px;
-      color: var(--text);
-      max-width: 185px;
-      margin: 0;
-    }
-
-    /* CTA dark block */
-    .cta-block {
-      position: absolute;
-      top: 511px;
-      left: 47px;
-      width: 1523px;
-      height: 586px;
-      background: var(--dark);
-      border-radius: 25px;
-      overflow: hidden;
-    }
-    .cta-h {
-      position: absolute;
-      top: 56px;
-      left: 44px;
-      width: 804px;
-      font-family: 'Unbounded', sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1.34;
-      letter-spacing: 0.8px;
-      color: var(--white);
-      margin: 0;
-    }
+    .cta-block { background: var(--dark); border-radius: 25px; padding: 48px 44px; display: grid; grid-template-columns: 1fr 440px; align-items: center; overflow: hidden; gap: 24px; min-height: 360px; }
+    .cta-h { font-family: 'Unbounded', sans-serif; font-size: 36px; font-weight: 700; text-transform: uppercase; line-height: 1.3; letter-spacing: 0.4px; color: var(--white); margin-bottom: 20px; max-width: 560px; }
     .cta-h .ys { color: var(--lime); }
-    .cta-line {
-      position: absolute;
-      top: 201px;
-      left: 44px;
-      width: 49px;
-      height: 5px;
-      background: var(--lime);
-      border-radius: 2px;
-    }
-    .cta-desc {
-      position: absolute;
-      top: 237px;
-      left: 44px;
-      width: 350px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 27px;
-      color: rgba(255, 255, 255, 0.65);
-      margin: 0;
-    }
-    .cta-btns {
-      position: absolute;
-      top: 397px;
-      left: 44px;
-      display: flex;
-      gap: 33px;
-    }
-    .cta-btn-prim {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 337px;
-      height: 70px;
-      background: var(--lime);
-      border-radius: 25px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      border: none;
-      cursor: pointer;
-      transition: opacity 0.18s;
-    }
-    .cta-btn-prim:hover { opacity: 0.88; }
+    .cta-desc { font-size: 15px; font-weight: 400; line-height: 1.7; color: rgba(255,255,255,0.65); max-width: 360px; margin-bottom: 32px; }
     .cta-btn-sec {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 337px;
-      height: 70px;
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.6);
-      border-radius: 25px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      cursor: pointer;
-      transition: background 0.18s, border-color 0.18s;
+      display: inline-flex; align-items: center; gap: 12px; height: 60px; padding: 0 30px;
+      background: transparent; border: 2px solid var(--lime); border-radius: 25px;
+      font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--white); transition: background 0.18s;
     }
-    .cta-btn-sec:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.9); }
-    .cta-mascot {
-      position: absolute;
-      top: 409px;
-      left: 973px;
-      width: 597px;
-      height: 688px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .cta-mascot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
+    .cta-btn-sec:hover { background: rgba(214,255,0,0.1); }
+    .cta-mascot { border-radius: 20px; overflow: hidden; align-self: stretch; min-height: 300px; }
+    .cta-mascot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
-    /* ── FORM SECTION ── */
     /* ── FORM ── */
-    .s-form {
-      position: relative;
-      height: 401px;
-      background: #D1FF00;
-      overflow: hidden;
-    }
-    .form-big {
-      position: absolute;
-      top: 39px;
-      left: 91px;
-      width: 590px;
-      font-family: 'Unbounded', sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 1.34;
-      letter-spacing: 0.8px;
-      color: #313131;
-      margin: 0;
-    }
-    .form-sub {
-      position: absolute;
-      top: 153px;
-      left: 91px;
-      width: 289px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      color: #313131;
-      margin: 0;
-    }
-    .form-wrap {
-      position: absolute;
-      top: 227px;
-      left: 91px;
-      display: flex;
-      flex-direction: column;
-      gap: 13px;
-    }
-    .form-input {
-      width: 590px;
-      height: 50px;
-      background: transparent;
-      border: 1.5px solid #313131;
-      border-radius: 35px;
-      padding: 0 30px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      color: #313131;
-      outline: none;
-    }
+    .s-form { background: var(--lime); border-radius: 0; padding: 56px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 80px; }
+    .form-col-left { border-right: 1px solid rgba(49,49,49,0.2); padding-right: 40px; }
+    .form-col-right { padding-left: 4px; }
+    .form-big { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--dark); margin-bottom: 14px; }
+    .form-sub { font-size: 15px; font-weight: 500; line-height: 1.5; color: var(--dark); margin-bottom: 24px; max-width: 380px; }
+    .form-wrap { display: flex; gap: 13px; flex-wrap: wrap; }
+    .form-input { flex: 1; min-width: 220px; height: 50px; background: transparent; border: 1.5px solid #313131; border-radius: 35px; padding: 0 26px; font-size: 16px; font-weight: 500; color: #313131; outline: none; }
     .form-input::placeholder { color: rgba(49,49,49,0.45); }
-    .form-input:focus { border-color: #313131; }
-    .form-submit {
-      width: 256px;
-      height: 50px;
-      background: #313131;
-      color: #FFFFFF;
-      border-radius: 25px;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .form-call-title {
-      position: absolute;
-      top: 39px;
-      left: 1061px;
-      width: 399px;
-      font-family: 'Unbounded', sans-serif;
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 1.34;
-      letter-spacing: 0.8px;
-      color: #313131;
-      margin: 0;
-    }
-    .form-phone-num {
-      position: absolute;
-      top: 238px;
-      left: 1061px;
-      font-family: 'Inter', sans-serif;
-      font-size: 36px;
-      font-weight: 600;
-      line-height: 1.2;
-      color: #313131;
-      margin: 0;
-    }
+    .form-submit { height: 50px; padding: 0 30px; background: #313131; color: #FFFFFF; border-radius: 25px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-call-title { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--dark); margin-bottom: 24px; }
+    .form-contacts li { font-size: 17px; font-weight: 600; color: var(--dark); line-height: 2; }
+    .form-success { display: none; flex-direction: column; gap: 8px; }
+    .form-success.show { display: flex; }
+    .form-success-title { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.3; color: var(--dark); text-transform: uppercase; }
+    .form-success-sub { font-size: 16px; font-weight: 500; color: var(--dark); }
+    .form-wrap.hide { display: none; }
 
     /* ── FOOTER ── */
-    footer {
-      position: relative;
-      height: 321px;
-      background: #313131;
-      color: #FFFFFF;
-      overflow: hidden;
-    }
-    .f-brand {
-      position: absolute;
-      top: 44px;
-      left: 48px;
-      width: 212px;
-    }
-    .f-ys-mark { margin-bottom: 14px; }
-    .f-brand-desc {
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 20px;
-      color: rgba(255,255,255,0.6);
-      width: 212px;
-    }
-    .f-col {
-      position: absolute;
-      top: 44px;
-    }
-    .f-nav-col  { left: 466px; }
-    .f-svc-col  { left: 711px; }
-    .f-contacts-col { left: 1004px; }
-    .f-col-head {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 20px;
-      color: #FFFFFF;
-      margin: 0 0 22px;
-    }
-    .f-links { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .f-links a {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      text-transform: uppercase;
-      line-height: 20px;
-      color: rgba(255,255,255,0.7);
-      transition: color 0.18s;
-    }
-    .f-links a:hover { color: #FFFFFF; }
-    .f-contacts { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .f-contacts li {
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 20px;
-      color: rgba(255,255,255,0.7);
-    }
+    footer { background: var(--dark); color: var(--white); padding: 48px 48px 24px; margin-top: 0; }
+    .f-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.3fr auto; gap: 24px; margin-bottom: 40px; }
+    .f-brand-desc { font-size: 14px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 220px; margin-top: 14px; }
+    .f-col-head { font-size: 15px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #fff; }
+    .f-links { display: flex; flex-direction: column; gap: 14px; }
+    .f-links a { font-size: 15px; font-weight: 600; text-transform: uppercase; color: rgba(255,255,255,0.7); transition: color 0.18s; }
+    .f-links a:hover { color: #fff; }
+    .f-contacts { display: flex; flex-direction: column; gap: 14px; }
+    .f-contacts li { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); }
     .btn-cta-footer {
-      position: absolute;
-      top: 44px;
-      left: 1303px;
-      width: 268px;
-      height: 55px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      background: #D1FF00;
-      border-radius: 25px;
-      border: none;
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #313131;
-      cursor: pointer;
-      transition: opacity 0.18s;
+      align-self: start; display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+      background: var(--lime); border-radius: 25px; padding: 0 26px; height: 55px;
+      font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text);
+      transition: opacity 0.18s; white-space: nowrap;
     }
     .btn-cta-footer:hover { opacity: 0.88; }
-    .f-divider {
-      position: absolute;
-      top: 255px;
-      left: 48px;
-      right: 48px;
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      margin: 0;
-    }
-    .footer-bottom {
-      position: absolute;
-      top: 255px;
-      left: 48px;
-      right: 48px;
-      height: 66px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .f-copy {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-family: 'Manrope', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: #848484;
-      letter-spacing: -0.45px;
-    }
-    .f-copy-sym { display: inline-flex; align-items: center; }
-    .f-legal { display: flex; gap: 30px; }
-    .f-legal a {
-      font-family: 'Manrope', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: #848484;
-      letter-spacing: -0.45px;
-      transition: color 0.18s;
-    }
+    .f-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0 0 20px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .f-copy { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #848484; }
+    .f-legal { display: flex; gap: 28px; }
+    .f-legal a { font-size: 14px; font-weight: 600; color: #848484; transition: color 0.18s; }
     .f-legal a:hover { color: rgba(255,255,255,0.65); }
 
-    /* ── LUCIDE ICONS ── */
+    /* ── ICONS ── */
     [data-lucide] { display: inline-block; vertical-align: middle; width: 16px; height: 16px; }
-    .explore-btn [data-lucide]          { width: 22px; height: 22px; }
-    .cta-btn-sec [data-lucide]          { width: 20px; height: 20px; }
-    .f-copy-sym [data-lucide]           { width: 15px; height: 15px; color: #848484; }
+    .explore-btn [data-lucide] { width: 20px; height: 20px; }
+    .cta-btn-sec [data-lucide] { width: 18px; height: 18px; }
+    .f-copy-sym [data-lucide] { width: 14px; height: 14px; color: #848484; }
+    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; width: 15px; height: auto; }
 
-    /* ── SVG ARROWS ── */
-    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; }
-    .btn-cta .btn-arrow,
-    .btn-all-cases .btn-arrow,
-    .cta-btn-prim .btn-arrow,
-    .btn-cta-footer .btn-arrow         { width: 16px; height: auto; }
-    .svc-btn .btn-arrow                { width: 11px; height: auto; }
-    .hcard-arrow img                   { display: block; width: 30px; height: auto; }
-
-    /* ════════════════════════════════════════════════════════
-       RESPONSIVE BREAKPOINTS
-    ════════════════════════════════════════════════════════ */
-
-    /* ── Широкие мониторы ≥1920px ── */
+    /* ════════ RESPONSIVE ════════ */
     @media (min-width: 1920px) {
-      .hero, .s-studio, .s-portfolio, .s-process, .s-form, footer {
-        max-width: 1920px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    /* ── Малый десктоп 1280–1619px ── */
-    @media (max-width: 1619px) {
-      .hero { grid-template-columns: 400px 1fr 350px; }
-      .hero-left { padding-left: 36px; }
-      .hero-explore { left: 36px; }
-      .hero-right { padding: 202px 36px 27px 0; }
-      .mascot-box { left: -80px; width: 820px; height: 924px; }
-      .mascot-box img { width: 820px; height: 924px; }
-      .logo-img-ygrik { width: 380px; }
-      .logo-img-studio { width: 340px; }
-      .svc-strip { left: 36px; grid-template-columns: repeat(4, 172px); }
-      .studio-mascot-side { width: 800px; }
-      .portfolio-l { padding-left: 36px; }
-      .btn-all-cases { left: 36px; }
-      .portfolio-grid { grid-template-columns: 480px 1fr; padding-right: 36px; }
-      .s-process > .page-ind { left: 36px; }
-      .process-h { left: 36px; }
-      .process-timeline { left: 660px; width: 780px; }
-      .cta-block { left: 36px; width: calc(100% - 72px); }
-      .cta-mascot { left: 930px; }
-      .f-nav-col  { left: 420px; }
-      .f-svc-col  { left: 650px; }
-      .f-contacts-col { left: 920px; }
-      .btn-cta-footer { left: 1180px; }
+      header, section, footer { max-width: 1920px; margin-left: auto; margin-right: auto; }
+      header { left: 50%; right: auto; transform: translateX(-50%); width: 1862px; }
     }
 
     @media (max-width: 1400px) {
-      .hero { grid-template-columns: 360px 1fr 320px; }
-      .hero-left { padding: 300px 0 0 28px; padding-bottom: 100px; }
-      .hero-explore { left: 28px; }
-      .hero-right { padding: 180px 28px 27px 0; gap: 36px; }
-      .hcard { height: 270px; }
-      .mascot-box { left: -50px; width: 740px; height: 835px; }
-      .mascot-box img { width: 740px; height: 835px; }
-      .logo-img-ygrik { width: 340px; }
-      .logo-img-studio { width: 300px; }
-      .svc-strip { grid-template-columns: repeat(4, 155px); gap: 14px; }
-      .studio-mascot-side { width: 700px; }
-      .s-portfolio { grid-template-columns: 520px 1fr; }
-      .portfolio-grid { grid-template-columns: 400px 320px; grid-template-rows: 400px 410px; }
-      .btn-all-cases { top: 690px; }
-      .process-h { width: 500px; }
-      .process-timeline { left: 580px; width: 720px; }
-      .cta-mascot { left: 840px; width: 530px; }
-      .f-nav-col  { left: 370px; }
-      .f-svc-col  { left: 580px; }
-      .f-contacts-col { left: 820px; }
-      .btn-cta-footer { left: 1060px; width: 250px; }
-      .form-big { left: 60px; }
-      .form-sub { left: 60px; }
-      .form-wrap { left: 60px; }
-      .form-input { width: 520px; }
-      .form-call-title { left: 860px; font-size: 32px; width: 320px; }
-      .form-phone-num { left: 860px; font-size: 30px; }
+      section, .s-trust, footer { padding-left: 32px; padding-right: 32px; }
+      .hero { grid-template-columns: 380px 1fr 340px; padding-top: 110px; }
+      .hero-logo { font-size: 46px; }
+      .s-cases-teaser { grid-template-columns: 1fr; }
+      .cases-grid { grid-auto-rows: 240px; }
+      .s-directions { grid-template-columns: 1fr; }
+      .dir-mascot { display: none; }
+      .process-top { grid-template-columns: 1fr; }
+      .cta-block { grid-template-columns: 1fr; }
+      .cta-mascot { display: none; }
     }
 
-    @media (max-width: 1280px) {
-      .hero { grid-template-columns: 320px 1fr 300px; }
-      .hero-left { padding: 260px 0 0 24px; padding-bottom: 80px; }
-      .hero-explore { left: 24px; bottom: 32px; }
-      .hero-right { padding: 160px 24px 27px 0; gap: 24px; }
-      .hcard { height: 250px; }
-      .mascot-box { left: -30px; width: 640px; height: 722px; }
-      .mascot-box img { width: 640px; height: 722px; }
-      .logo-img-ygrik { width: 300px; }
-      .logo-img-studio { width: 265px; }
-      .studio-text { padding-left: 24px; }
-      .svc-strip { left: 24px; grid-template-columns: repeat(4, 145px); gap: 12px; }
-      .svc { height: 205px; }
-      .studio-mascot-side { width: 580px; }
-      .s-portfolio { grid-template-columns: 440px 1fr; }
-      .portfolio-l { padding-left: 24px; }
-      .portfolio-grid { grid-template-columns: 360px 270px; padding-right: 24px; }
-      .btn-all-cases { left: 24px; top: 670px; }
-      .s-process > .page-ind { left: 24px; }
-      .process-h { left: 24px; width: 440px; }
-      .process-timeline { left: 480px; width: 700px; }
-      .cta-block { left: 24px; width: calc(100% - 48px); }
-      .cta-h { font-size: 34px; }
-      .cta-mascot { left: 780px; width: 460px; }
-      .f-brand { left: 24px; }
-      .f-nav-col  { left: 300px; }
-      .f-svc-col  { left: 490px; }
-      .f-contacts-col { left: 700px; }
-      .btn-cta-footer { left: 960px; width: 240px; }
-      .form-big { left: 40px; font-size: 32px; width: 520px; }
-      .form-sub { left: 40px; width: 240px; }
-      .form-wrap { left: 40px; }
-      .form-input { width: 520px; }
-      .form-call-title { left: 760px; font-size: 30px; width: 280px; }
-      .form-phone-num { left: 760px; font-size: 26px; }
-    }
-
-    /* ── Планшет горизонтальный 768–1024px ── */
     @media (max-width: 1024px) {
-
-      /* Header */
       header { top: 16px; left: 16px; right: 16px; }
       .nav-pill { display: none; }
       .nav-logo-ys { display: block !important; }
 
-      /* Hero */
-      .hero {
-        display: flex;
-        flex-direction: column;
-        min-height: auto;
-        padding-bottom: 60px;
-        overflow: visible;
-      }
-      .hero-center { display: none; }
-      .hero-left {
-        order: 1;
-        padding: 130px 32px 0;
-        position: static;
-      }
-      .hero-explore { position: static; margin-top: 28px; }
-      .hero-right {
-        order: 2;
-        padding: 32px 32px 0;
-        display: flex;
-        flex-direction: row;
-        gap: 16px;
-      }
-      .hcard { height: 220px; flex: 1; }
-      .hcard:first-child .hcard-mascot { width: 120px; height: 167px; }
-      .hcard:last-child  .hcard-mascot { width: 136px; height: 162px; }
-      .logo-img-ygrik { width: min(380px, 80vw); height: auto; max-width: none; }
-      .logo-img-studio { width: min(340px, 72vw); height: auto; max-width: none; }
-      .hero-desc { max-width: 100%; }
-      .hero-tagline { margin-bottom: 20px; }
-      .logo-wrap { margin-bottom: 32px; }
+      .hero { grid-template-columns: 1fr; padding-top: 130px; gap: 40px; text-align: left; }
+      .hero-center { order: -1; }
+      .mascot-glow { max-width: 280px; margin: 0 auto; }
+      .hero-list { max-width: 480px; }
 
-      /* Studio */
-      .s-studio { min-height: auto; overflow: visible; padding-bottom: 60px; }
-      .studio-mascot-side { display: none; }
-      .studio-text { padding: 80px 32px 0; max-width: 100%; }
-      .big-h { font-size: 32px; letter-spacing: 0.5px; }
-      .svc-strip {
-        position: static;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        margin: 40px 32px 0;
-      }
-      .svc { height: auto; min-height: 210px; width: auto; }
-      .svc-title { font-size: 18px; }
+      .s-trust { padding-top: 24px; padding-bottom: 40px; }
+      .trust-row { gap: 20px 28px; }
+      .trust-row span { font-size: 15px; }
 
-      /* Portfolio */
-      .s-portfolio { display: block; min-height: auto; }
-      .portfolio-l { padding: 60px 32px 0; }
-      .portfolio-l .big-h { max-width: 100%; font-size: 30px; }
-      .portfolio-l .body-txt { max-width: 100%; }
-      .btn-all-cases { position: static; margin: 24px 32px 0; width: auto; display: inline-flex; }
-      .portfolio-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 300px 300px;
-        gap: 16px;
-        padding: 40px 32px 60px;
-      }
-      .pcard.tall { grid-row: auto; }
+      .s-cases-teaser, .s-directions { padding-bottom: 60px; }
+      .cases-grid { grid-template-columns: 1fr 1fr; }
 
-      /* Process */
-      .s-process { height: auto; overflow: visible; padding: 60px 32px 0; }
-      .s-process > .page-ind { position: static; margin-bottom: 16px; }
-      .process-h { position: static; width: auto; font-size: 26px; margin-bottom: 40px; }
-      .process-timeline { position: static; width: 100%; overflow-x: auto; padding-bottom: 8px; }
-      .steps-nums, .steps-grid { gap: 0; }
-      .cta-block {
-        position: static;
-        width: 100%;
-        height: auto;
-        padding: 40px 32px 40px;
-        margin-top: 40px;
-        border-radius: 25px;
-      }
-      .cta-h { position: static; width: auto; font-size: 26px; padding: 0; margin-bottom: 8px; }
-      .cta-line { position: static; margin: 12px 0 16px; }
-      .cta-desc { position: static; width: auto; margin-bottom: 28px; }
-      .cta-btns { position: static; flex-wrap: wrap; gap: 14px; }
-      .cta-btn-prim, .cta-btn-sec { width: 260px; }
-      .cta-mascot { display: none; }
+      .dir-cards { flex-direction: column; }
+      .dir-card { width: 100%; }
 
-      /* Form */
-      .s-form {
-        height: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 40px;
-        row-gap: 0;
-        padding: 40px 32px;
-        overflow: visible;
-        align-items: start;
-      }
-      .form-big        { position: static; width: auto; font-size: 26px; grid-column: 1; grid-row: 1; margin-bottom: 14px; }
-      .form-sub        { position: static; width: auto; grid-column: 1; grid-row: 2; margin-bottom: 18px; line-height: 22px; }
-      .form-wrap       { position: static; grid-column: 1; grid-row: 3; gap: 12px; }
-      .form-input      { width: 100%; }
-      .form-submit     { width: 100%; }
-      .form-call-title { position: static; width: auto; font-size: 26px; grid-column: 2; grid-row: 1 / 3; align-self: center; }
-      .form-phone-num  { position: static; font-size: 28px; grid-column: 2; grid-row: 3; align-self: center; }
+      .steps-nums, .steps-track, .steps-grid { min-width: 560px; }
+      .process-timeline { overflow-x: auto; }
 
-      /* Footer */
-      footer {
-        height: auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-        align-items: start;
-        gap: 28px 24px;
-        padding: 40px 32px 24px;
-        overflow: visible;
-      }
-      .f-brand       { position: static; width: auto; grid-column: 1 / -1; }
-      .f-nav-col     { position: static; left: auto; top: auto; }
-      .f-svc-col     { position: static; left: auto; top: auto; }
-      .f-contacts-col{ position: static; left: auto; top: auto; }
-      .btn-cta-footer { position: static; left: auto; top: auto; width: auto; height: 55px; grid-column: 1 / -1; justify-self: start; }
-      .f-divider     { position: static; left: auto; right: auto; grid-column: 1 / -1; margin: 0; }
-      .footer-bottom { position: static; height: auto; grid-column: 1 / -1; flex-wrap: wrap; gap: 10px; padding: 8px 0; }
+      .s-form { grid-template-columns: 1fr; margin-top: 60px; padding: 40px 32px; }
+      .form-col-left { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(49,49,49,0.2); padding-bottom: 32px; margin-bottom: 32px; }
+
+      .f-top { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ── Планшет вертикальный 480–767px ── */
     @media (max-width: 767px) {
       header { top: 12px; left: 12px; right: 12px; }
-      .btn-cta { font-size: 13px; padding: 12px 18px; gap: 10px; }
+      .btn-cta { font-size: 12px; padding: 12px 18px; gap: 8px; }
+      section, .s-trust, footer { padding-left: 20px; padding-right: 20px; }
 
-      /* Hero */
-      .hero-left { padding: 110px 20px 0; }
-      .hero-explore { display: none; }
-      .hero-right { padding: 24px 20px 0; gap: 12px; flex-wrap: wrap; }
-      .hcard { height: 200px; min-width: calc(50% - 6px); flex: 1 1 calc(50% - 6px); }
-      .logo-img-ygrik { width: min(320px, 75vw); }
-      .logo-img-studio { width: min(285px, 68vw); }
-      .logo-wrap { margin-bottom: 24px; }
-      .hero-tagline { margin-bottom: 16px; }
-      .big-h { font-size: 26px; }
+      .hero { padding-top: 110px; padding-bottom: 40px; }
+      .hero-logo { font-size: 34px; }
+      .big-h { font-size: 28px; }
+      .process-h { font-size: 26px; }
+      .cta-h { font-size: 24px; }
 
-      /* Studio */
-      .studio-text { padding: 60px 20px 0; }
-      .svc-strip { margin: 32px 20px 0; gap: 12px; }
+      .cases-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+      .ccard.tall { grid-row: auto; }
 
-      /* Portfolio */
-      .portfolio-l { padding: 50px 20px 0; }
-      .btn-all-cases { margin: 20px 20px 0; }
-      .portfolio-grid { padding: 28px 20px 40px; gap: 12px; grid-template-rows: 260px 260px; }
-
-      /* Process */
-      .s-process { padding: 50px 20px 0; }
-      .process-h { font-size: 22px; }
-      .step-title { font-size: 13px; }
-      .step-desc  { font-size: 11px; line-height: 18px; }
-      .st-num { font-size: 16px; }
-
-      /* Form */
-      .s-form {
-        display: flex;
-        flex-direction: column;
-        padding: 36px 20px;
-        gap: 0;
-      }
-      .form-big        { font-size: 22px; margin-bottom: 12px; }
-      .form-sub        { margin-bottom: 16px; width: 100%; }
-      .form-wrap       { width: 100%; margin-bottom: 0; }
-      .form-input      { width: 100%; }
-      .form-submit     { width: 100%; }
-      .form-call-title { font-size: 22px; margin-top: 36px; margin-bottom: 12px; }
-      .form-phone-num  { font-size: 24px; }
-
-      /* Footer */
-      footer {
-        grid-template-columns: 1fr 1fr;
-        padding: 36px 20px 20px;
-        gap: 24px 20px;
-      }
-      .f-brand        { grid-column: 1 / -1; }
-      .btn-cta-footer { grid-column: 1 / -1; }
-      .f-divider      { grid-column: 1 / -1; }
-      .footer-bottom  { grid-column: 1 / -1; }
+      .f-top { grid-template-columns: 1fr; gap: 28px; }
+      .btn-cta-footer { justify-self: start; }
     }
 
-    /* ── Мобильный <480px ── */
     @media (max-width: 480px) {
-      .btn-cta { font-size: 11px; padding: 10px 14px; gap: 8px; }
-      .burger { width: 44px; height: 44px; }
-
-      /* Hero */
-      .hero-left { padding: 100px 16px 0; }
-      .hero-right { padding: 20px 16px 0; flex-direction: column; }
-      .hcard { height: 180px; flex: none; width: 100%; }
-      .logo-img-ygrik { width: min(270px, 80vw); }
-      .logo-img-studio { width: min(240px, 72vw); }
-
-      /* Studio */
-      .studio-text { padding: 50px 16px 0; }
-      .svc-strip { grid-template-columns: 1fr; margin: 24px 16px 0; }
-      .big-h { font-size: 22px; }
-      .body-txt { font-size: 16px; }
-
-      /* Portfolio */
-      .portfolio-l { padding: 40px 16px 0; }
-      .btn-all-cases { margin: 16px 16px 0; font-size: 12px; }
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        padding: 20px 16px 40px;
-        gap: 12px;
-      }
-      .pcard.tall, .pcard { height: 250px; }
-
-      /* Process */
-      .s-process { padding: 40px 16px 0; }
-      .process-h { font-size: 18px; margin-bottom: 28px; }
-      .process-timeline { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .steps-nums, .steps-track, .steps-grid { min-width: 600px; }
-      .cta-block { padding: 28px 20px; }
-      .cta-h { font-size: 20px; }
-      .cta-btns { flex-direction: column; }
-      .cta-btn-prim, .cta-btn-sec { width: 100%; }
-
-      /* Form */
-      .s-form { padding: 28px 16px; }
-      .form-big { font-size: 18px; }
-      .form-call-title { font-size: 18px; }
-      .form-phone-num  { font-size: 20px; }
-
-      /* Footer */
-      footer { grid-template-columns: 1fr; padding: 28px 16px 16px; gap: 20px; }
-      .f-contacts-col { grid-column: 1; }
+      .hero-logo { font-size: 28px; }
+      .hero-list .hf-title { font-size: 16px; }
+      .trust-row span { font-size: 13px; }
+      .form-wrap { flex-direction: column; }
+      .form-input, .form-submit { width: 100%; }
+      .dir-card { padding: 20px; }
     }
+
+    /* ── MOBILE MENU ── */
+    .burger span { transition: transform 0.2s, opacity 0.2s; }
+    .burger.open span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    .burger.open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+    .mobile-menu-overlay {
+      position: fixed; inset: 0; z-index: 150; background: var(--white);
+      display: none; flex-direction: column; padding: 120px 32px 40px; gap: 4px; overflow-y: auto;
+    }
+    .mobile-menu-overlay.open { display: flex; }
+    .mobile-menu-overlay a {
+      font-size: 26px; font-weight: 800; text-transform: uppercase;
+      padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); color: var(--text); display: block;
+    }
+    .mobile-menu-overlay a.active { color: var(--lime); }
+    .mobile-menu-cta-wrap { margin-top: 28px; }
+    .mobile-menu-cta-wrap .btn-cta { width: 100%; justify-content: center; }
   </style>
 </head>
 <body>
@@ -1283,16 +355,16 @@
     <a href="#start" class="active">СТАРТ</a>
     <a href="studio.html">СТУДИЯ</a>
     <a href="vozmozhnosti.html">ВОЗМОЖНОСТИ</a>
-    <a href="#done">СДЕЛАНО</a>
+    <a href="cases.html">СДЕЛАНО</a>
     <a href="#thoughts">МЫСЛИ</a>
   </nav>
 
   <div class="nav-logo-ys" id="navLogoYS">
-    <img src="image/Лого.png" alt="YGRIK.STUDIO">
+    <img src="image/логотип/метка-ys.png" alt="YGRIK.STUDIO">
   </div>
 
   <div class="nav-right">
-    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></button>
     <button class="burger"><span></span><span></span></button>
   </div>
 </header>
@@ -1300,247 +372,196 @@
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" id="start">
   <div class="hero-left">
-    <p class="hero-tagline">Дижитал агенство</p>
-
-    <div class="logo-wrap">
-      <img src="image/YGRIK.png" alt="YGRIK" class="logo-img-ygrik">
-      <div class="logo-studio-row">
-        <span class="logo-dot"></span>
-        <img src="image/STUDIO.png" alt="STUDIO" class="logo-img-studio">
-      </div>
-    </div>
-
-    <p class="hero-desc">Превращаем бизнес в бренд,&nbsp;который замечают, запоминают и&nbsp;выбирают.</p>
-
+    <p class="hero-tagline">Диджитал агенство</p>
+    <h1 class="hero-logo">YGRIK<span class="dot-lime">.</span>STUDIO</h1>
+    <p class="hero-desc">Превращаем бизнес в бренд, который замечают, запоминают и выбирают.</p>
     <div class="hero-explore">
       <p class="explore-label">Исследовать</p>
-      <a href="#studio" class="explore-btn"><i data-lucide="arrow-down"></i></a>
+      <a href="#cases-teaser" class="explore-btn"><i data-lucide="arrow-down"></i></a>
     </div>
   </div>
 
   <div class="hero-center">
-    <div class="mascot-box">
-      <img src="image/Маскот.png" alt="YGRIK mascot">
+    <div class="mascot-glow">
+      <img src="image/страницы/главная/маскот-герой.png" alt="YGRIK.STUDIO">
     </div>
   </div>
 
-  <div class="hero-right">
-    <a href="#done" class="hcard">
-      <span class="hcard-dot"></span>
-      <span class="hcard-title">КЕЙСЫ</span>
-      <p class="hcard-text">Смотреть проекты</p>
-      <span class="hcard-arrow"><img src="image/figma/Arrow 3.svg"></span>
-      <img src="image/Маскот (1).png" alt="" class="hcard-mascot">
-    </a>
-    <a href="#services" class="hcard">
-      <span class="hcard-dot"></span>
-      <span class="hcard-title">УСЛУГИ</span>
-      <p class="hcard-text">Что мы делаем</p>
-      <span class="hcard-arrow"><img src="image/figma/Arrow 3.svg"></span>
-      <img src="image/Маскот (2).png" alt="" class="hcard-mascot">
-    </a>
+  <div class="hero-list">
+    <div class="hf-item">
+      <div class="hf-row"><div><div class="hf-title">БРЕНДЫ</div><div class="hf-desc">которые выделяются</div></div><span class="hf-num">01</span></div>
+    </div>
+    <div class="hf-item">
+      <div class="hf-row"><div><div class="hf-title">DIGITAL-ПРОДУКТЫ</div><div class="hf-desc">которые решают задачи</div></div><span class="hf-num">02</span></div>
+    </div>
+    <div class="hf-item">
+      <div class="hf-row"><div><div class="hf-title">КОНТЕНТ</div><div class="hf-desc">который привлекает внимание</div></div><span class="hf-num">03</span></div>
+    </div>
+    <div class="hf-item">
+      <div class="hf-row"><div><div class="hf-title">WEB-РАЗРАБОТКА</div><div class="hf-desc">которая удерживает клиентов</div></div><span class="hf-num">04</span></div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════ STUDIO ══════════ -->
-<section class="s-studio" id="studio">
-  <div class="studio-text">
-    <div class="page-ind">
-      <span class="p-dot"></span>
-      <span class="p-label"><span class="p-num">02</span> / <b>СТУДИЯ</b></span>
+<!-- ══════════ TRUST BAR ══════════ -->
+<section class="s-trust">
+  <p class="trust-label">Нам доверяют</p>
+  <div class="trust-row">
+    <span>АГРОМАТРИЦА</span><span>МЕДИНТЕГРО</span><span>JUST</span><span>ALEFSTUDIO</span>
+    <span>КОСТОВЕТ</span><span>АТЕЛЬЕ ПЛИТКИ</span><span>AVS</span><span>РЕКОМЕД</span>
+  </div>
+</section>
+
+<!-- ══════════ CASES TEASER ══════════ -->
+<section class="s-cases-teaser" id="done">
+  <div class="cases-l">
+    <div class="page-ind"><span class="p-dot"></span><span class="p-label"><span class="p-num">02</span> / <b>СДЕЛАНО</b></span></div>
+    <h2 class="big-h">РЕАЛЬНЫЕ ПРОЕКТЫ. РЕАЛЬНЫЕ РЕЗУЛЬТАТЫ</h2>
+    <p class="body-txt">Помогаем бизнесу выглядеть сильнее, работать эффективнее и привлекать больше клиентов.</p>
+    <br>
+    <a href="cases.html" class="btn-all-cases">СМОТРЕТЬ ВСЕ КЕЙСЫ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
+  </div>
+
+  <div class="cases-grid">
+    <div class="ccard tall">
+      <img src="image/страницы/главная/кейс-агроматрица.png" alt="АгроМатрица">
+      <div class="ccard-info"><span class="ccard-num">01</span><span class="ccard-name">АГРОМАТРИЦА</span><span class="ccard-type">Брендинг, айдентика, сайт</span></div>
     </div>
-    <h2 class="big-h">НЕ ДЕЛАЕМ «ПРОСТО КРАСИВО». СТРОИМ БРЕНДЫ, КОТОРЫЕ РАБОТАЮТ.</h2>
+    <div class="ccard">
+      <img src="image/страницы/главная/кейс-мединтегро.png" alt="МедИнтегро">
+      <div class="ccard-info"><span class="ccard-num">02</span><span class="ccard-name">МЕДИНТЕГРО</span><span class="ccard-type">Контент, брендинг, сайт</span></div>
+    </div>
+    <div class="ccard">
+      <img src="image/страницы/главная/кейс-косто-вет.png" alt="KOSTO-VET">
+      <div class="ccard-info"><span class="ccard-num">03</span><span class="ccard-name">KOSTO-VET</span><span class="ccard-type">Брендинг, сайт</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DIRECTIONS ══════════ -->
+<section class="s-directions" id="opportunities">
+  <div class="dir-l">
+    <div class="page-ind"><span class="p-dot"></span><span class="p-label"><span class="p-num">03</span> / <b>НАПРАВЛЕНИЯ</b></span></div>
+    <h2 class="big-h">КОМПЛЕКСНЫЕ РЕШЕНИЯ ДЛЯ РАЗВИТИЯ ВАШЕГО БИЗНЕСА.</h2>
     <div class="y-line"></div>
-    <p class="body-txt">Стратегия, дизайн, сайты, контент и маркетинг — соединяем всё в одну систему вокруг бизнеса.</p>
-  </div>
-  <div class="studio-mascot-side">
-    <img src="image/Маскот (3).png" alt="">
-  </div>
-
-  <div class="svc-strip">
-    <div class="svc lime">
-      <div class="svc-title">КОНТЕНТ</div>
-      <p class="svc-desc">Продакшн который цепляет и вовлекает</p>
-      <button class="svc-btn">ХОЧУ ЭТО <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
-    </div>
-    <div class="svc dark">
-      <div class="svc-title">БРЕНДИНГ</div>
-      <p class="svc-desc">Создаём айдентику, которая выделяется и запоминается</p>
-      <button class="svc-btn">ИЛИ ЭТО <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
-    </div>
-    <div class="svc lime">
-      <div class="svc-title-flex">
-        <span class="svc-t-bold">WEB</span>
-        <span class="svc-t-reg">разработка</span>
+    <p class="body-txt">Объединяем креатив, технологии и маркетинг, чтобы все элементы Вашего бизнеса работали как единая система.</p>
+    <br>
+    <div class="dir-cards">
+      <div class="dir-card lime">
+        <div class="dir-card-title">БРЕНДИНГ И КОНТЕНТ</div>
+        <ul><li>Брендинг</li><li>Дизайн</li><li>Продакшн</li><li>СММ</li></ul>
       </div>
-      <p class="svc-desc">Делаем сайты и сервисы, которые решают задачи</p>
-      <button class="svc-btn">НЕТ, ЭТО <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
-    </div>
-    <div class="svc dark">
-      <div class="svc-title">МАРКЕТИНГ</div>
-      <p class="svc-desc">Запускаем стратегии, которые приводят к росту бизнеса</p>
-      <button class="svc-btn">БЕРУ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ PORTFOLIO ══════════ -->
-<section class="s-portfolio" id="done">
-  <div class="portfolio-l">
-    <div class="page-ind">
-      <span class="p-dot"></span>
-      <span class="p-label"><span class="p-num">03</span> / <b>СДЕЛАНО</b></span>
-    </div>
-    <div class="portfolio-h">
-      <h2 class="big-h">НЕ РАССКАЗЫВАЕМ КАК МОЖЕМ. ПОКАЗЫВАЕМ, ЧТО УЖЕ СДЕЛАЛИ.</h2>
-      <div class="y-line"></div>
-      <p class="body-txt">Стратегия, дизайн, сайты, контент и маркетинг — соединяем всё в одну систему вокруг бизнеса.</p>
-    </div>
-  </div>
-
-  <a href="cases.html" class="btn-all-cases">СМОТРЕТЬ ВСЕ КЕЙСЫ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></a>
-
-  <div class="portfolio-grid">
-    <div class="pcard tall">
-      <img src="image/Агроматрица.png" alt="АгроМатрица" style="width:100%;height:100%;object-fit:cover;">
-      <div class="pcard-info">
-        <span class="pcard-num">01</span>
-        <span class="pcard-name">АГРОМАТРИЦА</span>
-        <span class="pcard-type">Брендинг, айдентика, сайт</span>
+      <div class="dir-card dark">
+        <div class="dir-card-title">ДИЖИТАЛ ПРОДУКТ</div>
+        <ul><li>Сайты</li><li>Приложения</li><li>Сервисы</li><li>UX/UI</li></ul>
+      </div>
+      <div class="dir-card lime">
+        <div class="dir-card-title">МАРКЕТИНГ</div>
+        <ul><li>Аналитика</li><li>Маркетинг</li><li>Реклама</li></ul>
       </div>
     </div>
-    <div class="pcard">
-      <img src="image/МедИнтегро.png" alt="МедИнтегро" style="width:100%;height:100%;object-fit:cover;">
-      <div class="pcard-info">
-        <span class="pcard-num">02</span>
-        <span class="pcard-name">МЕДИНТЕГРО</span>
-        <span class="pcard-type">Контент, брендинг, сайт</span>
-      </div>
-    </div>
-    <div class="pcard">
-      <img src="image/КостоВет.png" alt="KOSTO-VET" style="width:100%;height:100%;object-fit:cover;">
-      <div class="pcard-info">
-        <span class="pcard-num">03</span>
-        <span class="pcard-name">KOSTO-VET</span>
-        <span class="pcard-type">Брендинг, сайт</span>
-      </div>
-    </div>
+  </div>
+  <div class="dir-mascot">
+    <img src="image/страницы/главная/маскот-направления.png" alt="">
   </div>
 </section>
 
 <!-- ══════════ PROCESS ══════════ -->
-<section class="s-process" id="services">
-
-  <div class="page-ind">
-    <span class="p-dot"></span>
-    <span class="p-label"><span class="p-num">04</span> / <b>ПРОЦЕСС</b></span>
-  </div>
-
-  <h2 class="process-h">СНАЧАЛА ПОНИМАЕМ. ПОТОМ ДЕЛАЕМ. ПОТОМ ЗАПУСКАЕМ.</h2>
-
-  <div class="process-timeline">
-    <div class="steps-nums">
-      <span class="st-num">01</span>
-      <span class="st-num">02</span>
-      <span class="st-num">03</span>
-      <span class="st-num">04</span>
+<section class="s-process" id="studio">
+  <div class="process-top">
+    <div>
+      <div class="page-ind"><span class="p-dot"></span><span class="p-label"><span class="p-num">04</span> / <b>ПОЧЕМУ МЫ</b></span></div>
+      <h2 class="process-h">ПОНЯТНЫЙ ПРОЦЕСС. ПРЕДСКАЗУЕМЫЙ РЕЗУЛЬТАТ.</h2>
     </div>
-    <div class="steps-track">
-      <span class="st-circle"></span>
-      <span class="st-circle"></span>
-      <span class="st-circle"></span>
-      <span class="st-circle"></span>
-    </div>
-    <div class="steps-grid">
-      <div class="step-item">
-        <div class="step-title">ИССЛЕДУЕМ</div>
-        <p class="step-desc">Погружаемся в Ваш бизнес, рынок и аудиторию. Находим точки роста и реальные возможности.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-title">ПРОЕКТИРУЕМ</div>
-        <p class="step-desc">Создаём стратегию, айдентику и концепцию. Продумываем каждую деталь будущего проекта.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-title">СОЗДАЁМ</div>
-        <p class="step-desc">Воплощаем идеи в дизайн, код, контент и анимацию. Делаем качественно и в срок.</p>
-      </div>
-      <div class="step-item">
-        <div class="step-title">ЗАПУСКАЕМ</div>
-        <p class="step-desc">Запускаем проект и помогаем ему расти. Анализируем, улучшаем, масштабируем результат.</p>
+    <div class="process-timeline">
+      <div class="steps-nums"><span class="st-num">01</span><span class="st-num">02</span><span class="st-num">03</span><span class="st-num">04</span></div>
+      <div class="steps-track"><span class="st-circle"></span><span class="st-circle"></span><span class="st-circle"></span><span class="st-circle"></span></div>
+      <div class="steps-grid">
+        <div><div class="step-title">ИССЛЕДУЕМ</div><p class="step-desc">Погружаемся в Ваш бизнес, рынок и аудиторию. Находим точки роста и реальные возможности.</p></div>
+        <div><div class="step-title">ПРОЕКТИРУЕМ</div><p class="step-desc">Создаём стратегию, айдентику и концепцию. Продумываем каждую деталь будущего проекта.</p></div>
+        <div><div class="step-title">СОЗДАЁМ</div><p class="step-desc">Воплощаем идеи в дизайн, код, контент и анимацию. Делаем качественно и в срок.</p></div>
+        <div><div class="step-title">ЗАПУСКАЕМ</div><p class="step-desc">Запускаем проект и помогаем ему расти. Анализируем, улучшаем, масштабируем результат.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- Dark CTA block -->
   <div class="cta-block">
-    <h2 class="cta-h">ОБСУДИТЬ ПРОЕКТ С ДИРЕКТОРОМ <span class="ys">Y.S</span> НАПРЯМУЮ</h2>
-    <div class="cta-line"></div>
-    <p class="cta-desc">Обсудим Ваш проект и предложим решение, которое даст результат.</p>
-    <div class="cta-btns">
-      <button class="cta-btn-prim">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
-      <button class="cta-btn-sec">НАПИСАТЬ В Telegram <i data-lucide="send"></i></button>
+    <div>
+      <h2 class="cta-h">ОБСУДИТЬ ПРОЕКТ С ДИРЕКТОРОМ <span class="ys">Y.S</span> НАПРЯМУЮ</h2>
+      <p class="cta-desc">Разберём задачу, предложим решение, и подскажем оптимальный путь реализации.</p>
+      <a href="https://t.me/ygrik_studio" target="_blank" rel="noopener" class="cta-btn-sec">НАПИСАТЬ В TELEGRAM <i data-lucide="arrow-up-right"></i></a>
+    </div>
+    <div class="cta-mascot">
+      <img src="image/страницы/главная/маскот-cta.png" alt="">
     </div>
   </div>
-
-  <!-- Mascot: positioned relative to section, extends 102px above dark block -->
-  <div class="cta-mascot">
-    <img src="image/Маскот (4).png" alt="">
-  </div>
-
 </section>
 
 <!-- ══════════ FORM ══════════ -->
 <section class="s-form" id="contact">
-  <h2 class="form-big">Оставьте заявку и мы с Вами свяжемся</h2>
-  <p class="form-sub">Оставьте только свой телефон для связи, больше ничего не нужно!</p>
-  <div class="form-wrap">
-    <input type="tel" class="form-input" placeholder="Телефон">
-    <button class="form-submit">ЖДУ ЗВОНКА</button>
-  </div>
-  <h2 class="form-call-title">Или позвоните нам Сами</h2>
-  <p class="form-phone-num">+7 (900) 954-45-78</p>
-</section>
-
-<!-- ══════════ FOOTER ══════════ -->
-<footer id="thoughts">
-  <div class="f-brand">
-    <div class="f-ys-mark">
-      <img src="image/Лого.png" alt="YS" style="width:40px;height:auto;">
+  <div class="form-col-left">
+    <h2 class="form-big">Оставьте заявку и мы с Вами свяжемся</h2>
+    <p class="form-sub">Обсудим Ваш проект и предложим решение.</p>
+    <form class="form-wrap" id="leadForm" action="#" method="post" data-endpoint="/api/lead" novalidate>
+      <input type="tel" name="phone" id="phone" class="form-input" placeholder="Телефон" autocomplete="tel" required>
+      <button type="submit" class="form-submit">ЖДУ ЗВОНКА</button>
+    </form>
+    <div class="form-success" id="leadFormSuccess">
+      <p class="form-success-title">Спасибо!<br>Ваша заявка отправлена!</p>
+      <p class="form-success-sub">Перезвоним в течение 10 минут</p>
     </div>
-    <p class="f-brand-desc">Диджитал агенство, которое превращает бизнес в бренд, который выбирают</p>
   </div>
-
-  <div class="f-col f-nav-col">
-    <p class="f-col-head">НАВИГАЦИЯ</p>
-    <ul class="f-links">
-      <li><a href="#start">СТАРТ</a></li>
-      <li><a href="studio.html">СТУДИЯ</a></li>
-      <li><a href="#services">ВОЗМОЖНОСТИ</a></li>
-      <li><a href="#done">СДЕЛАНО</a></li>
-      <li><a href="#thoughts">МЫСЛИ</a></li>
-    </ul>
-  </div>
-
-  <div class="f-col f-svc-col">
-    <p class="f-col-head">УСЛУГИ</p>
-    <ul class="f-links">
-      <li><a href="#">БРЕНДИНГ</a></li>
-      <li><a href="#">WEB-РАЗРАБОТКА</a></li>
-      <li><a href="#">КОНТЕНТ</a></li>
-      <li><a href="#">МАРКЕТИНГ</a></li>
-    </ul>
-  </div>
-
-  <div class="f-col f-contacts-col">
-    <p class="f-col-head">КОНТАКТЫ</p>
-    <ul class="f-contacts">
+  <div class="form-col-right">
+    <h2 class="form-call-title">Или напишите/позвоните нам сами</h2>
+    <ul class="form-contacts">
       <li>Telegram: @ygrik_studio</li>
       <li>Email: ygrik_studio@mail.ru</li>
       <li>Телефон: +7 (900) 954-45-78</li>
     </ul>
   </div>
+</section>
 
-  <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/figma/Arrow 1.svg" class="btn-arrow"></button>
+<!-- ══════════ FOOTER ══════════ -->
+<footer id="thoughts">
+  <div class="f-top">
+    <div class="f-brand">
+      <img src="image/логотип/метка-ys.png" alt="YS" style="width:38px;height:auto;">
+      <p class="f-brand-desc">Диджитал агенство, которое превращает бизнес в бренд, который выбирают</p>
+    </div>
+
+    <div class="f-col f-nav-col">
+      <p class="f-col-head">НАВИГАЦИЯ</p>
+      <ul class="f-links">
+        <li><a href="#start">СТАРТ</a></li>
+        <li><a href="studio.html">СТУДИЯ</a></li>
+        <li><a href="vozmozhnosti.html">ВОЗМОЖНОСТИ</a></li>
+        <li><a href="cases.html">СДЕЛАНО</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col f-svc-col">
+      <p class="f-col-head">УСЛУГИ</p>
+      <ul class="f-links">
+        <li><a href="vozmozhnosti/prodakshn.html">ПРОДАКШН</a></li>
+        <li><a href="vozmozhnosti/branding.html">БРЕНДИНГ</a></li>
+        <li><a href="vozmozhnosti/smm.html">СММ</a></li>
+        <li><a href="vozmozhnosti/marketing.html">МАРКЕТИНГ</a></li>
+        <li><a href="vozmozhnosti/sites.html">САЙТЫ</a></li>
+        <li><a href="vozmozhnosti/apps.html">ПРИЛОЖЕНИЯ</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col f-contacts-col">
+      <p class="f-col-head">КОНТАКТЫ</p>
+      <ul class="f-contacts">
+        <li>Telegram: @ygrik_studio</li>
+        <li>Email: ygrik_studio@mail.ru</li>
+        <li>Телефон: +7 (900) 954-45-78</li>
+      </ul>
+    </div>
+
+    <button class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></button>
+  </div>
 
   <hr class="f-divider">
 
@@ -1557,7 +578,6 @@
 </footer>
 
 <script>
-  // Show/hide YS logo in nav based on scroll position
   const navLogo = document.getElementById('navLogoYS');
   const heroSection = document.getElementById('start');
   const logoObserver = new IntersectionObserver(([e]) => {
@@ -1565,9 +585,8 @@
   }, { threshold: 0.1 });
   logoObserver.observe(heroSection);
 
-  // Track active nav item based on scroll position
   const navLinks = document.querySelectorAll('.nav-pill a');
-  const sectionIds = ['start', 'studio', 'done', 'services', 'thoughts'];
+  const sectionIds = ['start', 'done', 'opportunities', 'studio', 'thoughts'];
 
   function updateActiveNav() {
     const scrollY = window.scrollY + window.innerHeight * 0.35;
@@ -1585,7 +604,6 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 
-  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
@@ -1594,6 +612,64 @@
   });
 
   lucide.createIcons();
+</script>
+
+<script>
+(function(){
+  var burger = document.querySelector('.burger');
+  if (!burger) return;
+  var overlay = document.createElement('div');
+  overlay.className = 'mobile-menu-overlay';
+  var navLinks = document.querySelectorAll('.nav-pill a');
+  navLinks.forEach(function(a){ overlay.appendChild(a.cloneNode(true)); });
+  var cta = document.querySelector('.nav-right .btn-cta');
+  if (cta) {
+    var wrap = document.createElement('div');
+    wrap.className = 'mobile-menu-cta-wrap';
+    wrap.appendChild(cta.cloneNode(true));
+    overlay.appendChild(wrap);
+  }
+  document.body.appendChild(overlay);
+  function closeMenu(){ overlay.classList.remove('open'); burger.classList.remove('open'); }
+  burger.addEventListener('click', function(){
+    overlay.classList.toggle('open');
+    burger.classList.toggle('open');
+  });
+  overlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+})();
+</script>
+
+<script>
+(function(){
+  var form = document.getElementById('leadForm');
+  if (form) {
+    var successEl = document.getElementById('leadFormSuccess');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var phone = form.querySelector('[name="phone"]');
+      if (!phone.value.trim()) { phone.focus(); return; }
+      form.classList.add('hide');
+      if (successEl) successEl.classList.add('show');
+    });
+  }
+})();
+(function(){
+  var contactHref = 'index.html#contact';
+  document.querySelectorAll('.btn-cta, .cta-btn-prim, .btn-cta-footer').forEach(function(btn){
+    if (btn.tagName === 'A' && btn.getAttribute('href')) return;
+    btn.addEventListener('click', function(e){
+      var localForm = document.getElementById('contact');
+      if (localForm) {
+        e.preventDefault();
+        localForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var phoneInput = localForm.querySelector('[name="phone"]');
+        if (phoneInput) setTimeout(function(){ phoneInput.focus(); }, 400);
+      } else if (contactHref) {
+        window.location.href = contactHref;
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Маркетинг — YGRIK.STUDIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    :root { --bg: #EFF1F1; --lime: #D6FF00; --dark: #313131; --text: #1C1C1C; --muted: #747474; --white: #FFFFFF; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; max-width: 100vw; }
+
+    header { position: fixed; top: 27px; left: 29px; right: 29px; z-index: 200; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
+    header > * { pointer-events: auto; }
+    .nav-pill { display: flex; align-items: center; gap: 2px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 25px; padding: 8px; }
+    .nav-pill a { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding: 10px 18px; border-radius: 25px; transition: background 0.18s; white-space: nowrap; color: var(--text); }
+    .nav-pill a.active { background: var(--lime); }
+    .nav-pill a:hover:not(.active) { background: rgba(0,0,0,0.07); }
+    .nav-logo-ys { position: absolute; left: 50%; transform: translateX(-50%); display: none; }
+    .nav-logo-ys img { display: block; width: 38px; height: auto; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 14px; background: var(--lime); border-radius: 25px; padding: 18px 28px; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); transition: opacity 0.18s; }
+    .btn-cta:hover { opacity: 0.88; }
+    .burger { width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: none; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; width: 15px; height: auto; }
+    section { padding: 0 48px; }
+
+    .back-link { display: flex; align-items: center; gap: 10px; padding-top: 140px; margin-bottom: 36px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .back-link img { width: 14px; height: auto; }
+    .back-link:hover { color: var(--text); }
+
+    .svc-hero { display: grid; grid-template-columns: 1fr 460px; gap: 40px; align-items: center; padding-bottom: 60px; }
+    .svc-h { font-family: 'Unbounded', sans-serif; font-size: 56px; font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 22px; }
+    .svc-h .lime { color: var(--lime); }
+    .svc-sub { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; line-height: 1.3; margin-bottom: 20px; }
+    .svc-desc { font-size: 15px; font-weight: 500; line-height: 1.6; color: var(--muted); max-width: 420px; margin-bottom: 28px; }
+    .svc-hero-mascot { border-radius: 25px; overflow: hidden; }
+    .svc-hero-mascot img { width: 100%; height: 420px; object-fit: cover; object-position: top center; }
+
+    .svc-cards { padding-top: 60px; padding-bottom: 60px; border-top: 1px solid rgba(0,0,0,0.1); }
+    .svc-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .svc-card { border: 1px solid rgba(0,0,0,0.12); border-radius: 20px; padding: 26px 22px; display: flex; flex-direction: column; overflow: hidden; }
+    .svc-card-num { font-size: 15px; font-weight: 700; color: var(--muted); margin-bottom: 14px; }
+    .svc-card-title { font-size: 20px; font-weight: 800; margin-bottom: 14px; line-height: 1.25; }
+    .svc-card-desc { font-size: 14px; font-weight: 500; line-height: 1.55; color: var(--muted); margin-bottom: 20px; flex: 1; }
+    .svc-card-photo { border-radius: 12px; overflow: hidden; margin: -26px -22px -26px; margin-top: 0; }
+    .svc-card-photo img { width: 100%; height: 150px; object-fit: cover; display: block; }
+
+    .big-h { font-family: 'Unbounded', sans-serif; font-size: 36px; font-weight: 700; text-transform: uppercase; line-height: 1.25; margin-bottom: 16px; max-width: 600px; }
+    .page-ind { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .p-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); flex-shrink: 0; }
+    .p-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+    .s-timeline { padding-top: 60px; padding-bottom: 60px; }
+    .timeline-sub { font-size: 15px; font-weight: 500; color: var(--muted); max-width: 440px; margin-bottom: 48px; }
+    .steps-nums, .steps-track, .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .steps-nums { margin-bottom: 7px; }
+    .st-num { font-size: 16px; font-weight: 700; }
+    .steps-track { position: relative; margin-bottom: 14px; }
+    .steps-track::before { content: ''; position: absolute; top: 50%; left: 10px; right: 10px; height: 2px; background: var(--text); transform: translateY(-50%); z-index: 0; }
+    .st-circle { width: 19px; height: 19px; border-radius: 50%; background: var(--lime); position: relative; z-index: 1; }
+    .step-title { font-size: 15px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+    .step-desc { font-size: 13px; font-weight: 500; line-height: 1.6; color: var(--muted); max-width: 190px; }
+
+    .s-form { background: var(--lime); padding: 56px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+    .form-col-left { border-right: 1px solid rgba(49,49,49,0.2); padding-right: 40px; }
+    .form-big { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--dark); margin-bottom: 14px; }
+    .form-sub { font-size: 15px; font-weight: 500; line-height: 1.5; color: var(--dark); margin-bottom: 24px; max-width: 380px; }
+    .form-wrap { display: flex; gap: 13px; flex-wrap: wrap; }
+    .form-input { flex: 1; min-width: 220px; height: 50px; background: transparent; border: 1.5px solid #313131; border-radius: 35px; padding: 0 26px; font-size: 16px; font-weight: 500; color: #313131; outline: none; }
+    .form-input::placeholder { color: rgba(49,49,49,0.45); }
+    .form-submit { height: 50px; padding: 0 30px; background: #313131; color: #FFFFFF; border-radius: 25px; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-call-title { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 700; line-height: 1.3; color: var(--dark); margin-bottom: 24px; }
+    .form-contacts li { font-size: 17px; font-weight: 600; color: var(--dark); line-height: 2; }
+    .form-success { display: none; flex-direction: column; gap: 8px; }
+    .form-success.show { display: flex; }
+    .form-success-title { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.3; color: var(--dark); text-transform: uppercase; }
+    .form-success-sub { font-size: 16px; font-weight: 500; color: var(--dark); }
+    .form-wrap.hide { display: none; }
+
+    footer { background: var(--dark); color: var(--white); padding: 48px 48px 24px; }
+    .f-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.3fr auto; gap: 24px; margin-bottom: 40px; }
+    .f-brand-desc { font-size: 14px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 220px; margin-top: 14px; }
+    .f-col-head { font-size: 15px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #fff; }
+    .f-links { display: flex; flex-direction: column; gap: 14px; }
+    .f-links a { font-size: 15px; font-weight: 600; text-transform: uppercase; color: rgba(255,255,255,0.7); transition: color 0.18s; }
+    .f-links a:hover { color: #fff; }
+    .f-links a.active { color: var(--lime); }
+    .f-contacts { display: flex; flex-direction: column; gap: 14px; }
+    .f-contacts li { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); }
+    .btn-cta-footer { align-self: start; display: inline-flex; align-items: center; justify-content: center; gap: 14px; background: var(--lime); border-radius: 25px; padding: 0 26px; height: 55px; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); transition: opacity 0.18s; white-space: nowrap; }
+    .btn-cta-footer:hover { opacity: 0.88; }
+    .f-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0 0 20px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .f-copy { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #848484; }
+    .f-legal { display: flex; gap: 28px; }
+    .f-legal a { font-size: 14px; font-weight: 600; color: #848484; transition: color 0.18s; }
+    .f-legal a:hover { color: rgba(255,255,255,0.65); }
+    [data-lucide] { display: inline-block; vertical-align: middle; width: 16px; height: 16px; }
+    .f-copy-sym [data-lucide] { width: 14px; height: 14px; color: #848484; }
+
+    @media (min-width: 1920px) {
+      header, section, footer { max-width: 1920px; margin-left: auto; margin-right: auto; }
+      header { left: 50%; right: auto; transform: translateX(-50%); width: 1862px; }
+    }
+    @media (max-width: 1400px) {
+      section, footer { padding-left: 32px; padding-right: 32px; }
+      .svc-h { font-size: 44px; }
+      .svc-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 1024px) {
+      header { top: 16px; left: 16px; right: 16px; }
+      .nav-pill { display: none; }
+      .nav-logo-ys { display: block !important; }
+      .back-link { padding-top: 120px; }
+      .svc-hero { grid-template-columns: 1fr; }
+      .svc-hero-mascot { order: -1; }
+      .svc-hero-mascot img { height: 260px; }
+      .steps-nums, .steps-track, .steps-grid { min-width: 560px; }
+      .s-timeline { overflow-x: auto; }
+      .s-form { grid-template-columns: 1fr; }
+      .form-col-left { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(49,49,49,0.2); padding-bottom: 32px; margin-bottom: 32px; }
+      .f-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 767px) {
+      header { top: 12px; left: 12px; right: 12px; }
+      .btn-cta { font-size: 12px; padding: 12px 18px; gap: 8px; }
+      section, footer { padding-left: 20px; padding-right: 20px; }
+      .svc-h { font-size: 32px; }
+      .svc-sub { font-size: 18px; }
+      .svc-cards-grid { grid-template-columns: 1fr; }
+      .big-h { font-size: 26px; }
+      .f-top { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    .burger span { transition: transform 0.2s, opacity 0.2s; }
+    .burger.open span:first-child { transform: translateY(3.5px) rotate(45deg); }
+    .burger.open span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+    .mobile-menu-overlay { position: fixed; inset: 0; z-index: 150; background: var(--white); display: none; flex-direction: column; padding: 120px 32px 40px; gap: 4px; overflow-y: auto; }
+    .mobile-menu-overlay.open { display: flex; }
+    .mobile-menu-overlay a { font-size: 26px; font-weight: 800; text-transform: uppercase; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); color: var(--text); display: block; }
+    .mobile-menu-overlay a.active { color: var(--lime); }
+    .mobile-menu-cta-wrap { margin-top: 28px; }
+    .mobile-menu-cta-wrap .btn-cta { width: 100%; justify-content: center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="nav-pill">
+    <a href="../index.html#start">СТАРТ</a>
+    <a href="../studio.html">СТУДИЯ</a>
+    <a href="../vozmozhnosti.html" class="active">ВОЗМОЖНОСТИ</a>
+    <a href="../cases.html">СДЕЛАНО</a>
+    <a href="../index.html#thoughts">МЫСЛИ</a>
+  </nav>
+  <div class="nav-logo-ys" id="navLogoYS"><img src="../image/логотип/метка-ys.png" alt="YGRIK.STUDIO"></div>
+  <div class="nav-right">
+    <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="../image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></button>
+    <button class="burger"><span></span><span></span></button>
+  </div>
+</header>
+
+<a href="../vozmozhnosti.html" class="back-link"><img src="../image/иконки/стрелка-назад.svg" alt=""> ВСЕ УСЛУГИ</a>
+
+<section class="svc-hero">
+  <div>
+    <h1 class="svc-h">МАР<span class="lime">КЕТИНГ</span></h1>
+    <p class="svc-sub">Находим растущие возможности и помогаем вашему бизнесу развиваться</p>
+    <a href="../index.html#contact" class="btn-cta" style="display:inline-flex;">ЗАПУСТИТЬ ПРОЕКТ <img src="../image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
+  </div>
+  <div class="svc-hero-mascot"><img src="../image/страницы/возможности/маркетинг/маскот.png" alt=""></div>
+</section>
+
+<section class="svc-cards">
+  <div class="page-ind"><span class="p-dot"></span><span class="p-label">Направления</span></div>
+  <h2 class="big-h">РЕШЕНИЯ ДЛЯ РОСТА БИЗНЕСА</h2>
+  <div class="svc-cards-grid">
+    <div class="svc-card">
+      <span class="svc-card-num">01</span>
+      <div class="svc-card-title">Маркетинговая стратегия</div>
+      <p class="svc-card-desc">Берём на себя весь маркетинг — от стратегии до реализации. Вы получаете одного ответственного партнёра.</p>
+      <div class="svc-card-photo"><img src="../image/страницы/возможности/маркетинг/фото-01-стратегия.png" alt=""></div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-num">02</span>
+      <div class="svc-card-title">Продвижение и реклама</div>
+      <p class="svc-card-desc">Настраиваем рекламные кампании, привлекаем целевую аудиторию и увеличиваем количество заявок.</p>
+      <div class="svc-card-photo"><img src="../image/страницы/возможности/маркетинг/фото-02-продвижение.png" alt=""></div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-num">03</span>
+      <div class="svc-card-title">Аналитика и оптимизация</div>
+      <p class="svc-card-desc">Отслеживаем результаты, находим точки роста и масштабируем рабочие инструменты.</p>
+      <div class="svc-card-photo"><img src="../image/страницы/возможности/маркетинг/фото-03-аналитика.png" alt=""></div>
+    </div>
+    <div class="svc-card">
+      <span class="svc-card-num">04</span>
+      <div class="svc-card-title">Комплексное сопровождение</div>
+      <p class="svc-card-desc">Полное сопровождение проекта на всех этапах роста — от идеи до масштабирования.</p>
+      <div class="svc-card-photo"><img src="../image/страницы/возможности/маркетинг/фото-04-сопровождение.png" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-timeline">
+  <div class="page-ind"><span class="p-dot"></span><span class="p-label">Как мы работаем</span></div>
+  <h2 class="big-h">ПРОЗРАЧНЫЙ ПРОЦЕСС. ПОНЯТНЫЙ РЕЗУЛЬТАТ.</h2>
+  <p class="timeline-sub">Работаем поэтапно, чтобы вы всегда понимали, что происходит и каких результатов ожидать.</p>
+  <div class="steps-nums"><span class="st-num">01</span><span class="st-num">02</span><span class="st-num">03</span><span class="st-num">04</span></div>
+  <div class="steps-track"><span class="st-circle"></span><span class="st-circle"></span><span class="st-circle"></span><span class="st-circle"></span></div>
+  <div class="steps-grid">
+    <div><div class="step-title">ПОГРУЖАЕМСЯ В ЗАДАЧУ</div><p class="step-desc">Анализируем бизнес, рынок, аудиторию и текущие возможности.</p></div>
+    <div><div class="step-title">РАЗРАБАТЫВАЕМ СТРАТЕГИЮ</div><p class="step-desc">Определяем цели, позиционирование и план продвижения.</p></div>
+    <div><div class="step-title">РЕАЛИЗУЕМ ИНСТРУМЕНТЫ</div><p class="step-desc">Запускаем рекламные компании и маркетинговые активности.</p></div>
+    <div><div class="step-title">АНАЛИЗИРУЕМ РЕЗУЛЬТАТЫ</div><p class="step-desc">Отслеживаем метрики и находим точки роста.</p></div>
+  </div>
+</section>
+
+<section class="s-form" id="contact">
+  <div class="form-col-left">
+    <h2 class="form-big">Оставьте заявку и мы с Вами свяжемся</h2>
+    <p class="form-sub">Обсудим Ваш проект и предложим решение.</p>
+    <form class="form-wrap" id="leadForm" action="#" method="post" data-endpoint="/api/lead" novalidate>
+      <input type="tel" name="phone" id="phone" class="form-input" placeholder="Телефон" autocomplete="tel" required>
+      <button type="submit" class="form-submit">ЖДУ ЗВОНКА</button>
+    </form>
+    <div class="form-success" id="leadFormSuccess">
+      <p class="form-success-title">Спасибо!<br>Ваша заявка отправлена!</p>
+      <p class="form-success-sub">Перезвоним в течение 10 минут</p>
+    </div>
+  </div>
+  <div class="form-col-right">
+    <h2 class="form-call-title">Или напишите/позвоните нам сами</h2>
+    <ul class="form-contacts">
+      <li>Telegram: @ygrik_studio</li>
+      <li>Email: ygrik_studio@mail.ru</li>
+      <li>Телефон: +7 (900) 954-45-78</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="thoughts">
+  <div class="f-top">
+    <div class="f-brand">
+      <img src="../image/логотип/метка-ys.png" alt="YS" style="width:38px;height:auto;">
+      <p class="f-brand-desc">Диджитал агенство, которое превращает бизнес в бренд, который выбирают</p>
+    </div>
+    <div class="f-col f-nav-col">
+      <p class="f-col-head">НАВИГАЦИЯ</p>
+      <ul class="f-links">
+        <li><a href="../index.html#start">СТАРТ</a></li>
+        <li><a href="../studio.html">СТУДИЯ</a></li>
+        <li><a href="../vozmozhnosti.html">ВОЗМОЖНОСТИ</a></li>
+        <li><a href="../cases.html">СДЕЛАНО</a></li>
+      </ul>
+    </div>
+    <div class="f-col f-svc-col">
+      <p class="f-col-head">УСЛУГИ</p>
+      <ul class="f-links">
+        <li><a href="prodakshn.html">ПРОДАКШН</a></li>
+        <li><a href="branding.html">БРЕНДИНГ</a></li>
+        <li><a href="smm.html">СММ</a></li>
+        <li><a href="marketing.html" class="active">МАРКЕТИНГ</a></li>
+        <li><a href="sites.html">САЙТЫ</a></li>
+        <li><a href="apps.html">ПРИЛОЖЕНИЯ</a></li>
+      </ul>
+    </div>
+    <div class="f-col f-contacts-col">
+      <p class="f-col-head">КОНТАКТЫ</p>
+      <ul class="f-contacts">
+        <li>Telegram: @ygrik_studio</li>
+        <li>Email: ygrik_studio@mail.ru</li>
+        <li>Телефон: +7 (900) 954-45-78</li>
+      </ul>
+    </div>
+    <a href="../index.html#contact" class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="../image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
+  </div>
+  <hr class="f-divider">
+  <div class="footer-bottom">
+    <div class="f-copy"><span class="f-copy-sym"><i data-lucide="copyright"></i></span><span>YGRIK.STUDIO 2026</span></div>
+    <nav class="f-legal"><a href="#">Политика конфиденциальности</a><a href="#">Согласие на ОПД</a></nav>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+<script>
+(function(){
+  var burger = document.querySelector('.burger');
+  if (!burger) return;
+  var overlay = document.createElement('div');
+  overlay.className = 'mobile-menu-overlay';
+  var navLinks = document.querySelectorAll('.nav-pill a');
+  navLinks.forEach(function(a){ overlay.appendChild(a.cloneNode(true)); });
+  var cta = document.querySelector('.nav-right .btn-cta');
+  if (cta) {
+    var wrap = document.createElement('div');
+    wrap.className = 'mobile-menu-cta-wrap';
+    wrap.appendChild(cta.cloneNode(true));
+    overlay.appendChild(wrap);
+  }
+  document.body.appendChild(overlay);
+  function closeMenu(){ overlay.classList.remove('open'); burger.classList.remove('open'); }
+  burger.addEventListener('click', function(){
+    overlay.classList.toggle('open');
+    burger.classList.toggle('open');
+  });
+  overlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('leadForm');
+  if (form) {
+    var successEl = document.getElementById('leadFormSuccess');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var phone = form.querySelector('[name="phone"]');
+      if (!phone.value.trim()) { phone.focus(); return; }
+      form.classList.add('hide');
+      if (successEl) successEl.classList.add('show');
+    });
+  }
+})();
+</script>
+</body>
+</html>
