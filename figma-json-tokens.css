@@ -1,0 +1,42 @@
+/* Desktop navigation values read from the Figma document (not image exports). */
+@media (min-width: 1025px) {
+  header {
+    top: 29px;
+    left: 48px;
+    right: 48px;
+  }
+
+  .nav-pill {
+    gap: 25px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .nav-pill a {
+    padding: 0;
+    border-radius: 0;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+
+  .nav-pill a.active,
+  .nav-pill a:hover:not(.active) {
+    color: var(--text);
+    background: transparent;
+  }
+
+  .nav-right .btn-cta {
+    gap: 14px;
+    padding: 14px 24px;
+    border-radius: 24px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Fresh user-provided Figma ZIP exports (13–37)",
+  "rule": "Only isolated images from this folder are used. Text, dimensions and layout remain HTML/CSS driven.",
+  "mapping": {
+    "13": "Overview card 06 — Приложения под ключ",
+    "14": "Overview card 05 — Сайты под ключ",
+    "15": "Overview card 04 — Маркетинг",
+    "16": "Overview card 03 — СММ",
+    "17": "Overview card 02 — Брендинг и дизайн",
+    "18": "Overview card 01 — Продакшн",
+    "19-22": "Production service-card images, in visual order 01–04",
+    "23-26": "Branding service-card images, in visual order 01–04",
+    "27-30": "SMM service-card images, in visual order 01–04",
+    "31-34": "Marketing service-card images, in visual order 01–04",
+    "35": "Sites portfolio — Наш сайт",
+    "36": "Sites portfolio — KOSTO-VET",
+    "37": "Sites portfolio — МедИнтегро"
+  }
+}

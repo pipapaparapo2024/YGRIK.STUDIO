@@ -1,0 +1,29 @@
+{
+  "source": "C:/Users/HONOR/Desktop/YGRIK-STUDIO.json",
+  "purpose": "Explicit mapping of Figma imageRef values to local image assets. Do not substitute by filename without updating this file.",
+  "assets": {
+    "16e83f179ee19cf48f3a3ec7c25320facdede1bc": "image/страницы/главная/маскот-герой.png",
+    "c0edf8f4445a2ddadd99b633ae8a33317fbf3999": "image/страницы/главная/маскот-направления.png",
+    "7123e27e23713ccd7854101b14041686e08d206d": "image/страницы/главная/маскот-cta.png",
+    "2b813abf0c60319556bdaa3327aa3a1c9c114e82": "image/страницы/главная/кейс-агроматрица.png",
+    "a51141d1bbb22da647d4a2dd9fa077b1f276f94e": "image/страницы/главная/кейс-мединтегро.png",
+    "e1c4563fb385a87615b490827ec88f933411682b": "image/страницы/главная/кейс-косто-вет.png",
+    "81b036ee94539c27d196bb83dc64238b93b43f4e": "image/страницы/404/маскот.png",
+    "a8279c401c9f17d1332644a5a86a2841ee064002": "image/страницы/кейсы/маскот.png",
+    "e62146f8b94eebe2e1a9fb56d7cd57ed09650eab": "image/страницы/кейсы/ателье-плитки.png",
+    "134c516554ecdb1bf7eee973fb2c20910beb150e": "image/страницы/кейсы/avs.png",
+    "0726a02158c52f619c554e51d6f08167334f0bde": "image/страницы/кейсы/just-restaurant.png",
+    "aef09a9a1905d2ee00689855e01d18df0a811b64": "image/страницы/кейсы/медынтегро.png",
+    "a7204bdad90b6fa67f4d57a70fe5f9aa4101cf81": "image/страницы/кейсы/alef-studio.png",
+    "0c8f1049ea6447e264726a4beb6dc40e91ce2922": "image/страницы/кейсы/rieltor-voronezh.png",
+    "039f963a5236a577bf21ad58feab3aeece563d98": "image/страницы/возможности/продакшн/маскот.png",
+    "66180686a5e65627a2e612be96d4b027bdf11b21": "image/страницы/возможности/дизайн/маскот.png",
+    "7ce83dc1cee9e5f0b901007e4e2b57826abdf74b": "image/страницы/возможности/смм/маскот.png",
+    "74281f5031f9ed48adc9b66002019c043dd0ce2f": "image/страницы/возможности/маркетинг/маскот.png",
+    "7405d7b8e4d3f8c3723a6800db653f85a7da8a5a": "image/страницы/возможности/сайты/маскот.png",
+    "189be3076f8dcb3aa2e581b3f1c8f620fbdcf029": "image/страницы/возможности/приложения/маскот-и-телефоны.png"
+  },
+  "renderedNodes": {
+    "843:872": "image/страницы/главная/маскот-направления-figma-render.png"
+  }
+}

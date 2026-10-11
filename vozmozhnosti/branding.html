@@ -6,7 +6,8 @@
   <title>Брендинг и дизайн — YGRIK.STUDIO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="../figma-json-tokens.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,7 +32,7 @@
     .btn-cta:hover { opacity: 0.88; }
     .burger { width: 55px; height: 55px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: none; }
     .burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
-    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; width: 15px; height: auto; }
+    .btn-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; width: 28px; height: 28px; }
     section { padding: 0 48px; }
 
     .back-link { display: flex; align-items: center; gap: 10px; padding-top: 140px; margin-bottom: 36px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
@@ -48,11 +49,16 @@
     .svc-hero-mascot img { width: 100%; height: 420px; object-fit: cover; object-position: top center; }
 
     /* ── CARDS ── */
-    .svc-cards { padding-top: 60px; padding-bottom: 60px; border-top: 1px solid rgba(0,0,0,0.1); }
+    .svc-cards { padding-top: 60px; padding-bottom: 60px; border-top: 2px solid var(--text); }
     .svc-cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
     .svc-card { border-radius: 20px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
     .svc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.18); }
     .svc-card img { width: 100%; height: auto; display: block; }
+    .source-card { position: relative; aspect-ratio: 344 / 365; background: #080808; }
+    .source-card > img { width: 100%; height: 100%; object-fit: cover; }
+    .source-card-copy { position: absolute; z-index: 1; inset: 0; padding: 24px 20px; display: flex; flex-direction: column; gap: 18px; color: #fff; pointer-events: none; }
+    .source-card-copy span { color: var(--lime); font-family: 'Unbounded', sans-serif; font-size: 30px; font-weight: 700; line-height: 1; }
+    .source-card-copy strong { font-family: 'Unbounded', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.25; text-transform: uppercase; }
 
     /* ── WHY (4-feature list) ── */
     .s-why { padding-top: 60px; padding-bottom: 60px; }
@@ -80,7 +86,8 @@
     .form-wrap.hide { display: none; }
 
     /* ── FOOTER ── */
-    footer { background: var(--dark); color: var(--white); padding: 48px 48px 24px; }
+    footer { position: relative; background: var(--dark); color: var(--white); padding: 48px 48px 24px; margin-top: 72px; }
+    footer::before { content: ''; position: absolute; z-index: 0; top: -61px; right: -58px; left: -58px; height: 103px; pointer-events: none; background: linear-gradient(to bottom, rgba(49,49,49,0), rgba(49,49,49,.46) 48%, var(--dark)); } footer > * { position: relative; z-index: 1; }
     .f-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.3fr auto; gap: 24px; margin-bottom: 40px; }
     .f-brand-desc { font-size: 14px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 220px; margin-top: 14px; }
     .f-col-head { font-size: 15px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #fff; }
@@ -104,10 +111,10 @@
     /* ════════ RESPONSIVE ════════ */
     @media (min-width: 1920px) {
       header, section, footer { max-width: 1920px; margin-left: auto; margin-right: auto; }
-      header { left: 50%; right: auto; transform: translateX(-50%); width: 1862px; }
+      header { left: 50%; right: auto; transform: translateX(-50%); width: 1824px; }
     }
     @media (max-width: 1400px) {
-      section, footer { padding-left: 32px; padding-right: 32px; }
+      section, footer { padding-left: 48px; padding-right: 48px; }
       .svc-h { font-size: 44px; }
       .svc-cards-grid { grid-template-columns: repeat(2, 1fr); }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -144,9 +151,11 @@
     .mobile-menu-overlay a.active { color: var(--lime); }
     .mobile-menu-cta-wrap { margin-top: 28px; }
     .mobile-menu-cta-wrap .btn-cta { width: 100%; justify-content: center; }
+    .service-page .back-link { position: absolute; z-index: 3; top: 130px; left: 73px; padding: 0; margin: 0; gap: 13px; font-size: 12px; font-weight: 600; line-height: 22px; letter-spacing: 0; color: var(--text); }.service-page .back-link img { width: 24px; }.service-page .svc-hero { position: relative; display: block; min-height: 824px; padding: 0; border-bottom: 2px solid var(--text); overflow: hidden; }.service-page .svc-hero > div:first-child { position:absolute;z-index:2;left:73px;top:152px;width:717px; }.service-page .svc-h { margin:0;font-size:100px;line-height:125px;letter-spacing:2px; }.service-page .svc-sub { width:559px;margin:19px 0 0;font-size:32px;font-weight:500;line-height:40px; }.service-page .svc-desc { width:352px;max-width:none;margin:19px 0 0;font-size:16px;font-weight:600;line-height:22px;color:var(--text); }.service-page .svc-desc + .btn-cta { margin-top:60px; }.service-page .svc-hero-mascot { position:absolute;z-index:1;top:83px;right:47px;width:864px;height:741px;border-radius:0;overflow:visible; }.service-page .svc-hero-mascot img {width:100%;height:100%;object-fit:fill;}
+    @media (max-width:1024px){.service-page .back-link{position:static;padding:120px 32px 0;margin-bottom:24px}.service-page .svc-hero{min-height:auto;padding:0 32px 48px;overflow:visible}.service-page .svc-hero>div:first-child{position:static;width:auto}.service-page .svc-h{font-size:52px;line-height:1.18;letter-spacing:1px;margin-bottom:18px}.service-page .svc-sub{width:auto;font-size:22px;line-height:1.35;margin:0 0 18px}.service-page .svc-desc{width:auto;margin:0 0 28px}.service-page .svc-desc+.btn-cta{margin-top:0}.service-page .svc-hero-mascot{position:relative;top:auto;right:auto;width:min(100%,720px);height:auto;margin:32px auto 0}.service-page .svc-hero-mascot img{height:auto;object-fit:contain}} @media(max-width:767px){.service-page .back-link{padding:110px 20px 0}.service-page .svc-hero{padding:0 20px 40px}.service-page .svc-h{font-size:40px;line-height:1.15}.service-page .svc-sub{font-size:18px}}
   </style>
 </head>
-<body>
+<body class="service-page service-branding">
 
 <header>
   <nav class="nav-pill">
@@ -159,7 +168,6 @@
   <div class="nav-logo-ys" id="navLogoYS"><img src="../image/логотип/метка-ys.png" alt="YGRIK.STUDIO"></div>
   <div class="nav-right">
     <button class="btn-cta">ЗАПУСТИТЬ ПРОЕКТ <img src="../image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></button>
-    <button class="burger"><span></span><span></span></button>
   </div>
 </header>
 
@@ -177,10 +185,10 @@
 
 <section class="svc-cards">
   <div class="svc-cards-grid">
-    <a href="../index.html#contact" class="svc-card"><img src="../image/страницы/возможности/дизайн/карточка-01.png" alt="Стратегия бренда"></a>
-    <a href="../index.html#contact" class="svc-card"><img src="../image/страницы/возможности/дизайн/карточка-02.png" alt="Визуальная айдентика"></a>
-    <a href="../index.html#contact" class="svc-card"><img src="../image/страницы/возможности/дизайн/карточка-03.png" alt="Носители бренда"></a>
-    <a href="../index.html#contact" class="svc-card"><img src="../image/страницы/возможности/дизайн/карточка-04.png" alt="Брендинг под ключ"></a>
+    <a href="../index.html#contact" class="svc-card source-card"><img src="../image/figma-user-assets/23.png" alt="Стратегия бренда"><div class="source-card-copy"><span>01</span><strong>СТРАТЕГИЯ<br>БРЕНДА</strong></div></a>
+    <a href="../index.html#contact" class="svc-card source-card"><img src="../image/figma-user-assets/24.png" alt="Визуальная айдентика"><div class="source-card-copy"><span>02</span><strong>ВИЗУАЛЬНАЯ<br>АЙДЕНТИКА</strong></div></a>
+    <a href="../index.html#contact" class="svc-card source-card"><img src="../image/figma-user-assets/25.png" alt="Носители бренда"><div class="source-card-copy"><span>03</span><strong>НОСИТЕЛИ<br>БРЕНДА</strong></div></a>
+    <a href="../index.html#contact" class="svc-card source-card"><img src="../image/figma-user-assets/26.png" alt="Брендинг под ключ"><div class="source-card-copy"><span>04</span><strong>БРЕНДИНГ<br>ПОД КЛЮЧ</strong></div></a>
   </div>
 </section>
 
