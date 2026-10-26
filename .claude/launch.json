@@ -4,7 +4,7 @@
     {
       "name": "site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8899"],
+      "runtimeArgs": ["devserver.py", "8899"],
       "port": 8899
     }
   ]

@@ -1,0 +1,14 @@
+/* Shared desktop dimensions from the Figma frames. */
+@media (min-width: 1025px) {
+  footer {
+    height: 337px;
+    min-height: 337px;
+    background: #313131;
+  }
+
+  .s-form {
+    height: 401px;
+    min-height: 401px;
+    background: #D6FF00;
+  }
+}

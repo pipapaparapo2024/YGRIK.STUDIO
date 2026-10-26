@@ -17,7 +17,7 @@
     img { max-width: 100%; display: block; }
     ul { list-style: none; }
     :root { --bg: #FFFFFF; --lime: #D6FF00; --dark: #313131; --text: #000000; --muted: #747474; --white: #FFFFFF; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; max-width: 100vw; min-height: 100vh; display: flex; flex-direction: column; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); max-width: 100vw; min-height: 100vh; display: flex; flex-direction: column; }
 
     header { position: absolute; top: 27px; left: 29px; width: 1542px; height: 68px; z-index: 200; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
     header > * { pointer-events: auto; }
@@ -117,16 +117,20 @@
     .nf-mascot { position: absolute; z-index: 1; top: 95px; right: 0; width: 1062px; height: 985px; border-radius: 0; overflow: visible; }
     .nf-mascot img { width: 100%; height: 100%; object-fit: fill; }
     .nf-mascot::after { display: none; }
-    .nf-hero::after {
-      content: ''; position: absolute; z-index: 2; top: 995px; left: -68px; width: calc(100% + 116px); height: 121px; pointer-events: none;
-      background: linear-gradient(to bottom, rgba(49,49,49,0) 0%, rgba(49,49,49,.12) 24%, rgba(49,49,49,.48) 58%, #313131 100%);
-    }
+    /* Continues the opaque end of the exported fog through the hero/footer seam. */
+    .nf-hero::before { content: ''; position: absolute; z-index: 0; top: 1055px; right: 0; left: 0; height: 51px; background: var(--dark); }
+    /* Direct Figma export, aligned to the exported 1619 × 1443 reference frame. */
+    .nf-fog { position: absolute; z-index: 2; top: 865px; left: 0; width: 100%; height: 321px; pointer-events: none; }
+    .nf-fog img { display: block; width: 100%; height: 321px; }
     footer { margin-top: 0; }
-    @media (max-width: 1024px) { .nf-hero { min-height: auto; display: flex; flex-direction: column; padding: 130px 32px 48px; } .nf-hero > div:first-child { position: static; width: auto; order: 2; } .nf-num { font-size: 90px; line-height: 1; letter-spacing: 1px; } .nf-h { width: auto; font-size: 36px; line-height: 1.2; letter-spacing: .5px; margin-top: 10px; } .nf-desc { width: auto; margin: 24px 0 28px; font-size: 16px; line-height: 1.5; } .nf-desc + .btn-cta { position: static; width: auto; height: auto; margin-top: 0; padding: 18px 28px; } .nf-mascot { position: static; order: 1; width: min(100%, 720px); height: auto; margin: 0 auto 32px; } .nf-mascot img { height: auto; object-fit: contain; } .nf-hero::after { display: none; } .btn-cta-footer { display: none; } .f-brand-line { margin-bottom: 0; } .footer-bottom, .f-copy, .f-legal { position: static; height: auto; } .footer-bottom { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; } }
+    @media (max-width: 1024px) { .nf-hero { min-height: auto; display: flex; flex-direction: column; padding: 130px 32px 48px; } .nf-hero > div:first-child { position: static; width: auto; order: 2; } .nf-num { font-size: 90px; line-height: 1; letter-spacing: 1px; } .nf-h { width: auto; font-size: 36px; line-height: 1.2; letter-spacing: .5px; margin-top: 10px; } .nf-desc { width: auto; margin: 24px 0 28px; font-size: 16px; line-height: 1.5; } .nf-desc + .btn-cta { position: static; width: auto; height: auto; margin-top: 0; padding: 18px 28px; } .nf-mascot { position: static; order: 1; width: min(100%, 720px); height: auto; margin: 0 auto 32px; } .nf-mascot img { height: auto; object-fit: contain; } .nf-fog { display: none; } .btn-cta-footer { display: none; } .f-brand-line { margin-bottom: 0; } .footer-bottom, .f-copy, .f-legal { position: static; height: auto; } .footer-bottom { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; } }
     @media (max-width: 767px) { .nf-hero { padding: 110px 20px 40px; } .nf-num { font-size: 64px; } .nf-h { font-size: 28px; } }
   </style>
+  <link rel="stylesheet" href="figma-page-layout.css">
+  <link rel="stylesheet" href="adaptive-scale.css">
 </head>
 <body>
+<div id="scaleViewport"><div id="scaleFrame">
 
 <header>
   <nav class="nav-pill">
@@ -150,6 +154,7 @@
     <a href="index.html" class="btn-cta" style="display:inline-flex;">НА ГЛАВНУЮ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
   </div>
   <div class="nf-mascot"><img src="image/страницы/404/маскот.png" alt=""></div>
+  <div class="nf-fog" aria-hidden="true"><img src="image/страницы/404/эффект.png" alt=""></div>
 </section>
 
 <footer id="thoughts">
@@ -186,14 +191,15 @@
         <li>Телефон: +7 (900) 954-45-78</li>
       </ul>
     </div>
-    <a href="index.html#contact" class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
   </div>
+  <a href="index.html#contact" class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
   <hr class="f-divider">
   <div class="footer-bottom">
     <div class="f-copy"><span class="f-copy-sym"><i data-lucide="copyright"></i></span><span>YGRIK.STUDIO 2026</span></div>
     <nav class="f-legal"><a href="#">Политика конфиденциальности</a></nav>
   </div>
 </footer>
+</div></div>
 
 <script>lucide.createIcons();</script>
 <script>
@@ -220,5 +226,6 @@
   overlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
 })();
 </script>
+<script src="adaptive-scale.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+/* Proportionally scales the fixed-width (1619px) Figma desktop layout to fit
+   any real desktop/monitor width from the mobile breakpoint (1024px) upward —
+   shrinking it down on narrower laptops and enlarging it on wide monitors, so
+   the whole design (including images) scales together as one unit instead of
+   reflowing. The dedicated mobile layout below 1024px is left untouched. */
+#scaleViewport { position: relative; }
+#scaleFrame { transform-origin: top left; }
+
+@media (min-width: 1025px) {
+  #scaleViewport { overflow: hidden; width: 100%; }
+  #scaleFrame { width: 1619px; max-width: none; }
+}

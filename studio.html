@@ -6,7 +6,7 @@
   <title>Студия — YGRIK.STUDIO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,7 +16,7 @@
     img { max-width: 100%; display: block; }
     ul { list-style: none; }
     :root { --bg: #FFFFFF; --lime: #D6FF00; --dark: #313131; --text: #1C1C1C; --muted: #747474; --white: #FFFFFF; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; max-width: 100vw; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); max-width: 100vw; }
 
     header { position: fixed; top: 27px; left: 29px; right: 29px; z-index: 200; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }
     header > * { pointer-events: auto; }
@@ -24,7 +24,7 @@
     .nav-pill a { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding: 10px 18px; border-radius: 25px; transition: background 0.18s; white-space: nowrap; color: var(--text); }
     .nav-pill a.active { background: var(--lime); }
     .nav-pill a:hover:not(.active) { background: rgba(0,0,0,0.07); }
-    .nav-logo-ys { position: absolute; left: 50%; transform: translateX(-50%); display: none; }
+    .nav-logo-ys { position: absolute; left: 50%; transform: translateX(-50%); display: block; }
     .nav-logo-ys img { display: block; width: 38px; height: auto; }
     .nav-right { display: flex; align-items: center; gap: 12px; }
     .btn-cta { display: inline-flex; align-items: center; gap: 14px; background: var(--lime); border-radius: 25px; padding: 18px 28px; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); transition: opacity 0.18s; }
@@ -38,71 +38,105 @@
     .p-label { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 
     /* ── HERO ── */
-    .st-hero { display: grid; grid-template-columns: 1fr 480px; gap: 40px; align-items: center; padding-top: 150px; padding-bottom: 60px; }
-    .st-h { font-family: 'Unbounded', sans-serif; font-size: 52px; font-weight: 700; text-transform: uppercase; line-height: 1.16; margin-bottom: 24px; }
-    .st-h .lime { color: var(--lime); display: block; }
-    .st-sub { font-size: 16px; font-weight: 600; line-height: 1.6; color: var(--text); max-width: 440px; margin-bottom: 32px; }
-    .st-hero-mascot { border-radius: 25px; overflow: hidden; }
-    .st-hero-mascot img { width: 100%; height: 440px; object-fit: cover; object-position: top center; }
+    .st-hero { position: relative; height: 982px; padding: 0; overflow: hidden; }
+    .st-hero > div:first-child { position: absolute; z-index: 2; top: 184px; left: 63px; width: 893px; }
+    .st-h { height: 342px; margin: 0; color: var(--text); font-family: 'Unbounded', sans-serif; font-size: 95px; font-weight: 700; text-transform: uppercase; line-height: 114px; letter-spacing: .02em; }
+    .st-h .lime { color: var(--lime); display: inline; }
+    .st-h-nowrap { white-space: nowrap; }
+    .st-sub { position: absolute; top: calc(342px + 44px); left: 0; width: 518px; max-width: none; margin: 0; font-size: 27px; font-weight: 500; line-height: 35px; color: rgba(0,0,0,.8); }
+    .st-sub + .btn-cta { position: absolute; top: 612px; left: 0; width: 394px; height: 81px; justify-content: center; gap: 80px; margin: 0; padding: 0; font-size: 20px; line-height: 24px; }
+    .st-hero-mascot { position: absolute; z-index: 1; top: 83px; left: 798px; width: 813px; height: 899px; overflow: visible; }
+    .st-hero-mascot img { width: 100%; height: 100%; object-fit: contain; object-position: bottom center; }
+    .st-hero::after { content: ''; position: absolute; z-index: 0; top: 980px; right: 221px; left: 63px; height: 2px; background: #000; }
 
     /* ── ABOUT ── */
-    .s-about { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding-top: 70px; padding-bottom: 70px; border-top: 2px solid var(--text); align-items: start; }
-    .big-h { font-family: 'Unbounded', sans-serif; font-size: 38px; font-weight: 700; text-transform: uppercase; line-height: 1.22; }
-    .about-desc p { font-size: 16px; font-weight: 500; line-height: 1.7; color: var(--text); margin-bottom: 20px; }
-    .about-stats { display: flex; gap: 0; margin-top: 36px; }
-    .stat { padding-right: 32px; margin-right: 32px; border-right: 1px solid rgba(0,0,0,0.15); }
-    .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-    .stat-val { font-family: 'Unbounded', sans-serif; font-size: 40px; font-weight: 700; display: block; margin-bottom: 6px; }
-    .stat-label { font-size: 14px; font-weight: 500; color: var(--muted); max-width: 110px; line-height: 1.4; }
+    .s-about { position: relative; display: block; height: 586px; padding: 59px 0 0; }
+    .s-about > div:first-child { position: absolute; top: 59px; left: 63px; width: 633px; }
+    .s-about .page-ind { gap: 13px; margin-bottom: 33px; }
+    .s-about .p-dot { width: 19px; height: 19px; }
+    .s-about .p-label { font-size: 20px; font-weight: 400; line-height: 24px; letter-spacing: 0; }
+    .big-h { font-family: 'Unbounded', sans-serif; font-size: 48px; font-weight: 700; text-transform: uppercase; line-height: 60px; letter-spacing: .02em; }
+    .about-desc { position: absolute; top: 116px; left: 751px; width: 804px; }
+    .about-desc p { margin: 0; font-size: 27px; font-weight: 500; line-height: 35px; color: rgba(0,0,0,.8); }
+    .about-desc p + p { width: 680px; margin-top: 29px; }
+    .about-stats { position: absolute; top: 486px; left: 751px; display: grid; grid-template-columns: 188px 320px 1fr; margin: 0; }
+    .stat { min-height: 151px; margin: 0; padding-left: 59px; border-left: 2px solid #000; border-right: 0; }
+    .stat:first-child { padding-left: 0; border-left: 0; }
+    .stat:last-child { padding-left: 56px; border-right: none; }
+    .stat-val { display: block; margin: 0 0 9px; font-family: 'Unbounded', sans-serif; font-size: 64px; font-weight: 700; line-height: 80px; letter-spacing: .02em; }
+    .stat-label { max-width: 210px; font-size: 27px; font-weight: 500; line-height: 35px; color: rgba(0,0,0,.8); }
 
     /* ── CREATE TOGETHER ── */
-    .s-together { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; margin-top: 40px; min-height: 420px; }
-    .together-l { background: var(--white); display: flex; flex-direction: column; justify-content: center; padding: 40px 48px; }
-    .together-h { font-family: 'Unbounded', sans-serif; font-size: 36px; font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 32px; max-width: 460px; }
-    .together-r { overflow: hidden; }
-    .together-r img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; }
+    .s-together { position: relative; height: 654px; margin: 176px 0 0; padding: 0; overflow: hidden; }
+    .together-l { position: absolute; z-index: 2; top: 48px; left: 63px; width: 648px; padding: 0; }
+    .together-h { width: 648px; margin: 0; font-family: 'Unbounded', sans-serif; font-size: 50px; font-weight: 700; text-transform: uppercase; line-height: 62.5px; letter-spacing: .02em; }
+    .together-l .btn-cta { width: 394px !important; height: 81px; justify-content: center; gap: 80px; margin-top: 90px; padding: 0; font-size: 20px; }
+    .together-r { position: absolute; top: 0; left: 494px; width: 1125px; height: 654px; overflow: hidden; }
+    .together-r img { width: 100%; height: 100%; object-fit: cover; }
 
     /* ── FOOTER (shared) ── */
-    footer { position: relative; background: var(--dark); color: var(--white); padding: 48px 48px 24px; margin-top: 72px; }
-    footer::before { content: ''; position: absolute; z-index: 0; top: -68px; right: -58px; left: -58px; height: 92px; pointer-events: none; background: linear-gradient(to bottom, rgba(49,49,49,0), rgba(49,49,49,.20) 34%, rgba(49,49,49,.82) 78%, var(--dark)); filter: blur(5px); } footer > * { position: relative; z-index: 1; }
-    .f-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.3fr auto; gap: 24px; margin-bottom: 40px; }
-    .f-brand-desc { font-size: 14px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,0.6); max-width: 220px; margin-top: 14px; }
-    .f-col-head { font-size: 15px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #fff; }
-    .f-links { display: flex; flex-direction: column; gap: 14px; }
-    .f-links a { font-size: 15px; font-weight: 600; text-transform: uppercase; color: rgba(255,255,255,0.7); transition: color 0.18s; }
+    footer { position: relative; min-height: 337px; background: var(--dark); color: var(--white); padding: 44px 48px 24px; margin-top: 0; }
+    footer::before {
+      content: ''; position: absolute; z-index: 0; top: -61px; right: -58px; left: -58px; height: 103px; pointer-events: none;
+      background: var(--dark); filter: blur(50px);
+    }
+    footer > * { position: relative; z-index: 1; }
+    .f-top { display: grid; grid-template-columns: 370px 197px 212px 1fr; gap: 48px; margin-bottom: 36px; }
+    .f-brand-line { display: flex; align-items: center; gap: 11px; height: 38px; }
+    .f-brand-line img { width: 40px; height: auto; }
+    .f-brand-line span { color: #fff; font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.03em; }
+    .f-brand-desc { font-size: 15px; font-weight: 500; line-height: 20px; color: rgba(255,255,255,0.6); max-width: 212px; margin-top: 14px; }
+    .f-col-head { font-size: 16px; font-weight: 700; line-height: 20px; text-transform: uppercase; margin-bottom: 13px; color: #fff; }
+    .f-links { display: flex; flex-direction: column; gap: 8px; }
+    .f-links a { font-size: 15px; font-weight: 600; line-height: 20px; text-transform: uppercase; color: #DEDEDE; transition: color 0.18s; }
     .f-links a:hover { color: #fff; }
-    .f-contacts { display: flex; flex-direction: column; gap: 14px; }
-    .f-contacts li { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.7); }
-    .btn-cta-footer { align-self: start; display: inline-flex; align-items: center; justify-content: center; gap: 14px; background: var(--lime); border-radius: 25px; padding: 0 26px; height: 55px; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text); transition: opacity 0.18s; white-space: nowrap; }
+    .f-contacts { display: flex; flex-direction: column; gap: 8px; }
+    .f-contacts li { font-size: 15px; font-weight: 600; line-height: 20px; color: #DEDEDE; }
+    .btn-cta-footer { position: absolute; top: 44px; right: 48px; display: inline-flex; align-items: center; justify-content: space-between; width: 268px; height: 55px; gap: 0; padding: 0 23px 0 26px; background: var(--lime); border-radius: 25px; color: #000; font-size: 16px; font-weight: 800; line-height: 19px; text-transform: uppercase; }
+    .btn-cta-footer .btn-arrow { width: 20px; height: 20px; }
     .btn-cta-footer:hover { opacity: 0.88; }
-    .f-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0 0 20px; }
+    .f-divider { border: none; border-top: 1px solid #848484; margin: 0 0 20px; }
     .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    .f-copy { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #848484; }
+    .f-copy { display: flex; align-items: center; gap: 7px; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; line-height: 15px; letter-spacing: -0.03em; color: #848484; }
     .f-legal { display: flex; gap: 28px; }
-    .f-legal a { font-size: 14px; font-weight: 600; color: #848484; transition: color 0.18s; }
+    .f-legal a { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; line-height: 15px; letter-spacing: -0.03em; color: #848484; transition: color 0.18s; }
     .f-legal a:hover { color: rgba(255,255,255,0.65); }
     [data-lucide] { display: inline-block; vertical-align: middle; width: 16px; height: 16px; }
     .f-copy-sym [data-lucide] { width: 14px; height: 14px; color: #848484; }
 
     /* ════════ RESPONSIVE ════════ */
-    @media (min-width: 1920px) {
-      header, section, footer { max-width: 1920px; margin-left: auto; margin-right: auto; }
-      header { left: 50%; right: auto; transform: translateX(-50%); width: 1824px; }
-    }
     @media (max-width: 1400px) {
       section, footer { padding-left: 48px; padding-right: 48px; }
-      .st-h { font-size: 40px; }
       .s-about { grid-template-columns: 1fr; gap: 32px; }
     }
     @media (max-width: 1024px) {
       header { top: 16px; left: 16px; right: 16px; }
       .nav-pill { display: none; }
       .nav-logo-ys { display: block !important; }
-      .st-hero { grid-template-columns: 1fr; padding-top: 130px; }
-      .st-hero-mascot { order: -1; }
-      .st-hero-mascot img { height: 280px; }
-      .s-together { grid-template-columns: 1fr; }
-      .together-r img { min-height: 280px; }
+      .st-hero { height: auto; min-height: 0; padding: 130px 32px 48px; display: flex; flex-direction: column; }
+      .st-hero > div:first-child { position: static; width: auto; order: 2; }
+      .st-h { height: auto; font-size: 52px; line-height: 1.18; }
+      .st-sub { position: static; width: auto; margin-top: 24px; font-size: 20px; line-height: 1.5; }
+      .st-sub + .btn-cta { position: static; width: auto; height: auto; margin-top: 28px; padding: 18px 28px; font-size: 16px; }
+      .st-hero-mascot { position: static; order: 1; width: min(100%, 620px); height: auto; margin: 0 auto 32px; transform: none; }
+      .st-hero-mascot img { height: auto; }
+      .st-hero::after { display: none; }
+      .s-about { height: auto; padding: 64px 32px; }
+      .s-about > div:first-child, .about-desc, .about-stats { position: static; width: auto; }
+      .s-about .page-ind { margin-bottom: 24px; }
+      .big-h { font-size: 38px; line-height: 1.25; }
+      .about-desc { margin-top: 36px; }
+      .about-desc p, .about-desc p + p { width: auto; font-size: 20px; line-height: 1.5; }
+      .about-stats { display: flex; gap: 28px; margin-top: 42px; }
+      .stat, .stat:first-child, .stat:last-child { min-height: 0; padding: 0; border: 0; }
+      .stat-val { font-size: 42px; line-height: 1.1; }
+      .stat-label { font-size: 16px; line-height: 1.4; }
+      .s-together { height: auto; min-height: 0; margin: 0; padding: 0 32px 48px; overflow: visible; }
+      .together-l { position: static; width: auto; padding: 40px 0; }
+      .together-h { width: auto; font-size: 38px; line-height: 1.25; }
+      .together-l .btn-cta { width: auto !important; height: auto; margin-top: 32px; padding: 18px 28px; font-size: 16px; }
+      .together-r { position: static; width: 100%; height: auto; }
+      .together-r img { height: auto; min-height: 280px; }
       .f-top { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 767px) {
@@ -127,7 +161,13 @@
     .mobile-menu-overlay a.active { color: var(--lime); }
     .mobile-menu-cta-wrap { margin-top: 28px; }
     .mobile-menu-cta-wrap .btn-cta { width: 100%; justify-content: center; }
+
+    @media (max-width: 1024px) {
+      footer .btn-cta-footer { display: none; }
+    }
   </style>
+  <link rel="stylesheet" href="figma-page-layout.css">
+  <link rel="stylesheet" href="adaptive-scale.css">
 </head>
 <body>
 
@@ -145,9 +185,11 @@
   </div>
 </header>
 
+<div id="scaleViewport"><div id="scaleFrame">
+
 <section class="st-hero">
   <div>
-    <h1 class="st-h"><span class="lime">YGRIK.STUDIO</span>БОЛЬШЕ, ЧЕМ АГЕНСТВО</h1>
+    <h1 class="st-h"><span class="lime">YGRIK.STUDIO</span><br><span class="st-h-nowrap">БОЛЬШЕ, ЧЕМ</span><br>АГЕНСТВО</h1>
     <p class="st-sub">Мы создаем сильные бренды, контент и цифровые продукты, которые помогают бизнесу расти и быть заметнее.</p>
     <a href="index.html#contact" class="btn-cta" style="display:inline-flex;">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
   </div>
@@ -181,7 +223,7 @@
 <footer id="thoughts">
   <div class="f-top">
     <div class="f-brand">
-      <img src="image/логотип/метка-ys.png" alt="YS" style="width:38px;height:auto;">
+      <div class="f-brand-line"><img src="image/логотип/метка-ys.png" alt="YS"><span>YGRIK.STUDIO</span></div>
       <p class="f-brand-desc">Диджитал агенство, которое превращает бизнес в бренд, который выбирают</p>
     </div>
     <div class="f-col f-nav-col">
@@ -212,14 +254,15 @@
         <li>Телефон: +7 (900) 954-45-78</li>
       </ul>
     </div>
-    <a href="index.html#contact" class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
   </div>
+  <a href="index.html#contact" class="btn-cta-footer">ЗАПУСТИТЬ ПРОЕКТ <img src="image/иконки/стрелка-вверх-вправо.svg" class="btn-arrow"></a>
   <hr class="f-divider">
   <div class="footer-bottom">
     <div class="f-copy"><span class="f-copy-sym"><i data-lucide="copyright"></i></span><span>YGRIK.STUDIO 2026</span></div>
-    <nav class="f-legal"><a href="#">Политика конфиденциальности</a><a href="#">Согласие на ОПД</a></nav>
+    <nav class="f-legal"><a href="#">Политика конфиденциальности</a></nav>
   </div>
 </footer>
+</div></div>
 
 <script>lucide.createIcons();</script>
 <script>
@@ -246,5 +289,6 @@
   overlay.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
 })();
 </script>
+<script src="adaptive-scale.js"></script>
 </body>
 </html>
